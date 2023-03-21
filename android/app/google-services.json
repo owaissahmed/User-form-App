@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1096743232717",
+    "project_id": "madani-qafila-12",
+    "storage_bucket": "madani-qafila-12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096743232717:android:b9826be5f06451fd117584",
+        "android_client_info": {
+          "package_name": "com.awesomeproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096743232717-hknhoqalogfa0rq4glou287u92krc8uf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJwFgpG0SvCH6RZCLmQ28V2P4yfp0K1H4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096743232717-hknhoqalogfa0rq4glou287u92krc8uf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
