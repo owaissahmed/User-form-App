@@ -670,12 +670,10 @@ const Signup = ({ navigation }) => {
             <Picker
               selectedValue={status}
               onValueChange={(itemValue) => setstatus(itemValue)} style={styles.picker} >
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
+              <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
+              <Picker.Item label="چھٹی" value="چھٹی" />
+              <Picker.Item label="دار السنہ" value="دار السنہ" />
+              <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
             </Picker>
           </View>
           <View style={styles.field}>
@@ -686,10 +684,12 @@ const Signup = ({ navigation }) => {
             <Picker
               selectedValue={manager}
               onValueChange={(itemValue) => setmanager(itemValue)} style={styles.picker} >
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
+              <Picker.Item label="User 1" value="User 1" />
+              <Picker.Item label="User 2" value="User 2" />
+              <Picker.Item label="User 3" value="User 3" />
+              <Picker.Item label="User 4" value="User 4" />
+              <Picker.Item label="User 5" value="User 5" />
+              <Picker.Item label="User 6" value="User 6" />
             </Picker>
           </View>
           <View style={styles.field}>
