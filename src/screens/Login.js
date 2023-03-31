@@ -14,37 +14,37 @@ const Login = ({ navigation }) => {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     function gotokarachiTwo() {
-        navigation.navigate('Karachitwo')
+        navigation.replace('Karachitwo')
     }
     function gotokarachiOne() {
-        navigation.navigate('karachiOne')
+        navigation.replace('karachiOne')
     }
     function gotokarachithree() {
-        navigation.navigate('karachiThree')
+        navigation.replace('karachiThree')
     }
     function gotoSindhOne() {
-        navigation.navigate('sindhOne')
+        navigation.replace('sindhOne')
     }
     function gotoSindhTwo() {
-        navigation.navigate('sindhTwo')
+        navigation.replace('sindhTwo')
     }
     function gotopunjabOne() {
-        navigation.navigate('punjabOne')
+        navigation.replace('punjabOne')
     }
     function gotopunjabTwo() {
-        navigation.navigate('punjabTwo')
+        navigation.replace('punjabTwo')
     }
     function gotoKashmir() {
-        navigation.navigate('Kashmir')
+        navigation.replace('Kashmir')
     }
     function gotoKpk() {
-        navigation.navigate('Kpk')
+        navigation.replace('Kpk')
     }
     function gotoBalochistan() {
-        navigation.navigate('Balochistan')
+        navigation.replace('Balochistan')
     }
     function gotoAdmin() {
-        navigation.navigate('MainAdmin')
+        navigation.replace('MainAdmin')
     }
     const EmailChange = (newemail) => {
         setemail(newemail);
@@ -60,39 +60,39 @@ const Login = ({ navigation }) => {
             // Alert.alert('Good')
             gotokarachiOne()
         }
-         else if (email == 'karachi 2' && password == 12345678) {
+        else if (email == 'karachi 2' && password == 12345678) {
             // Alert.alert('Good')
             gotokarachiTwo()
         }
-         else if (email == 'karachi 3' && password == 12345678) {
+        else if (email == 'karachi 3' && password == 12345678) {
             // Alert.alert('Good')
             gotokarachithree()
         }
-         else if (email == 'sindh 1' && password == 12345678) {
+        else if (email == 'sindh 1' && password == 12345678) {
             // Alert.alert('Good')
             gotoSindhOne()
         }
-         else if (email == 'sindh 2' && password == 12345678) {
+        else if (email == 'sindh 2' && password == 12345678) {
             // Alert.alert('Good')
             gotoSindhTwo()
         }
-         else if (email == 'punjab 1' && password == 12345678) {
+        else if (email == 'punjab 1' && password == 12345678) {
             // Alert.alert('Good')
             gotopunjabOne()
         }
-         else if (email == 'punjab 2' && password == 12345678) {
+        else if (email == 'punjab 2' && password == 12345678) {
             // Alert.alert('Good')
             gotopunjabTwo()
         }
-         else if (email == 'kashmir' && password == 12345678) {
+        else if (email == 'kashmir' && password == 12345678) {
             // Alert.alert('Good')
             gotoKashmir()
         }
-         else if (email == 'kpk' && password == 12345678) {
+        else if (email == 'kpk' && password == 12345678) {
             // Alert.alert('Good')
             gotoKpk()
         }
-         else if (email == 'balochistan' && password == 12345678) {
+        else if (email == 'balochistan' && password == 12345678) {
             // Alert.alert('Good')
             gotoBalochistan()
         }
@@ -140,7 +140,7 @@ const Login = ({ navigation }) => {
     //     getdatabase();
     // }, [])
     // const getdatabase = async () => {
-    //     // const db = firebase.firestore();
+        // const db = firebase.firestore();
 
     //     db.collection("admin").get().then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {

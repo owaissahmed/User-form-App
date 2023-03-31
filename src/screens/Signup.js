@@ -153,10 +153,10 @@ const Signup = ({ navigation }) => {
   const [islamiceducation, setislamiceducation] = useState('')
   const [education, seteducation] = useState('')
   const [date, setDate] = useState(new Date());
-  const [hafiz, sethafiz] = useState('جی ہاں');
-  const [status, setstatus] = useState('');
-  const [manager, setmanager] = useState('');
-  const [group, setgroup] = useState('');
+  const [hafiz, sethafiz] = useState('منتخب کریں');
+  const [status, setstatus] = useState('منتخب کریں');
+  const [manager, setmanager] = useState('منتخب کریں');
+  const [group, setgroup] = useState('منتخب کریں');
   const [picture, setpicture] = useState("");
   const [cnicpicture, setcnicpicture] = useState("");
   const [formpicture, setformpicture] = useState("");
@@ -428,6 +428,26 @@ const Signup = ({ navigation }) => {
         '⚠️ WARNING',
         'Please Enter Your Education',
       );
+    } else if (hafiz === 'منتخب کریں') {
+      Alert.alert(
+        '⚠️ WARNING',
+        'Please Select Hafiz',
+      );
+    } else if (status === 'منتخب کریں') {
+      Alert.alert(
+        '⚠️ WARNING',
+        'Please Select Status',
+      );
+    } else if (manager === 'منتخب کریں') {
+      Alert.alert(
+        '⚠️ WARNING',
+        'Please Select Manager',
+      );
+    } else if (group === 'منتخب کریں') {
+      Alert.alert(
+        '⚠️ WARNING',
+        'Please Select Group',
+      );
     } else {
       setLoading(true);
       setVisible(true);
@@ -658,6 +678,7 @@ const Signup = ({ navigation }) => {
             <Picker
               selectedValue={hafiz}
               onValueChange={(itemValue) => sethafiz(itemValue)} style={styles.picker} >
+              <Picker.Item label="منتخب کریں" value="منتخب کریں" />
               <Picker.Item label="جی ہاں" value="جی ہاں" />
               <Picker.Item label="جی نہیں" value="جی نہیں" />
             </Picker>
@@ -670,6 +691,7 @@ const Signup = ({ navigation }) => {
             <Picker
               selectedValue={status}
               onValueChange={(itemValue) => setstatus(itemValue)} style={styles.picker} >
+              <Picker.Item label="منتخب کریں" value="منتخب کریں" />
               <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
               <Picker.Item label="چھٹی" value="چھٹی" />
               <Picker.Item label="دار السنہ" value="دار السنہ" />
@@ -684,12 +706,11 @@ const Signup = ({ navigation }) => {
             <Picker
               selectedValue={manager}
               onValueChange={(itemValue) => setmanager(itemValue)} style={styles.picker} >
-              <Picker.Item label="User 1" value="User 1" />
-              <Picker.Item label="User 2" value="User 2" />
-              <Picker.Item label="User 3" value="User 3" />
-              <Picker.Item label="User 4" value="User 4" />
-              <Picker.Item label="User 5" value="User 5" />
-              <Picker.Item label="User 6" value="User 6" />
+              <Picker.Item label="منتخب کریں" value="منتخب کریں" />
+              <Picker.Item label="karachi/sindh/balochistan" value="khi/sindh/bal" />
+              <Picker.Item label="upper punjab" value="upper punjab" />
+              <Picker.Item label="lower punjab" value="lower punjab" />
+              <Picker.Item label="kpk/kashmir" value="kpk/kashmir" />
             </Picker>
           </View>
           <View style={styles.field}>
@@ -700,16 +721,17 @@ const Signup = ({ navigation }) => {
             <Picker
               selectedValue={group}
               onValueChange={(itemValue) => setgroup(itemValue)} style={styles.picker} >
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
-              <Picker.Item label="1" value="1" />
-              <Picker.Item label="2" value="2" />
+              <Picker.Item label="منتخب کریں" value="منتخب کریں" />
+              <Picker.Item label="Karachi 1" value="Karachi 1" />
+              <Picker.Item label="Karachi 2" value="Karachi 2" />
+              <Picker.Item label="Karachi 3" value="Karachi 3" />
+              <Picker.Item label="Sindh 1" value="Sindh 1" />
+              <Picker.Item label="Sindh 2" value="Sindh 2" />
+              <Picker.Item label="Punjab 1" value="Punjab 1" />
+              <Picker.Item label="Punjab 2" value="Punjab 2" />
+              <Picker.Item label="Kpk" value="Kpk" />
+              <Picker.Item label="Balochistan" value="Balochistan" />
+              <Picker.Item label="Kashmir" value="Kashmir" />
             </Picker>
           </View>
           <View style={styles.field}>
