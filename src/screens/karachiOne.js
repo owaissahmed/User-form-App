@@ -11,80 +11,75 @@ const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
 const KarachiOne = () => {
-  const [totalKarachi, settotalKarachi] = useState('')
-  const [loading, setloading] = useState(false)
-  const [visible, setvisible] = useState(false)
   const [khi1qafila, setkhi1qafila] = useState('')
   const [khi1chutti, setkhi1chutti] = useState('')
   const [khi1darussunnah, setkhi1darussunnah] = useState('')
   const [khi1Infiradi, setkhi1Infiradi] = useState('')
   useEffect(() => {
-    loader()
-    getdatabase()
-    // setTimeout(() => {
-    //   getdatabase()
-    //   // console.log('owais');
-    // }, 5000);
+    const chutti = firestore()
+      .collection('users')
+      .where('Group', '==', 'Karachi 1')
+      .where('Status', '==', "چھٹی")
+      .onSnapshot(querySnapshot => {
+        const chuttiData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          chuttiData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setkhi1chutti(chuttiData.length);
+      });
+    const qafila = firestore()
+      .collection('users')
+      .where('Group', '==', 'Karachi 1')
+      .where('Status', '==', "مدنی قافلہ")
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setkhi1qafila(qafilaData.length);
+      });
+    const Darussunnah = firestore()
+      .collection('users')
+      .where('Group', '==', 'Karachi 1')
+      .where('Status', '==', "دار السنہ")
+      .onSnapshot(querySnapshot => {
+        const DarussunnahData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          DarussunnahData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setkhi1darussunnah(DarussunnahData.length);
+      });
+    const infiradi = firestore()
+      .collection('users')
+      .where('Group', '==', 'Karachi 1')
+      .where('Status', '==', "انفرادی جدول")
+      .onSnapshot(querySnapshot => {
+        const infiradiData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          infiradiData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setkhi1Infiradi(infiradiData.length);
+      });
   }, [])
 
-  const loader = () => {
-    setloading(true);
-    setvisible(true);
-    setTimeout(() => {
-      setloading(false);
-      setvisible(false);
-    }, 5000);
-  }
-
-  const getdatabase = async () => {
-    var totalQafila = 0;
-    var totalChutti = 0;
-    var totalDarussunnah = 0;
-    var totalInfiradi = 0;
-    const db = firebase.firestore();
-    db.collection("users").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        // console.log(doc.id, " => ", doc.data().Group, doc.data().Status);
-        const docRef = db.collection('users').doc(doc.id);
-        docRef.get()
-          .then((doc) => {
-            if (doc.exists) {
-              // console.log(doc.id, " => ", doc.data().Group, doc.data().Status,doc.id.length);
-              var data = (doc.data())
-              if (data.Group === 'Karachi 1' && data.Status === 'مدنی قافلہ') {
-                totalQafila++
-              }
-              if (data.Group === 'Karachi 1' && data.Status === 'چھٹی') {
-                totalChutti++
-              }
-              if (data.Group === 'Karachi 1' && data.Status === 'دار السنہ') {
-                totalDarussunnah++
-              }
-              if (data.Group === 'Karachi 1' && data.Status === 'انفرادی جدول') {
-                totalInfiradi++
-              }
-            } else {
-              console.log("No such document!");
-            }
-            setkhi1qafila(totalQafila)
-            setkhi1chutti(totalChutti)
-            setkhi1darussunnah(totalDarussunnah)
-            setkhi1Infiradi(totalInfiradi)
-          })
-      })
-    })
-  };
   var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
 
 
   return (
     <View style={styles.main}>
-      <Modal visible={visible} animationType="fade" transparent={true}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          {loading ? <ActivityIndicator size="large" color="#ffffff" /> : <Text style={{ color: '#ffffff' }}>Loading...</Text>}
-        </View>
-      </Modal>
       <View style={styles.rectangle}>
         <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
         <Text style={styles.rectangletext}>{total}</Text>

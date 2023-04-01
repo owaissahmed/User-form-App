@@ -53,49 +53,52 @@ const Login = ({ navigation }) => {
         setpassword(newpassword);
     };
     const check = ({ navigation }) => {
-        if (email == 'admin' && password == 12345678) {
+        if (email.toLocaleLowerCase() == 'admin' && password == 12345678) {
             // Alert.alert('Good')
             gotoAdmin()
-        } else if (email == 'karachi 1' && password == 12345678) {
+        } else if (email.toLocaleLowerCase() == 'karachi 1' && password == 12345678) {
             // Alert.alert('Good')
             gotokarachiOne()
         }
-        else if (email == 'karachi 2' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'karachi 2' && password == 12345678) {
             // Alert.alert('Good')
             gotokarachiTwo()
         }
-        else if (email == 'karachi 3' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'karachi 3' && password == 12345678) {
             // Alert.alert('Good')
             gotokarachithree()
         }
-        else if (email == 'sindh 1' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'sindh 1' && password == 12345678) {
             // Alert.alert('Good')
             gotoSindhOne()
         }
-        else if (email == 'sindh 2' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'sindh 2' && password == 12345678) {
             // Alert.alert('Good')
             gotoSindhTwo()
         }
-        else if (email == 'punjab 1' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'punjab 1' && password == 12345678) {
             // Alert.alert('Good')
             gotopunjabOne()
         }
-        else if (email == 'punjab 2' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'punjab 2' && password == 12345678) {
             // Alert.alert('Good')
             gotopunjabTwo()
         }
-        else if (email == 'kashmir' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'kashmir' && password == 12345678) {
             // Alert.alert('Good')
             gotoKashmir()
         }
-        else if (email == 'kpk' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'kpk' && password == 12345678) {
             // Alert.alert('Good')
             gotoKpk()
         }
-        else if (email == 'balochistan' && password == 12345678) {
+        else if (email.toLocaleLowerCase() == 'balochistan' && password == 12345678) {
             // Alert.alert('Good')
             gotoBalochistan()
-        }
+        } else Alert.alert(
+            '⚠️ WARNING',
+            'Wrong User/Password',
+        );
         // try {
         //     firebase.auth().signInWithEmailAndPassword(email, password)
 
@@ -140,7 +143,7 @@ const Login = ({ navigation }) => {
     //     getdatabase();
     // }, [])
     // const getdatabase = async () => {
-        // const db = firebase.firestore();
+    // const db = firebase.firestore();
 
     //     db.collection("admin").get().then((querySnapshot) => {
     //         querySnapshot.forEach((doc) => {
