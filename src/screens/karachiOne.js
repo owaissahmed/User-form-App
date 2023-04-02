@@ -10,11 +10,13 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const KarachiOne = () => {
+const KarachiOne = ({ navigation }) => {
   const [khi1qafila, setkhi1qafila] = useState('')
   const [khi1chutti, setkhi1chutti] = useState('')
   const [khi1darussunnah, setkhi1darussunnah] = useState('')
   const [khi1Infiradi, setkhi1Infiradi] = useState('')
+
+
   useEffect(() => {
     const chutti = firestore()
       .collection('users')
@@ -28,9 +30,14 @@ const KarachiOne = () => {
             ...documentSnapshot.data(),
           });
         });
+        for (let i = 0; i < chuttiData.length; i++) {
+          const name = chuttiData[i].Name;
+          console.log(name);
+        }
         setkhi1chutti(chuttiData.length);
       });
     const qafila = firestore()
+
       .collection('users')
       .where('Group', '==', 'Karachi 1')
       .where('Status', '==', "مدنی قافلہ")
@@ -76,6 +83,9 @@ const KarachiOne = () => {
 
   var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
+  function gotoChutti() {
+    navigation.navigate('karachiOneChutti')
+  }
 
 
   return (
@@ -85,9 +95,11 @@ const KarachiOne = () => {
         <Text style={styles.rectangletext}>{total}</Text>
       </View>
       <View style={styles.squarediv}>
-        <View style={styles.square}>
-          <Text style={styles.squaretext}>چھٹی</Text>
-          <Text style={styles.squaretext}>{khi1chutti}</Text></View>
+        <TouchableOpacity  onPress={gotoChutti}>
+          <View style={styles.square}>
+            <Text style={styles.squaretext}>چھٹی</Text>
+            <Text style={styles.squaretext}>{khi1chutti}</Text></View>
+        </TouchableOpacity>
         <View style={styles.square}>
           <Text style={styles.squaretext}>مدنی قافلہ</Text>
           <Text style={styles.squaretext}>{khi1qafila}</Text>

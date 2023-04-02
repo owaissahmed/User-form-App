@@ -13,6 +13,7 @@ import PunjabTwo  from './screens/punjabTwo'
 import Kashmir from './screens/Kashmir';
 import Kpk from './screens/Kpk';
 import Balochistan from './screens/Balochistan';
+import KarachiOneChutti from './screens/karachiOneChutti';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -89,6 +90,11 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="Balochistan"
                     component={Balochistan}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneChutti"
+                    component={KarachiOneChutti}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
