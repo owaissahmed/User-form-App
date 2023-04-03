@@ -506,8 +506,8 @@ const Signup = ({ navigation }) => {
       <ScrollView>
         <View style={styles.inputsgroup}>
           <View style={styles.field}>
-            <Text>Picture</Text>
-            <Text>تصویر</Text>
+            <Text style={styles.InputLable}>Picture</Text>
+            <Text style={styles.InputLable}>تصویر</Text>
           </View>
           <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
             <TouchableOpacity onPress={() => { OpenCamera() }} style={{
@@ -525,28 +525,28 @@ const Signup = ({ navigation }) => {
             }}>Upload Picture</Text></TouchableOpacity>
           </View>
           <View style={styles.field}>
-            <Text>Name</Text>
-            <Text>نام</Text>
+            <Text style={styles.InputLable}>Name</Text>
+            <Text style={styles.InputLable}>نام</Text>
           </View>
           <TextInput style={styles.password} value={name} onChangeText={NameChange} />
           <View style={styles.field}>
-            <Text>Father Name</Text>
-            <Text>ولدیت</Text>
+            <Text style={styles.InputLable}>Father Name</Text>
+            <Text style={styles.InputLable}>ولدیت</Text>
           </View>
           <TextInput style={styles.password} value={fathername} onChangeText={FatherNameChange} />
           <View style={styles.field}>
-            <Text>Age</Text>
-            <Text>عمر</Text>
+            <Text style={styles.InputLable}>Age</Text>
+            <Text style={styles.InputLable}>عمر</Text>
           </View>
           <TextInput style={styles.password} inputMode={'tel'} value={age} onChangeText={AgeChange} />
           <View style={styles.field}>
-            <Text>CNIC No.</Text>
-            <Text>شناختی کارڈ نمبر</Text>
+            <Text style={styles.InputLable}>CNIC No.</Text>
+            <Text style={styles.InputLable}>شناختی کارڈ نمبر</Text>
           </View>
           <TextInput style={styles.password} inputMode={'tel'} value={cnic} onChangeText={CnicChange} />
           <View style={styles.field}>
-            <Text>CNIC Picture*</Text>
-            <Text>شناختی کارڈ کی تصویر</Text>
+            <Text style={styles.InputLable}>CNIC Picture*</Text>
+            <Text style={styles.InputLable}>شناختی کارڈ کی تصویر</Text>
           </View>
           <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
             <TouchableOpacity onPress={() => { OpenCameracnic() }} style={{
@@ -564,18 +564,18 @@ const Signup = ({ navigation }) => {
             }}>Upload CNIC</Text></TouchableOpacity>
           </View>
           <View style={styles.field}>
-            <Text>Mobile No.</Text>
-            <Text>موبائل نمبر</Text>
+            <Text style={styles.InputLable}>Mobile No.</Text>
+            <Text style={styles.InputLable}>موبائل نمبر</Text>
           </View>
           <TextInput style={styles.password} inputMode={'tel'} value={mobile} onChangeText={MobileChange} />
           <View style={styles.field}>
-            <Text>House Phone No.</Text>
-            <Text>گھر کا نمبر</Text>
+            <Text style={styles.InputLable}>House Phone No.</Text>
+            <Text style={styles.InputLable}>گھر کا نمبر</Text>
           </View>
           <TextInput style={styles.password} inputMode={'tel'} value={house} onChangeText={HouseChange} />
           <View style={styles.field}>
-            <Text>Entry Form Picture*</Text>
-            <Text>داخلہ فارم کی تصویر</Text>
+            <Text style={styles.InputLable}>Entry Form Picture*</Text>
+            <Text style={styles.InputLable}>داخلہ فارم کی تصویر</Text>
           </View>
           <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
             <TouchableOpacity onPress={() => { OpenCameraform() }} style={{
@@ -597,18 +597,18 @@ const Signup = ({ navigation }) => {
             }}>Upload Form</Text></TouchableOpacity>
           </View>
           <View style={styles.field}>
-            <Text>Address</Text>
-            <Text>گھر کا مکمل ایڈریس</Text>
+            <Text style={styles.InputLable}>Address</Text>
+            <Text style={styles.InputLable}>گھر کا مکمل ایڈریس</Text>
           </View>
           <TextInput style={styles.password} value={address} onChangeText={AddressChange} />
           <View style={styles.field}>
-            <Text>Jamia name/area</Text>
-            <Text>جامعۃالمدینہ کا نام/علاقہ</Text>
+            <Text style={styles.InputLable}>Jamia name/area</Text>
+            <Text style={styles.InputLable}>جامعۃالمدینہ کا نام/علاقہ</Text>
           </View>
           <TextInput style={styles.password} value={jamia} onChangeText={JamiaChange} />
           <View style={styles.field}>
-            <Text>Province</Text>
-            <Text>صوبہ</Text>
+            <Text style={styles.InputLable}>Province</Text>
+            <Text style={styles.InputLable}>صوبہ</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -626,8 +626,8 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>Division</Text>
-            <Text>ڈویژن</Text>
+            <Text style={styles.InputLable}>Division</Text>
+            <Text style={styles.InputLable}>ڈویژن</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -641,8 +641,8 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>District</Text>
-            <Text>ڈسٹرکٹ</Text>
+            <Text style={styles.InputLable}>District</Text>
+            <Text style={styles.InputLable}>ڈسٹرکٹ</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -656,23 +656,23 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>City</Text>
-            <Text>شہر</Text>
+            <Text style={styles.InputLable}>City</Text>
+            <Text style={styles.InputLable}>شہر</Text>
           </View>
           <TextInput style={styles.password} value={city} onChangeText={CityChange} />
           <View style={styles.field}>
-            <Text>Islamic Education</Text>
-            <Text>دینی تعلیم</Text>
+            <Text style={styles.InputLable}>Islamic Education</Text>
+            <Text style={styles.InputLable}>دینی تعلیم</Text>
           </View>
           <TextInput style={styles.password} value={islamiceducation} onChangeText={IslamiceducationChange} />
           <View style={styles.field}>
-            <Text>Education</Text>
-            <Text>دنیاوی تعلیم</Text>
+            <Text style={styles.InputLable}>Education</Text>
+            <Text style={styles.InputLable}>دنیاوی تعلیم</Text>
           </View>
           <TextInput style={styles.password} value={education} onChangeText={EducationChange} />
           <View style={styles.field}>
-            <Text>Hafiz?</Text>
-            <Text>حافظ ہیں؟</Text>
+            <Text style={styles.InputLable}>Hafiz?</Text>
+            <Text style={styles.InputLable}>حافظ ہیں؟</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -684,8 +684,8 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>Status</Text>
-            <Text>اسٹیٹس</Text>
+            <Text style={styles.InputLable}>Status</Text>
+            <Text style={styles.InputLable}>اسٹیٹس</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -699,8 +699,8 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>Manager Name</Text>
-            <Text>صوبائی ذمہ دار کا نام</Text>
+            <Text style={styles.InputLable}>Manager Name</Text>
+            <Text style={styles.InputLable}>صوبائی ذمہ دار کا نام</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -714,8 +714,8 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>Group</Text>
-            <Text>درجہ</Text>
+            <Text style={styles.InputLable}>Group</Text>
+            <Text style={styles.InputLable}>درجہ</Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
@@ -735,8 +735,8 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text>Travel date</Text>
-            <Text>سفر شروع کرنے کی تاریخ</Text>
+            <Text style={styles.InputLable}>Travel date</Text>
+            <Text style={styles.InputLable}>سفر شروع کرنے کی تاریخ</Text>
           </View>
           <View style={styles.fie}>
             <DatePicker style={styles.date}
@@ -785,6 +785,9 @@ const styles = StyleSheet.create({
   urduheading: {
     fontSize: responsiveFontSize(3),
     marginTop: responsiveHeight(1),
+    color: "#135229",
+  },
+  InputLable:{
     color: "#135229",
   },
   field: {

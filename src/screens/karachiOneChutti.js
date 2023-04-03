@@ -1,4 +1,4 @@
-import { View, Text, Image, Dimensions, StyleSheet, TouchableOpacity, TextInput, Button, Alert, Modal, ActivityIndicator } from 'react-native';
+import { View, Text, Image, Dimensions, StyleSheet, TouchableOpacity, TextInput, Button, Alert, Modal, FlatList, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { responsiveScreenFontSize, responsiveWidth } from 'react-native-responsive-dimensions';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
@@ -18,6 +18,7 @@ const KarachiOneChutti = () => {
 
 
     useEffect(() => {
+        let ChuttiNameData = [];
         const chutti = firestore()
             .collection('users')
             .where('Group', '==', 'Karachi 1')
@@ -30,18 +31,14 @@ const KarachiOneChutti = () => {
                         ...documentSnapshot.data(),
                     });
                 });
-                let ChuttiNameData = [];
                 for (let i = 0; i < chuttiData.length; i++) {
-                    const name = [chuttiData[i].Name,chuttiData[i].MobileNo];
+                    const name = [chuttiData[i].Name, chuttiData[i].MobileNo];
                     ChuttiNameData.push(name)
-                    //   console.log(name);
+                    var NewData = ChuttiNameData.map(([name, phone]) => ({ name, phone }));
+                    setkhi1chutti(NewData);
                 }
-                setkhi1chutti(ChuttiNameData);
-                console.log(ChuttiNameData);
-                // const chuttiName = 
             });
         const qafila = firestore()
-
             .collection('users')
             .where('Group', '==', 'Karachi 1')
             .where('Status', '==', "مدنی قافلہ")
@@ -84,23 +81,19 @@ const KarachiOneChutti = () => {
                 setkhi1Infiradi(infiradiData.length);
             });
     }, [])
-    // const DATA = [
-    //     { id: '1', title: 'Item 1' },
-    //     { id: '2', title: 'Item 2' },
-    //     { id: '3', title: 'Item 3' },
-    //     { id: '4', title: 'Item 4' },
-    //     { id: '5', title: 'Item 5' },
-    //   ];
-    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
-
+    // console.log(khi1chutti);
     return (
-        <View>
+        <View style={styles.main}>
             {khi1chutti != '' ? (
-                    khi1chutti.map((name, index) => (
-                        <View key={index}>
-                            <Text>{name}</Text>
-                        </View>
-                    ))
+                <View style={styles.FlatListVIew}>
+                    <FlatList
+                        data={khi1chutti}
+                        renderItem={({ item }) =>
+                            <View style={styles.DataView}>
+                                <Text style={styles.Name}>Name : {item.name}</Text>
+                                <Text style={styles.Phone}>Phone : {item.phone}</Text>
+                            </View>} />
+                </View>
             ) : null}
         </View>
     )
@@ -108,14 +101,37 @@ const KarachiOneChutti = () => {
 
 export default KarachiOneChutti
 
-const styles = StyleSheet.create({})
-// {
-//     {
-//         khi1chutti.map((name, index) => (
-//             <View key={index}>
-//                 <Text>{name}</Text>
-//             </View>
-//         ))
-//     }
-// }
-{/* <Text></Text> */ }
+const styles = StyleSheet.create({
+    main: {
+        backgroundColor: 'white',
+        width: devicewidth,
+        height: deviceheight,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    FlatListVIew: {
+        width: responsiveWidth(90),
+        // height:responsiveHeight(50),
+        // backgroundColor:'blue'
+    },
+    DataView: {
+        backgroundColor: "#135229",
+        borderRadius: 10,
+        // paddingHorizontal:responsiveWidth(2),
+        paddingVertical: responsiveHeight(1),
+        marginVertical: responsiveHeight(0.5),
+    },
+    Name: {
+        color: 'white',
+        fontSize: responsiveFontSize(2),
+        // marginBottom:8,
+        // marginTop:responsiveHeight(2),
+
+        textAlign: 'center'
+    },
+    Phone: {
+        color: 'white',
+        fontSize: responsiveFontSize(2.25),
+        textAlign: 'center'
+    }
+})
