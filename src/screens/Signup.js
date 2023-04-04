@@ -12,6 +12,7 @@ import { Picker } from '@react-native-picker/picker';
 import firestore from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
+import * as Animatable from 'react-native-animatable';
 
 const Signup = ({ navigation }) => {
   const [selectedOption1, setSelectedOption1] = useState('');
@@ -491,7 +492,7 @@ const Signup = ({ navigation }) => {
     }
   }
   return (
-    <View style={styles.main}>
+    <Animatable.View  animation={'zoomIn'} duration={2000} style={styles.main}>
       <Modal visible={visible} animationType="fade" transparent={true}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           {loading ? <ActivityIndicator size="large" color="#ffffff" /> : <Text style={{ color: '#ffffff' }}>Loading...</Text>}
@@ -750,7 +751,7 @@ const Signup = ({ navigation }) => {
         </View>
       </ScrollView>
       <TouchableOpacity onPress={check} style={styles.button}><Text style={styles.buttontext}>SAVE</Text></TouchableOpacity>
-    </View>
+    </Animatable.View>
   );
 }
 

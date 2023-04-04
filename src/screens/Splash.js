@@ -5,6 +5,7 @@ import { responsiveFontSize, responsiveWidth } from 'react-native-responsive-dim
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
+import * as Animatable from 'react-native-animatable';
 const Splash = ({ navigation }) => {
     const [isConnected, setIsConnected] = useState(false);
 
@@ -41,9 +42,11 @@ const Splash = ({ navigation }) => {
 
     return (
         <View style={styles.main}>
-            <Image style={styles.logo} source={require('../images/logo.png')} />
-            <TouchableOpacity onPress={gotologin} style={styles.button}><Text style={styles.buttontext}>LOGIN PANEL</Text></TouchableOpacity>
-            <TouchableOpacity onPress={gotosignup} style={styles.button}><Text style={styles.buttontext}>ADD ENTRY</Text></TouchableOpacity>
+            <Animatable.Image animation={'zoomIn'} duration={2000} style={styles.logo} source={require('../images/logo.jpg')} />
+            <Animatable.View  animation={'slideInUp'} duration={2000}>
+                <TouchableOpacity onPress={gotologin} style={styles.button}><Text style={styles.buttontext}>LOGIN PANEL</Text></TouchableOpacity>
+                <TouchableOpacity onPress={gotosignup} style={styles.button}><Text style={styles.buttontext}>ADD ENTRY</Text></TouchableOpacity>
+            </Animatable.View>
         </View>
 
     );
@@ -58,14 +61,15 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     logo: {
-        height: responsiveHeight(30),
-        width: responsiveWidth(55),
+        height: responsiveHeight(25),
+        width: responsiveWidth(65),
+        // backgroundColor:'red'
     },
     button: {
-        backgroundColor: "#135229",
+        backgroundColor: "#3a8152",
         color: 'white',
         padding: 6,
-        marginTop: responsiveHeight(3),
+        marginTop: responsiveHeight(2),
         borderRadius: 8,
         height: responsiveHeight(5),
         width: responsiveWidth(40),

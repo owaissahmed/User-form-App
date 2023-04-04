@@ -12,6 +12,7 @@ import MainAdmin from './screens/MainAdmin';
 import PunjabTwo  from './screens/punjabTwo'
 import Kashmir from './screens/Kashmir';
 import Kpk from './screens/Kpk';
+import First from './screens/First';
 import Balochistan from './screens/Balochistan';
 import KarachiOneChutti from './screens/karachiOneChutti';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -21,7 +22,12 @@ const Stack = createStackNavigator();
 const Appnavigator = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName='Splash'>
+            <Stack.Navigator initialRouteName='First'>
+                <Stack.Screen
+                    name="First"
+                    component={First}
+                    options={{ headerShown: false }}
+                />
                 <Stack.Screen
                     name="Splash"
                     component={Splash}

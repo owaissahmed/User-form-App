@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { responsiveWidth } from 'react-native-responsive-dimensions';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
+import * as Animatable from 'react-native-animatable';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
@@ -161,12 +162,12 @@ const Login = ({ navigation }) => {
 
     return (
         <View style={styles.main}>
-            <View style={styles.submain}>
+            <Animatable.View animation={'zoomIn'} duration={2000}style={styles.submain}>
                 <Image style={styles.logo} source={require('../images/logo.png')} />
                 <TextInput style={styles.login} placeholder='Enter Your User Text' value={email} onChangeText={EmailChange} />
                 <TextInput style={styles.password} placeholder='Enter Your Password' value={password} onChangeText={PasswordChange} />
                 <TouchableOpacity style={styles.button}><Text style={styles.buttontext} onPress={check}>LOGIN</Text></TouchableOpacity>
-            </View>
+            </Animatable.View>
         </View>
     );
 };
