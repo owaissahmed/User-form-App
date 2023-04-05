@@ -86,6 +86,15 @@ const KarachiOne = ({ navigation }) => {
   function gotoChutti() {
     navigation.navigate('karachiOneChutti')
   }
+  function gotoQafila() {
+    navigation.navigate('karachiOneQafila')
+  }
+  function gotoInfiradi() {
+    navigation.navigate('karachiOneInfiradi')
+  }
+  function gotoSunnah() {
+    navigation.navigate('karachiOneSunnah')
+  }
 
 
   return (
@@ -95,25 +104,32 @@ const KarachiOne = ({ navigation }) => {
         <Text style={styles.rectangletext}>{total}</Text>
       </View>
       <View style={styles.squarediv}>
-        <TouchableOpacity  onPress={gotoChutti}>
+        <TouchableOpacity onPress={gotoChutti}>
           <View style={styles.square}>
             <Text style={styles.squaretext}>چھٹی</Text>
-            <Text style={styles.squaretext}>{khi1chutti}</Text></View>
+            <Text style={styles.squaretext}>{khi1chutti}</Text>
+          </View>
         </TouchableOpacity>
-        <View style={styles.square}>
-          <Text style={styles.squaretext}>مدنی قافلہ</Text>
-          <Text style={styles.squaretext}>{khi1qafila}</Text>
-        </View>
-        <View style={styles.square}>
-          <Text style={styles.square3text}>انفرادی جدول</Text>
-          <Text style={styles.squaretext}>{khi1Infiradi}</Text>
-        </View>
-        <View style={styles.square}>
-          <Text style={styles.squaretext}>دار السنہ</Text>
-          <Text style={styles.squaretext}>{khi1darussunnah}</Text>
-        </View>
-      </View>
-    </View>
+        <TouchableOpacity onPress={gotoQafila}>
+          <View style={styles.square}>
+            <Text style={styles.squaretext}>مدنی قافلہ</Text>
+            <Text style={styles.squaretext}>{khi1qafila}</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={gotoInfiradi}>
+          <View style={styles.square}>
+            <Text style={styles.square3text}>انفرادی جدول</Text>
+            <Text style={styles.squaretext}>{khi1Infiradi}</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={gotoSunnah}>
+          <View style={styles.square}>
+            <Text style={styles.squaretext}>دار السنہ</Text>
+            <Text style={styles.squaretext}>{khi1darussunnah}</Text>
+          </View>
+        </TouchableOpacity>
+      </View >
+    </View >
   )
 }
 

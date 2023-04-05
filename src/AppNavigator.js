@@ -15,6 +15,9 @@ import Kpk from './screens/Kpk';
 import First from './screens/First';
 import Balochistan from './screens/Balochistan';
 import KarachiOneChutti from './screens/karachiOneChutti';
+import KarachiOneQafila from './screens/karachiOneQafila';
+import KarachiOneInfiradi from './screens/karachiOneInfiradi';
+import KarachiOneSunnah from './screens/karachiOneSunnah';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -101,6 +104,21 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="karachiOneChutti"
                     component={KarachiOneChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneQafila"
+                    component={KarachiOneQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneInfiradi"
+                    component={KarachiOneInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneSunnah"
+                    component={KarachiOneSunnah}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

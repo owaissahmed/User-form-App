@@ -7,7 +7,7 @@ import firestore from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const KarachiOneChutti = () => {
+const KarachiOneInfiradi = () => {
     const [khi1chutti, setkhi1chutti] = useState('')
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const KarachiOneChutti = () => {
         const chutti = firestore()
             .collection('users')
             .where('Group', '==', 'Karachi 1')
-            .where('Status', '==', "چھٹی")
+            .where('Status', '==', "انفرادی جدول")
             .onSnapshot(querySnapshot => {
                 const chuttiData = [];
                 querySnapshot.forEach(documentSnapshot => {
@@ -49,7 +49,7 @@ const KarachiOneChutti = () => {
     )
 }
 
-export default KarachiOneChutti
+export default KarachiOneInfiradi
 
 const styles = StyleSheet.create({
     main: {
