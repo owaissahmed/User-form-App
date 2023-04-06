@@ -22,6 +22,18 @@ import KarachiTwoChutti from './screens/karachiTwoChutti';
 import KarachiTwoInfiradi from './screens/karachiTwoInfiradi';
 import KarachiTwoQafila from './screens/karachiTwoQafila';
 import KarachiTwoSunnah from './screens/karachiTwoSunnah';
+import KarachiThreeChutti from './screens/karachiThreeChutti';
+import KarachiThreeInfiradi from './screens/karachiThreeInfiradi';
+import KarachiThreeQafila from './screens/karachiThreeQafila';
+import KarachiThreeSunnah from './screens/karachiThreeSunnah';
+import PunjabOneChutti from './screens/punjabOneChutti';
+import PunjabOneInfiradi from './screens/punjabOneInfiradi';
+import PunjabOneQafila from './screens/punjabOneQafila';
+import PunjabOneSunnah from './screens/punjabOneSunnah';
+import PunjabTwoChutti from './screens/punjabTwoChutti';
+import PunjabTwoInfiradi from './screens/punjabTwoInfiradi';
+import PunjabTwoQafila from './screens/punjabTwoQafila';
+import PunjabTwoSunnah from './screens/punjabTwoSunnah';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -143,6 +155,66 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="karachiTwoChutti"
                     component={KarachiTwoChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiThreeChutti"
+                    component={KarachiThreeChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiThreeQafila"
+                    component={KarachiThreeQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiThreeInfiradi"
+                    component={KarachiThreeInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiThreeSunnah"
+                    component={KarachiThreeSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabOneQafila"
+                    component={PunjabOneQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabOneSunnah"
+                    component={PunjabOneSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabOneChutti"
+                    component={PunjabOneChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="PunjabOneInfiradi"
+                    component={PunjabOneInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabTwoInfiradi"
+                    component={PunjabTwoInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabTwoQafila"
+                    component={PunjabTwoQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabTwoSunnah"
+                    component={PunjabTwoSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="punjabTwoChutti"
+                    component={PunjabTwoChutti}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
