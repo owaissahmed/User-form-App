@@ -193,7 +193,7 @@ const Appnavigator = () => {
                     options={{ headerShown: false }}
                 />
                 <Stack.Screen
-                    name="PunjabOneInfiradi"
+                    name="punjabOneInfiradi"
                     component={PunjabOneInfiradi}
                     options={{ headerShown: false }}
                 />

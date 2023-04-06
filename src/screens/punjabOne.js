@@ -10,7 +10,7 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const PunjabOne = () => {
+const PunjabOne = ({navigation}) => {
     const [loading, setloading] = useState(false)
     const [visible, setvisible] = useState(false)
     const [khi1qafila, setkhi1qafila] = useState('')
@@ -77,16 +77,16 @@ const PunjabOne = () => {
     }, [])
 
     function gotoSunnah() {
-        navigation.navigate('karachiTwoSunnah')
+        navigation.navigate('punjabOneSunnah')
     }
     function gotoChutti() {
-        navigation.navigate('karachiTwoChutti')
+        navigation.navigate('punjabOneChutti')
       }
       function gotoQafila() {
-        navigation.navigate('karachiTwoQafila')
+        navigation.navigate('punjabOneQafila')
       }
       function gotoInfiradi() {
-        navigation.navigate('karachiTwoInfiradi')
+        navigation.navigate('punjabOneInfiradi')
       }
     var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
@@ -139,11 +139,9 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
-        // alignItems: 'center',
         justifyContent: 'center'
     },
     rectangle: {
-        // marginTop: responsiveHeight(5),
         borderColor: "#135229",
         borderWidth: 1.5,
         height: responsiveHeight(20),
