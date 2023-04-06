@@ -10,7 +10,7 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const PunjabTwo = ({navigation}) => {
+const PunjabTwo = ({ navigation }) => {
     const [khi1qafila, setkhi1qafila] = useState('')
     const [khi1chutti, setkhi1chutti] = useState('')
     const [khi1darussunnah, setkhi1darussunnah] = useState('')
@@ -73,23 +73,28 @@ const PunjabTwo = ({navigation}) => {
                 setkhi1Infiradi(infiradiData.length);
             });
     }, [])
-  
+
     function gotoSunnah() {
         navigation.navigate('punjabTwoSunnah')
     }
     function gotoChutti() {
         navigation.navigate('punjabTwoChutti')
-      }
-      function gotoQafila() {
+    }
+    function gotoQafila() {
         navigation.navigate('punjabTwoQafila')
-      }
-      function gotoInfiradi() {
+    }
+    function gotoInfiradi() {
         navigation.navigate('punjabTwoInfiradi')
-      }
+    }
     var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
     return (
         <View style={styles.main}>
+            <View style={styles.submain}>
+                <Text style={styles.heading}>
+                    Punjab 2
+                </Text>
+            </View>
             <View style={styles.rectangle}>
                 <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
                 <Text style={styles.rectangletext}>{total}</Text>
@@ -132,6 +137,16 @@ const styles = StyleSheet.create({
         height: deviceheight,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    submain: {
+        height: responsiveHeight(8),
+        width: responsiveWidth(90),
+        alignItems: 'center',
+    },
+    heading: {
+        fontSize: responsiveFontSize(3.5),
+        marginTop: responsiveHeight(1.50),
+        color: "#135229",
     },
     squarediv: {
         display: 'flex',

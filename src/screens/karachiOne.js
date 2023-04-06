@@ -3,10 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { responsiveScreenFontSize, responsiveWidth } from 'react-native-responsive-dimensions';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 import { responsiveFontSize } from 'react-native-responsive-dimensions';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
-import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
@@ -99,6 +96,11 @@ const KarachiOne = ({ navigation }) => {
 
   return (
     <View style={styles.main}>
+      <View style={styles.submain}>
+                <Text style={styles.heading}>
+                    Karachi 1
+                </Text>
+            </View>
       <View style={styles.rectangle}>
         <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
         <Text style={styles.rectangletext}>{total}</Text>
@@ -147,11 +149,19 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    // alignItems: 'center',
     justifyContent: 'center'
   },
+  submain: {
+    height: responsiveHeight(8),
+    width: responsiveWidth(90),
+    alignItems: 'center',
+},
+heading: {
+    fontSize: responsiveFontSize(3.5),
+    marginTop: responsiveHeight(1.50),
+    color: "#135229",
+},
   rectangle: {
-    // marginTop: responsiveHeight(5),
     borderColor: "#135229",
     borderWidth: 1.5,
     height: responsiveHeight(20),

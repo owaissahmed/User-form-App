@@ -92,6 +92,11 @@ const PunjabOne = ({navigation}) => {
 
     return (
         <View style={styles.main}>
+            <View style={styles.submain}>
+                <Text style={styles.heading}>
+                    Punjab 1
+                </Text>
+            </View>
             <View style={styles.rectangle}>
                 <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
                 <Text style={styles.rectangletext}>{total}</Text>
@@ -140,6 +145,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center'
+    },
+    submain: {
+        height: responsiveHeight(8),
+        width: responsiveWidth(90),
+        alignItems: 'center',
+    },
+    heading: {
+        fontSize: responsiveFontSize(3.5),
+        marginTop: responsiveHeight(1.50),
+        color: "#135229",
     },
     rectangle: {
         borderColor: "#135229",
