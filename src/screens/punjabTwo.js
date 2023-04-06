@@ -10,7 +10,7 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const PunjabTwo = () => {
+const PunjabTwo = ({navigation}) => {
     const [khi1qafila, setkhi1qafila] = useState('')
     const [khi1chutti, setkhi1chutti] = useState('')
     const [khi1darussunnah, setkhi1darussunnah] = useState('')
@@ -73,6 +73,19 @@ const PunjabTwo = () => {
                 setkhi1Infiradi(infiradiData.length);
             });
     }, [])
+  
+    function gotoSunnah() {
+        navigation.navigate('punjabTwoSunnah')
+    }
+    function gotoChutti() {
+        navigation.navigate('punjabTwoChutti')
+      }
+      function gotoQafila() {
+        navigation.navigate('punjabTwoQafila')
+      }
+      function gotoInfiradi() {
+        navigation.navigate('punjabTwoInfiradi')
+      }
     var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
     return (
@@ -82,21 +95,29 @@ const PunjabTwo = () => {
                 <Text style={styles.rectangletext}>{total}</Text>
             </View>
             <View style={styles.squarediv}>
-                <View style={styles.square}>
-                    <Text style={styles.squaretext}>چھٹی</Text>
-                    <Text style={styles.squaretext}>{khi1chutti}</Text></View>
-                <View style={styles.square}>
-                    <Text style={styles.squaretext}>مدنی قافلہ</Text>
-                    <Text style={styles.squaretext}>{khi1qafila}</Text>
-                </View>
-                <View style={styles.square}>
-                    <Text style={styles.square3text}>انفرادی جدول</Text>
-                    <Text style={styles.squaretext}>{khi1Infiradi}</Text>
-                </View>
-                <View style={styles.square}>
-                    <Text style={styles.squaretext}>دار السنہ</Text>
-                    <Text style={styles.squaretext}>{khi1darussunnah}</Text>
-                </View>
+                <TouchableOpacity onPress={gotoChutti}>
+                    <View style={styles.square}>
+                        <Text style={styles.squaretext}>چھٹی</Text>
+                        <Text style={styles.squaretext}>{khi1chutti}</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={gotoQafila}>
+                    <View style={styles.square}>
+                        <Text style={styles.squaretext}>مدنی قافلہ</Text>
+                        <Text style={styles.squaretext}>{khi1qafila}</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={gotoInfiradi}>
+                    <View style={styles.square}>
+                        <Text style={styles.square3text}>انفرادی جدول</Text>
+                        <Text style={styles.squaretext}>{khi1Infiradi}</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={gotoSunnah}>
+                    <View style={styles.square}>
+                        <Text style={styles.squaretext}>دار السنہ</Text>
+                        <Text style={styles.squaretext}>{khi1darussunnah}</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
     )
