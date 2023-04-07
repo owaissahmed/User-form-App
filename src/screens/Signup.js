@@ -158,7 +158,7 @@ const Signup = ({ navigation }) => {
   const [status, setstatus] = useState('منتخب کریں');
   const [manager, setmanager] = useState('منتخب کریں');
   const [group, setgroup] = useState('منتخب کریں');
-  const [picture, setpicture] = useState("");
+  const [picture, setpicture] = useState(false);
   const [cnicpicture, setcnicpicture] = useState("");
   const [formpicture, setformpicture] = useState("");
   const [profile, setprofile] = useState("");
@@ -169,22 +169,41 @@ const Signup = ({ navigation }) => {
   const [uploadform, setuploadform] = useState(false)
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  const OpenCamera = async () => {
-    const result = await launchImageLibrary({ mediaType: 'photo' });
-    setpicture(result)
-  }
-  const UploadImage = async () => {
-    console.log(picture);
+  const selectImage = () => {
+    const options = {
+      title: 'Select an image',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        // set the selected image
+        setSelectedImage(response);
+        // console.log(response);
+      }
+    });
+  };
+
+  const UploadnewImage = async () => {
+    console.log(selectedImage);
     if (isConnected == true) {
-      if (picture) {
+      if (selectedImage) {
         setuploadpic(true);
-        const reference = storage().ref(picture.assets[0].fileName);
-        const pathToFile = picture.assets[0].uri;
+        const reference = storage().ref(selectedImage.assets[0].fileName);
+        const pathToFile = selectedImage.assets[0].uri;
         await reference.putFile(pathToFile);
       }
-      if (picture) {
-        const profilepic = await storage().ref(picture.assets[0].fileName).getDownloadURL();
+      if (selectedImage) {
+        const profilepic = await storage().ref(selectedImage.assets[0].fileName).getDownloadURL();
         setprofile(profilepic)
         console.log(profile)
       } else {
@@ -200,6 +219,8 @@ const Signup = ({ navigation }) => {
       );
     }
   }
+
+  
   const OpenCameracnic = async () => {
     const cnicresult = await launchImageLibrary({ mediaType: 'photo' });
     setcnicpicture(cnicresult)
@@ -492,7 +513,7 @@ const Signup = ({ navigation }) => {
     }
   }
   return (
-    <Animatable.View  animation={'zoomIn'} duration={2000} style={styles.main}>
+    <Animatable.View animation={'zoomIn'} duration={2000} style={styles.main}>
       <Modal visible={visible} animationType="fade" transparent={true}>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
           {loading ? <ActivityIndicator size="large" color="#ffffff" /> : <Text style={{ color: '#ffffff' }}>Loading...</Text>}
@@ -511,15 +532,21 @@ const Signup = ({ navigation }) => {
             <Text style={styles.InputLable}>تصویر</Text>
           </View>
           <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
-            <TouchableOpacity onPress={() => { OpenCamera() }} style={{
+            <TouchableOpacity onPress={selectImage} style={{
               backgroundColor: "#135229", color: 'white', padding: 4, borderRadius: 8, width: responsiveWidth(35),
-            }} ><Text style={{
-              color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
-            }}>Select Picture</Text></TouchableOpacity>
-            {picture !== "" ? (
-              <Image source={{ uri: picture.assets[0].uri }} style={{ width: responsiveWidth(30), marginTop: responsiveHeight(2), height: 100, height: responsiveHeight(15) }} />
-            ) : null}
-            <TouchableOpacity onPress={() => { UploadImage() }} style={{
+            }} >
+              <Text style={{
+                color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
+              }}>Select Picture</Text>
+            </TouchableOpacity>
+            <View>
+              {selectedImage ? (
+                <Image source={{ uri: selectedImage.assets[0].uri }} style={{ width: responsiveWidth(30), marginTop: responsiveHeight(2), height: 100, height: responsiveHeight(15) }} />
+              ) : (
+                null
+              )}
+            </View>
+            <TouchableOpacity onPress={() => { UploadnewImage() }} style={{
               backgroundColor: "#135229", marginTop: responsiveHeight(2), color: 'white', padding: 4, borderRadius: 8, width: responsiveWidth(35), alignContent: 'center'
             }} ><Text style={{
               color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
@@ -788,7 +815,7 @@ const styles = StyleSheet.create({
     marginTop: responsiveHeight(1),
     color: "#135229",
   },
-  InputLable:{
+  InputLable: {
     color: "#135229",
   },
   field: {
