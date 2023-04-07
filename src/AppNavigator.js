@@ -34,6 +34,14 @@ import PunjabTwoChutti from './screens/punjabTwoChutti';
 import PunjabTwoInfiradi from './screens/punjabTwoInfiradi';
 import PunjabTwoQafila from './screens/punjabTwoQafila';
 import PunjabTwoSunnah from './screens/punjabTwoSunnah';
+import SindhOneChutti from './screens/sindhOneChutti';
+import SindhOneQafila from './screens/sindhOneQafila';
+import SindhOneSunnah from './screens/sindhOneSunnah';
+import SindhOneInfiradi from './screens/sindhOneInfiradi';
+import SindhTwoQafila from './screens/sindhTwoQafila';
+import SindhTwoChutti from './screens/sindhTwoChutti';
+import SindhTwoSunnah from './screens/sindhTwoSunnah';
+import SindhTwoInfiradi from './screens/sindhTwoInfiradi';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -215,6 +223,46 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="punjabTwoChutti"
                     component={PunjabTwoChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhTwoChutti"
+                    component={SindhTwoChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhTwoQafila"
+                    component={SindhTwoQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhTwoInfiradi"
+                    component={SindhTwoInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhTwoSunnah"
+                    component={SindhTwoSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhOneSunnah"
+                    component={SindhOneSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhOneQafila"
+                    component={SindhOneQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhOneChutti"
+                    component={SindhOneChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="sindhOneInfiradi"
+                    component={SindhOneInfiradi}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
