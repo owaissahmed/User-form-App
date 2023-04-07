@@ -269,6 +269,26 @@ const Appnavigator = () => {
                     component={SindhOneInfiradi}
                     options={{ headerShown: false }}
                 />
+                <Stack.Screen
+                    name="BalochistanChutti"
+                    component={BalochistanChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanQafila"
+                    component={BalochistanQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanSunnah"
+                    component={BalochistanSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanInfiradi"
+                    component={BalochistanInfiradi}
+                    options={{ headerShown: false }}
+                />
             </Stack.Navigator>
         </NavigationContainer>
     );
