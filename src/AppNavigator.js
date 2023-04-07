@@ -50,6 +50,10 @@ import KashmirSunnah from './screens/KashmirSunnah';
 import KashmirChutti from './screens/KashmirChutti';
 import KashmirInfiradi from './screens/KashmirInfiradi';
 import KashmirQafila from './screens/KashmirQafila';
+import KpkQafila from './screens/KpkQafila';
+import KpkChutti from './screens/KpkChutti';
+import KpkSunnah from './screens/KpkSunnah';
+import KpkInfiradi from './screens/KpkInfiradi';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -311,6 +315,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="KashmirChutti"
                     component={KashmirChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KpkInfiradi"
+                    component={KpkInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KpkSunnah"
+                    component={KpkSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KpkQafila"
+                    component={KpkQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KpkChutti"
+                    component={KpkChutti}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
