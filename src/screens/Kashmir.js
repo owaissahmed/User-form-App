@@ -10,7 +10,7 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const Kashmir = () => {
+const Kashmir = ({navigation}) => {
     const [khi1qafila, setkhi1qafila] = useState('')
     const [khi1chutti, setkhi1chutti] = useState('')
     const [khi1darussunnah, setkhi1darussunnah] = useState('')
@@ -76,28 +76,55 @@ const Kashmir = () => {
 
     var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
+    function gotoSunnah() {
+        navigation.navigate('KashmirSunnah')
+    }
+    function gotoChutti() {
+        navigation.navigate('KashmirChutti')
+      }
+      function gotoQafila() {
+        navigation.navigate('KashmirQafila')
+      }
+      function gotoInfiradi() {
+        navigation.navigate('KashmirInfiradi')
+      }
+    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
+
     return (
         <View style={styles.main}>
+            <View style={styles.submain}>
+                <Text style={styles.heading}>
+                   Kashmir
+                </Text>
+            </View>
             <View style={styles.rectangle}>
                 <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
                 <Text style={styles.rectangletext}>{total}</Text>
             </View>
             <View style={styles.squarediv}>
-                <View style={styles.square}>
-                    <Text style={styles.squaretext}>چھٹی</Text>
-                    <Text style={styles.squaretext}>{khi1chutti}</Text></View>
-                <View style={styles.square}>
-                    <Text style={styles.squaretext}>مدنی قافلہ</Text>
-                    <Text style={styles.squaretext}>{khi1qafila}</Text>
-                </View>
-                <View style={styles.square}>
-                    <Text style={styles.square3text}>انفرادی جدول</Text>
-                    <Text style={styles.squaretext}>{khi1Infiradi}</Text>
-                </View>
-                <View style={styles.square}>
-                    <Text style={styles.squaretext}>دار السنہ</Text>
-                    <Text style={styles.squaretext}>{khi1darussunnah}</Text>
-                </View>
+                <TouchableOpacity onPress={gotoChutti}>
+                    <View style={styles.square}>
+                        <Text style={styles.squaretext}>چھٹی</Text>
+                        <Text style={styles.squaretext}>{khi1chutti}</Text></View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={gotoQafila}>
+                    <View style={styles.square}>
+                        <Text style={styles.squaretext}>مدنی قافلہ</Text>
+                        <Text style={styles.squaretext}>{khi1qafila}</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={gotoInfiradi}>
+                    <View style={styles.square}>
+                        <Text style={styles.square3text}>انفرادی جدول</Text>
+                        <Text style={styles.squaretext}>{khi1Infiradi}</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={gotoSunnah}>
+                    <View style={styles.square}>
+                        <Text style={styles.squaretext}>دار السنہ</Text>
+                        <Text style={styles.squaretext}>{khi1darussunnah}</Text>
+                    </View>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -119,6 +146,16 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         // alignItems: 'center',
         justifyContent: 'center'
+    },
+    submain: {
+        height: responsiveHeight(8),
+        width: responsiveWidth(90),
+        alignItems: 'center',
+    },
+    heading: {
+        fontSize: responsiveFontSize(3.5),
+        marginTop: responsiveHeight(1.50),
+        color: "#135229",
     },
     rectangle: {
         // marginTop: responsiveHeight(5),

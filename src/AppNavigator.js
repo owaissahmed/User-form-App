@@ -46,6 +46,10 @@ import BalochistanChutti from './screens/BalochistanChutti';
 import BalochistanQafila from './screens/BalochistanQafila';
 import BalochistanInfiradi from './screens/BalochistanInfiradi';
 import BalochistanSunnah from './screens/BalochistanSunnah';
+import KashmirSunnah from './screens/KashmirSunnah';
+import KashmirChutti from './screens/KashmirChutti';
+import KashmirInfiradi from './screens/KashmirInfiradi';
+import KashmirQafila from './screens/KashmirQafila';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -287,6 +291,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="BalochistanInfiradi"
                     component={BalochistanInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KashmirInfiradi"
+                    component={KashmirInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KashmirQafila"
+                    component={KashmirQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KashmirSunnah"
+                    component={KashmirSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="KashmirChutti"
+                    component={KashmirChutti}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
