@@ -179,7 +179,6 @@ const Signup = ({ navigation }) => {
         path: 'images',
       },
     };
-
     launchImageLibrary(options, (response) => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
@@ -220,11 +219,31 @@ const Signup = ({ navigation }) => {
     }
   }
 
-  
-  const OpenCameracnic = async () => {
-    const cnicresult = await launchImageLibrary({ mediaType: 'photo' });
-    setcnicpicture(cnicresult)
-  }
+  const OpenCameracnic = () => {
+    const options = {
+      title: 'Select an image',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        // set the selected image
+        setcnicpicture(response)
+        // console.log(response);
+      }
+    });
+  };
+
+  // const OpenCameracnic = async () => {
+  //   const cnicresult = await launchImageLibrary({ mediaType: 'photo' });
+  //   setcnicpicture(cnicresult)
+  // }
   const UploadImagecnic = async () => {
     console.log(cnicpicture);
     if (isConnected == true) {
@@ -251,6 +270,9 @@ const Signup = ({ navigation }) => {
       );
     }
   }
+
+
+
   const OpenCameraform = async () => {
     const formresult = await launchImageLibrary({ mediaType: 'photo' });
     setformpicture(formresult)

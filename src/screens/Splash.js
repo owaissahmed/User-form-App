@@ -43,27 +43,27 @@ const Splash = ({ navigation }) => {
             'No Internet Connection',
         );
     }
-    const selectImage = () => {
-        const options = {
-            title: 'Select an image',
-            storageOptions: {
-                skipBackup: true,
-                path: 'images',
-            },
-        };
+    // const selectImage = () => {
+    //     const options = {
+    //         title: 'Select an image',
+    //         storageOptions: {
+    //             skipBackup: true,
+    //             path: 'images',
+    //         },
+    //     };
 
-        launchImageLibrary(options, (response) => {
-            if (response.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
-            } else {
-                // set the selected image
-                setSelectedImage(response);
-                // console.log(response);
-            }
-        });
-    };
+    //     launchImageLibrary(options, (response) => {
+    //         if (response.didCancel) {
+    //             console.log('User cancelled image picker');
+    //         } else if (response.error) {
+    //             console.log('ImagePicker Error: ', response.error);
+    //         } else {
+    //             // set the selected image
+    //             setSelectedImage(response);
+    //             // console.log(response);
+    //         }
+    //     });
+    // };
 
     return (
         <View style={styles.main}>
@@ -71,7 +71,7 @@ const Splash = ({ navigation }) => {
             <Animatable.View animation={'slideInUp'} duration={2000}>
                 <TouchableOpacity onPress={gotologin} style={styles.button}><Text style={styles.buttontext}>LOGIN PANEL</Text></TouchableOpacity>
                 <TouchableOpacity onPress={gotosignup} style={styles.button}><Text style={styles.buttontext}>ADD ENTRY</Text></TouchableOpacity>
-                <View>
+                {/* <View>
                     {selectedImage ? (
                         <Image source={{ uri: selectedImage.assets[0].uri }} style={{ width: responsiveWidth(30), marginTop: responsiveHeight(2), height: 100, height: responsiveHeight(15) }} />
                     ) : (
@@ -80,7 +80,7 @@ const Splash = ({ navigation }) => {
                 </View>
                 <TouchableOpacity onPress={selectImage}>
                     <Text>Select a picture</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
             </Animatable.View>
         </View>
