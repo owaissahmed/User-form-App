@@ -115,7 +115,8 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         letterSpacing: 0.7,
         textAlign: 'center',
-        fontSize: responsiveFontSize(2)
+        fontSize: responsiveFontSize(2),
+        justifyContent:'center'
     }
 });
 
