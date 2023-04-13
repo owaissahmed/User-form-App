@@ -653,7 +653,7 @@ const Signup = ({navigation}) => {
               نام
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={name}
             onChangeText={NameChange}
@@ -666,7 +666,7 @@ const Signup = ({navigation}) => {
               ولدیت
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={fathername}
             onChangeText={FatherNameChange}
@@ -679,7 +679,7 @@ const Signup = ({navigation}) => {
               عمر
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             inputMode={'tel'}
             value={age}
@@ -693,7 +693,7 @@ const Signup = ({navigation}) => {
               شناختی کارڈ نمبر
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             inputMode={'tel'}
             value={cnic}
@@ -781,7 +781,7 @@ const Signup = ({navigation}) => {
               موبائل نمبر
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             inputMode={'tel'}
             value={mobile}
@@ -795,7 +795,7 @@ const Signup = ({navigation}) => {
               گھر کا نمبر
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             inputMode={'tel'}
             value={house}
@@ -808,7 +808,7 @@ const Signup = ({navigation}) => {
             <Text allowFontScaling={false} style={styles.InputLable}>
               داخلہ فارم کی تصویر
             </Text>
-          </View>
+          </View> 
           <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
             <TouchableOpacity
               onPress={() => {
@@ -880,7 +880,7 @@ const Signup = ({navigation}) => {
               گھر کا مکمل ایڈریس
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={address}
             onChangeText={AddressChange}
@@ -893,7 +893,7 @@ const Signup = ({navigation}) => {
               جامعۃالمدینہ کا نام/علاقہ
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={jamia}
             onChangeText={JamiaChange}
@@ -976,7 +976,7 @@ const Signup = ({navigation}) => {
               شہر
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={city}
             onChangeText={CityChange}
@@ -989,7 +989,7 @@ const Signup = ({navigation}) => {
               دینی تعلیم
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={islamiceducation}
             onChangeText={IslamiceducationChange}
@@ -1002,7 +1002,7 @@ const Signup = ({navigation}) => {
               دنیاوی تعلیم
             </Text>
           </View>
-          <TextInput
+          <TextInput allowFontScaling={false}
             style={styles.password}
             value={education}
             onChangeText={EducationChange}
@@ -1148,12 +1148,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   heading: {
-    fontSize: responsiveFontSize(3),
+    fontSize: responsiveFontSize(3.25),
     marginTop: responsiveHeight(1.75),
     color: '#135229',
   },
   urduheading: {
-    fontSize: responsiveFontSize(3),
+    fontSize: responsiveFontSize(3.25),
     marginTop: responsiveHeight(1),
     color: '#135229',
   },
@@ -1169,7 +1169,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fie: {
-    marginTop: responsiveHeight(3),
+    marginTop: responsiveHeight(1),
     borderColor: '#135229',
     borderWidth: 1.5,
     borderLeftWidth: 8,
