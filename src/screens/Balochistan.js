@@ -1,134 +1,168 @@
-import { View, Text, Image, Dimensions, StyleSheet, TouchableOpacity, TextInput, Button, Alert, Modal, ActivityIndicator } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { responsiveScreenFontSize, responsiveWidth } from 'react-native-responsive-dimensions';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  Button,
+  Alert,
+  Modal,
+  ActivityIndicator,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  responsiveScreenFontSize,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
+import {responsiveHeight} from 'react-native-responsive-dimensions';
+import {responsiveFontSize} from 'react-native-responsive-dimensions';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
 import firestore from '@react-native-firebase/firestore';
-import { firebase } from '@react-native-firebase/firestore';
+import {firebase} from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
 const Balochistan = ({navigation}) => {
-  const [khi1qafila, setkhi1qafila] = useState('')
-  const [khi1chutti, setkhi1chutti] = useState('')
-  const [khi1darussunnah, setkhi1darussunnah] = useState('')
-  const [khi1Infiradi, setkhi1Infiradi] = useState('')
+  const [khi1qafila, setkhi1qafila] = useState('');
+  const [khi1chutti, setkhi1chutti] = useState('');
+  const [khi1darussunnah, setkhi1darussunnah] = useState('');
+  const [khi1Infiradi, setkhi1Infiradi] = useState('');
   useEffect(() => {
     const chutti = firestore()
-    .collection('users')
-    .where('Group', '==', 'Balochistan')
-    .where('Status', '==', "چھٹی")
-    .onSnapshot(querySnapshot => {
-      const chuttiData = [];
-      querySnapshot.forEach(documentSnapshot => {
-        chuttiData.push({
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
+      .collection('users')
+      .where('Group', '==', 'Balochistan')
+      .where('Status', '==', 'چھٹی')
+      .onSnapshot(querySnapshot => {
+        const chuttiData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          chuttiData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
         });
+        setkhi1chutti(chuttiData.length);
       });
-      setkhi1chutti(chuttiData.length);
-    });
-  const qafila = firestore()
-    .collection('users')
-    .where('Group', '==', 'Balochistan')
-    .where('Status', '==', "مدنی قافلہ")
-    .onSnapshot(querySnapshot => {
-      const qafilaData = [];
-      querySnapshot.forEach(documentSnapshot => {
-        qafilaData.push({
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
+    const qafila = firestore()
+      .collection('users')
+      .where('Group', '==', 'Balochistan')
+      .where('Status', '==', 'مدنی قافلہ')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
         });
+        setkhi1qafila(qafilaData.length);
       });
-      setkhi1qafila(qafilaData.length);
-    });
-  const Darussunnah = firestore()
-    .collection('users')
-    .where('Group', '==', 'Balochistan')
-    .where('Status', '==', "دار السنہ")
-    .onSnapshot(querySnapshot => {
-      const DarussunnahData = [];
-      querySnapshot.forEach(documentSnapshot => {
-        DarussunnahData.push({
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
+    const Darussunnah = firestore()
+      .collection('users')
+      .where('Group', '==', 'Balochistan')
+      .where('Status', '==', 'دار السنہ')
+      .onSnapshot(querySnapshot => {
+        const DarussunnahData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          DarussunnahData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
         });
+        setkhi1darussunnah(DarussunnahData.length);
       });
-      setkhi1darussunnah(DarussunnahData.length);
-    });
-  const infiradi = firestore()
-    .collection('users')
-    .where('Group', '==', 'Balochistan')
-    .where('Status', '==', "انفرادی جدول")
-    .onSnapshot(querySnapshot => {
-      const infiradiData = [];
-      querySnapshot.forEach(documentSnapshot => {
-        infiradiData.push({
-          id: documentSnapshot.id,
-          ...documentSnapshot.data(),
+    const infiradi = firestore()
+      .collection('users')
+      .where('Group', '==', 'Balochistan')
+      .where('Status', '==', 'انفرادی جدول')
+      .onSnapshot(querySnapshot => {
+        const infiradiData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          infiradiData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
         });
+        setkhi1Infiradi(infiradiData.length);
       });
-      setkhi1Infiradi(infiradiData.length);
-    });
-  }, [])
+  }, []);
   var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
   function gotoChutti() {
-    navigation.navigate('BalochistanChutti')
+    navigation.navigate('BalochistanChutti');
   }
   function gotoQafila() {
-    navigation.navigate('BalochistanQafila')
+    navigation.navigate('BalochistanQafila');
   }
   function gotoInfiradi() {
-    navigation.navigate('BalochistanInfiradi')
+    navigation.navigate('BalochistanInfiradi');
   }
   function gotoSunnah() {
-    navigation.navigate('BalochistanSunnah')
+    navigation.navigate('BalochistanSunnah');
   }
-
 
   return (
     <View style={styles.main}>
       <View style={styles.submain}>
-                <Text style={styles.heading}>
-                    Balochistan
-                </Text>
-            </View>
+        <Text allowFontScaling={false} style={styles.heading}>
+          Balochistan
+        </Text>
+      </View>
       <View style={styles.rectangle}>
-        <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
-        <Text style={styles.rectangletext}>{total}</Text>
+        <Text allowFontScaling={false} style={styles.rectangletext}>
+          ٹوٹل تعداد
+        </Text>
+        <Text allowFontScaling={false} style={styles.rectangletext}>
+          {total}
+        </Text>
       </View>
       <View style={styles.squarediv}>
         <TouchableOpacity onPress={gotoChutti}>
           <View style={styles.square}>
-            <Text style={styles.squaretext}>چھٹی</Text>
-            <Text style={styles.squaretext}>{khi1chutti}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              چھٹی
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1chutti}
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoQafila}>
           <View style={styles.square}>
-            <Text style={styles.squaretext}>مدنی قافلہ</Text>
-            <Text style={styles.squaretext}>{khi1qafila}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              مدنی قافلہ
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1qafila}
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoInfiradi}>
           <View style={styles.square}>
-            <Text style={styles.square3text}>انفرادی جدول</Text>
-            <Text style={styles.squaretext}>{khi1Infiradi}</Text>
+            <Text allowFontScaling={false} style={styles.square3text}>
+              انفرادی جدول
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1Infiradi}
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoSunnah}>
           <View style={styles.square}>
-            <Text style={styles.squaretext}>دار السنہ</Text>
-            <Text style={styles.squaretext}>{khi1darussunnah}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              دار السنہ
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1darussunnah}
+            </Text>
           </View>
         </TouchableOpacity>
-      </View >
-    </View >
-  )
-}
+      </View>
+    </View>
+  );
+};
 
 export default Balochistan;
 
@@ -145,21 +179,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     // alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   submain: {
     height: responsiveHeight(8),
     width: responsiveWidth(90),
     alignItems: 'center',
-},
-heading: {
+  },
+  heading: {
     fontSize: responsiveFontSize(3.5),
-    marginTop: responsiveHeight(1.50),
-    color: "#135229",
-},
+    marginTop: responsiveHeight(1.5),
+    color: '#135229',
+  },
   rectangle: {
     // marginTop: responsiveHeight(5),
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderWidth: 1.5,
     height: responsiveHeight(20),
     width: responsiveWidth(90),
@@ -169,25 +203,25 @@ heading: {
   },
   rectangletext: {
     fontSize: responsiveScreenFontSize(5),
-    color: "#135229",
+    color: '#135229',
   },
   squaretext: {
-    fontSize: responsiveScreenFontSize(3.5),
-    color: "#135229",
+    fontSize: responsiveScreenFontSize(4),
+    color: '#135229',
   },
   square3text: {
     fontSize: responsiveScreenFontSize(3),
-    color: "#135229",
+    color: '#135229',
   },
   square: {
     marginTop: responsiveHeight(3),
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderWidth: 1.5,
     height: responsiveHeight(20),
     width: responsiveWidth(40),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
-    marginHorizontal: responsiveWidth(3)
+    marginHorizontal: responsiveWidth(3),
   },
-})
+});

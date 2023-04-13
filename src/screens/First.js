@@ -17,8 +17,8 @@ const First = ({ navigation }) => {
     }
     return (
         <View style={styles.main}>
-            <Animatable.Image animation={'zoomIn'} duration={1500} style={styles.logo} source={require('../images/logo.png')} />
-            <Animatable.Text animation={'slideInUp'} duration={1500} style={styles.welcome}>Welcome To Madani-Qafila App</Animatable.Text>
+            <Animatable.Image animation={'zoomIn'} duration={1500} style={styles.logo} source={require('../images/dawatlogo.jpg')} />
+            <Animatable.Text allowFontScaling={false} animation={'slideInUp'} duration={1500} style={styles.welcome}>Welcome To Madani-Qafila App</Animatable.Text>
         </View>
 
     );
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Lato-HeavyItalic',
         marginTop: responsiveHeight(1),
         color: "#135229",
-        fontSize: responsiveFontSize(2.5),
+        fontSize: responsiveFontSize(3),
         // backgroundColor:'orange'
     }
 });

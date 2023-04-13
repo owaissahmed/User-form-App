@@ -91,36 +91,36 @@ const SindhOne = ({navigation}) => {
     return (
         <View style={styles.main}>
             <View style={styles.submain}>
-                <Text style={styles.heading}>
+                <Text allowFontScaling={false} style={styles.heading}>
                     Sindh 1
                 </Text>
             </View>
             <View style={styles.rectangle}>
-                <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
-                <Text style={styles.rectangletext}>{total}</Text>
+                <Text allowFontScaling={false} style={styles.rectangletext}>ٹوٹل تعداد</Text>
+                <Text allowFontScaling={false} style={styles.rectangletext}>{total}</Text>
             </View>
             <View style={styles.squarediv}>
                 <TouchableOpacity onPress={gotoChutti}>
                     <View style={styles.square}>
-                        <Text style={styles.squaretext}>چھٹی</Text>
-                        <Text style={styles.squaretext}>{khi1chutti}</Text></View>
+                        <Text allowFontScaling={false} style={styles.squaretext}>چھٹی</Text>
+                        <Text allowFontScaling={false} style={styles.squaretext}>{khi1chutti}</Text></View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={gotoQafila}>
                     <View style={styles.square}>
-                        <Text style={styles.squaretext}>مدنی قافلہ</Text>
-                        <Text style={styles.squaretext}>{khi1qafila}</Text>
+                        <Text allowFontScaling={false} style={styles.squaretext}>مدنی قافلہ</Text>
+                        <Text allowFontScaling={false} style={styles.squaretext}>{khi1qafila}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={gotoInfiradi}>
                     <View style={styles.square}>
-                        <Text style={styles.square3text}>انفرادی جدول</Text>
-                        <Text style={styles.squaretext}>{khi1Infiradi}</Text>
+                        <Text allowFontScaling={false} style={styles.square3text}>انفرادی جدول</Text>
+                        <Text allowFontScaling={false} style={styles.squaretext}>{khi1Infiradi}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={gotoSunnah}>
                     <View style={styles.square}>
-                        <Text style={styles.squaretext}>دار السنہ</Text>
-                        <Text style={styles.squaretext}>{khi1darussunnah}</Text>
+                        <Text allowFontScaling={false} style={styles.squaretext}>دار السنہ</Text>
+                        <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
                     </View>
                 </TouchableOpacity>
             </View>

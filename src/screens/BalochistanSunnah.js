@@ -40,8 +40,8 @@ const BalochistanSunnah = () => {
                         data={khi1chutti}
                         renderItem={({ item }) =>
                             <View style={styles.DataView}>
-                                <Text style={styles.Name}>Name : {item.name}</Text>
-                                <Text style={styles.Phone}>Phone : {item.phone}</Text>
+                                <Text allowFontScaling={false} style={styles.Name}>Name : {item.name}</Text>
+                                <Text allowFontScaling={false} style={styles.Phone}>Phone : {item.phone}</Text>
                             </View>} />
                 </View>
             ) : <Text style={styles.NoData}>No Data!!</Text>}

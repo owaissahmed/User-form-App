@@ -1,20 +1,32 @@
-import { View, Text, Image, ScrollView, Alert, Dimensions, StyleSheet, TouchableOpacity, TextInput, ActivityIndicator, Modal, } from 'react-native';
-import DatePicker from 'react-native-date-picker'
-import React, { useEffect, useState, } from 'react';
-import { responsiveWidth } from 'react-native-responsive-dimensions';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
-import moment from 'moment'
-import { launchImageLibrary } from 'react-native-image-picker';
-import NetInfo from "@react-native-community/netinfo";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  Alert,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  ActivityIndicator,
+  Modal,
+} from 'react-native';
+import DatePicker from 'react-native-date-picker';
+import React, {useEffect, useState} from 'react';
+import {responsiveWidth} from 'react-native-responsive-dimensions';
+import {responsiveHeight} from 'react-native-responsive-dimensions';
+import {responsiveFontSize} from 'react-native-responsive-dimensions';
+import moment from 'moment';
+import {launchImageLibrary} from 'react-native-image-picker';
+import NetInfo from '@react-native-community/netinfo';
 import storage from '@react-native-firebase/storage';
-import { Picker } from '@react-native-picker/picker';
+import {Picker} from '@react-native-picker/picker';
 import firestore from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 import * as Animatable from 'react-native-animatable';
 
-const Signup = ({ navigation }) => {
+const Signup = ({navigation}) => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
@@ -24,33 +36,67 @@ const Signup = ({ navigation }) => {
 
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
-      console.log("Connection type", state.type);
-      console.log("Is connected?", state.isConnected);
-      setIsConnected(state.isConnected)
+      console.log('Connection type', state.type);
+      console.log('Is connected?', state.isConnected);
+      setIsConnected(state.isConnected);
     });
 
     return () => {
       unsubscribe();
-    }
+    };
   }, []);
 
   useEffect(() => {
     if (selectedOption1 === 'کراچی') {
       setOption2List(['ڈویژن 1', 'ڈویژن 2']);
     } else if (selectedOption1 === 'بلوچستان') {
-      setOption2List(['قلات', 'مکران', 'کوئٹہ', 'ژوب', 'سبی', 'رخشان', 'نصیر آباد', 'لورالائی']);
+      setOption2List([
+        'قلات',
+        'مکران',
+        'کوئٹہ',
+        'ژوب',
+        'سبی',
+        'رخشان',
+        'نصیر آباد',
+        'لورالائی',
+      ]);
     } else if (selectedOption1 === 'سندھ') {
-      setOption2List(['حیدر آباد', 'بنبھور', 'میرپورخاص', 'نواب شاہ', 'سکھر', 'لاڑکانہ']);
+      setOption2List([
+        'حیدر آباد',
+        'بنبھور',
+        'میرپورخاص',
+        'نواب شاہ',
+        'سکھر',
+        'لاڑکانہ',
+      ]);
     } else if (selectedOption1 === 'پنجاب') {
-      setOption2List(['بہاولپور', 'ملتان', 'لاہور', 'ساہیوال', 'ڈیرہ غازی خان', 'راولپنڈی', 'فیصل آباد', 'گوجرانوالہ', 'سرگودھا']);
+      setOption2List([
+        'بہاولپور',
+        'ملتان',
+        'لاہور',
+        'ساہیوال',
+        'ڈیرہ غازی خان',
+        'راولپنڈی',
+        'فیصل آباد',
+        'گوجرانوالہ',
+        'سرگودھا',
+      ]);
     } else if (selectedOption1 === 'کے پی کے') {
-      setOption2List(['پشاور', 'مالاکنڈ', 'ڈیرہ اسماعیل خان', 'مردان', 'ہزارہ', 'کوہاٹ', 'بنوں']);
+      setOption2List([
+        'پشاور',
+        'مالاکنڈ',
+        'ڈیرہ اسماعیل خان',
+        'مردان',
+        'ہزارہ',
+        'کوہاٹ',
+        'بنوں',
+      ]);
     } else if (selectedOption1 === 'اسلام آباد') {
-      setOption2List(['اسلام آباد',]);
+      setOption2List(['اسلام آباد']);
     } else if (selectedOption1 === 'کشمیر') {
-      setOption2List(['میرپور', 'مظفرآباد', 'پونچھ',]);
+      setOption2List(['میرپور', 'مظفرآباد', 'پونچھ']);
     } else if (selectedOption1 === 'گلگت') {
-      setOption2List(['گلگت', 'دیامیر', 'بلتستان',]);
+      setOption2List(['گلگت', 'دیامیر', 'بلتستان']);
     } else {
       setOption2List([]);
     }
@@ -58,7 +104,12 @@ const Signup = ({ navigation }) => {
 
   useEffect(() => {
     if (selectedOption2 === 'ڈویژن 1') {
-      setOption3List(['کراچی سینٹرل', 'کورنگی', 'ملیر ڈسٹرکٹ 1', 'ملیر ڈسٹرکٹ  2']);
+      setOption3List([
+        'کراچی سینٹرل',
+        'کورنگی',
+        'ملیر ڈسٹرکٹ 1',
+        'ملیر ڈسٹرکٹ  2',
+      ]);
     } else if (selectedOption2 === 'ڈویژن 2') {
       setOption3List(['کراچی ساؤتھ', 'کراچی ایسٹ', 'کراچی ویسٹ', 'کیماڑی']);
     } else if (selectedOption2 === 'قلات') {
@@ -74,11 +125,23 @@ const Signup = ({ navigation }) => {
     } else if (selectedOption2 === 'رخشان') {
       setOption3List(['چاغی', 'واشک', 'نوشکی', 'خاران']);
     } else if (selectedOption2 === 'نصیر آباد') {
-      setOption3List(['نصیر آباد', 'صحبت پور', 'جعفر آباد', 'جھل مگسی', 'کچھی']);
+      setOption3List([
+        'نصیر آباد',
+        'صحبت پور',
+        'جعفر آباد',
+        'جھل مگسی',
+        'کچھی',
+      ]);
     } else if (selectedOption2 === 'لورالائی') {
       setOption3List(['لورالائی', 'بارکھان', 'موسیٰ خیل', 'دوکی']);
     } else if (selectedOption2 === 'حیدر آباد') {
-      setOption3List(['جامشورو', 'ٹنڈو محمد خان', 'ٹنڈو الہیار', 'دادو', 'مٹیاری']);
+      setOption3List([
+        'جامشورو',
+        'ٹنڈو محمد خان',
+        'ٹنڈو الہیار',
+        'دادو',
+        'مٹیاری',
+      ]);
     } else if (selectedOption2 === 'بنبھور') {
       setOption3List(['بدین', 'سجاول', 'ٹھٹہ']);
     } else if (selectedOption2 === 'میرپورخاص') {
@@ -88,7 +151,13 @@ const Signup = ({ navigation }) => {
     } else if (selectedOption2 === 'سکھر') {
       setOption3List(['سکھر', 'گھوٹکی', 'خیرپور میرس']);
     } else if (selectedOption2 === 'لاڑکانہ') {
-      setOption3List(['لاڑکانہ', 'جیکب آباد', 'شکار پور', 'کشمور', 'قمبر شہداد کوٹ']);
+      setOption3List([
+        'لاڑکانہ',
+        'جیکب آباد',
+        'شکار پور',
+        'کشمور',
+        'قمبر شہداد کوٹ',
+      ]);
     } else if (selectedOption2 === 'بہاولپور') {
       setOption3List(['بہاولپور', ' بہاولنگر', ' رحیم یار خان']);
     } else if (selectedOption2 === 'ملتان') {
@@ -102,7 +171,14 @@ const Signup = ({ navigation }) => {
     } else if (selectedOption2 === 'ساہیوال') {
       setOption3List(['ساہیوال', ' اوکاڑہ', ' پاکپتن']);
     } else if (selectedOption2 === 'گوجرانوالہ') {
-      setOption3List(['گجرات', ' گوجرانوالہ', ' سیالکوٹ', 'حافظ آباد', 'منڈی بہاؤالدین  ', 'نارووال']);
+      setOption3List([
+        'گجرات',
+        ' گوجرانوالہ',
+        ' سیالکوٹ',
+        'حافظ آباد',
+        'منڈی بہاؤالدین  ',
+        'نارووال',
+      ]);
     } else if (selectedOption2 === 'لاہور') {
       setOption3List(['لاہور', ' شیخوپورہ', ' ننکانہ', ' قصور']);
     } else if (selectedOption2 === 'راولپنڈی') {
@@ -112,9 +188,27 @@ const Signup = ({ navigation }) => {
     } else if (selectedOption2 === 'پشاور') {
       setOption3List(['پشاور', ' چارسدہ', ' خیبر', 'مہمند ایجنسی ', 'نوشہرہ']);
     } else if (selectedOption2 === 'مالاکنڈ') {
-      setOption3List(['باجوڑ', ' بونیر', ' چترال لوئر', 'چترال اپر ', 'مالاکنڈ', 'شانگلہ', 'سوات', 'اپردیر']);
+      setOption3List([
+        'باجوڑ',
+        ' بونیر',
+        ' چترال لوئر',
+        'چترال اپر ',
+        'مالاکنڈ',
+        'شانگلہ',
+        'سوات',
+        'اپردیر',
+      ]);
     } else if (selectedOption2 === 'ہزارہ') {
-      setOption3List(['مانسہرہ', ' ایبٹ آباد', ' بٹگرام', 'ہری پور ', 'کولائی پلاس', 'لوئر کوہستان', 'تورغر', 'اپر کوہستان']);
+      setOption3List([
+        'مانسہرہ',
+        ' ایبٹ آباد',
+        ' بٹگرام',
+        'ہری پور ',
+        'کولائی پلاس',
+        'لوئر کوہستان',
+        'تورغر',
+        'اپر کوہستان',
+      ]);
     } else if (selectedOption2 === 'بنوں') {
       setOption3List(['بنوں', ' لکی مروت', ' نارتھ وزیرستان']);
     } else if (selectedOption2 === 'ڈیرہ اسماعیل خان') {
@@ -142,31 +236,31 @@ const Signup = ({ navigation }) => {
     }
   }, [selectedOption2]);
 
-  const [name, setname] = useState('')
-  const [fathername, setfathername] = useState('')
-  const [age, setage] = useState('')
-  const [cnic, setcnic] = useState('')
-  const [mobile, setmobile] = useState('')
-  const [house, sethouse] = useState('')
-  const [address, setaddress] = useState('')
-  const [jamia, setjamia] = useState('')
-  const [city, setcity] = useState('')
-  const [islamiceducation, setislamiceducation] = useState('')
-  const [education, seteducation] = useState('')
+  const [name, setname] = useState('');
+  const [fathername, setfathername] = useState('');
+  const [age, setage] = useState('');
+  const [cnic, setcnic] = useState('');
+  const [mobile, setmobile] = useState('');
+  const [house, sethouse] = useState('');
+  const [address, setaddress] = useState('');
+  const [jamia, setjamia] = useState('');
+  const [city, setcity] = useState('');
+  const [islamiceducation, setislamiceducation] = useState('');
+  const [education, seteducation] = useState('');
   const [date, setDate] = useState(new Date());
   const [hafiz, sethafiz] = useState('منتخب کریں');
   const [status, setstatus] = useState('منتخب کریں');
   const [manager, setmanager] = useState('منتخب کریں');
   const [group, setgroup] = useState('منتخب کریں');
   const [picture, setpicture] = useState(false);
-  const [cnicpicture, setcnicpicture] = useState("");
-  const [formpicture, setformpicture] = useState("");
-  const [profile, setprofile] = useState("");
-  const [CNIC, setCNIC] = useState("");
-  const [Entryform, setEntryform] = useState("");
-  const [uploadpic, setuploadpic] = useState(false)
-  const [uploadcnic, setuploadcnic] = useState(false)
-  const [uploadform, setuploadform] = useState(false)
+  const [cnicpicture, setcnicpicture] = useState('');
+  const [formpicture, setformpicture] = useState('');
+  const [profile, setprofile] = useState('');
+  const [CNIC, setCNIC] = useState('');
+  const [Entryform, setEntryform] = useState('');
+  const [uploadpic, setuploadpic] = useState(false);
+  const [uploadcnic, setuploadcnic] = useState(false);
+  const [uploadform, setuploadform] = useState(false);
   const [visible, setVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -179,7 +273,7 @@ const Signup = ({ navigation }) => {
         path: 'images',
       },
     };
-    launchImageLibrary(options, (response) => {
+    launchImageLibrary(options, response => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
@@ -202,9 +296,11 @@ const Signup = ({ navigation }) => {
         await reference.putFile(pathToFile);
       }
       if (selectedImage) {
-        const profilepic = await storage().ref(selectedImage.assets[0].fileName).getDownloadURL();
-        setprofile(profilepic)
-        console.log(profile)
+        const profilepic = await storage()
+          .ref(selectedImage.assets[0].fileName)
+          .getDownloadURL();
+        setprofile(profilepic);
+        console.log(profile);
       } else {
         Alert.alert(
           '⚠️ WARNING',
@@ -212,12 +308,9 @@ const Signup = ({ navigation }) => {
         );
       }
     } else {
-      Alert.alert(
-        '⚠️ WARNING',
-        'No Internet Connection',
-      );
+      Alert.alert('⚠️ WARNING', 'No Internet Connection');
     }
-  }
+  };
 
   const OpenCameracnic = () => {
     const options = {
@@ -227,14 +320,14 @@ const Signup = ({ navigation }) => {
         path: 'images',
       },
     };
-    launchImageLibrary(options, (response) => {
+    launchImageLibrary(options, response => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
         console.log('ImagePicker Error: ', response.error);
       } else {
         // set the selected image
-        setcnicpicture(response)
+        setcnicpicture(response);
         // console.log(response);
       }
     });
@@ -244,15 +337,17 @@ const Signup = ({ navigation }) => {
     console.log(cnicpicture);
     if (isConnected == true) {
       if (cnicpicture) {
-        setuploadcnic(true)
+        setuploadcnic(true);
         const reference = storage().ref(cnicpicture.assets[0].fileName);
         const pathToFile = cnicpicture.assets[0].uri;
         await reference.putFile(pathToFile);
       }
       if (cnicpicture) {
-        const cnicpic = await storage().ref(cnicpicture.assets[0].fileName).getDownloadURL();
-        setCNIC(cnicpic)
-        console.log(CNIC)
+        const cnicpic = await storage()
+          .ref(cnicpicture.assets[0].fileName)
+          .getDownloadURL();
+        setCNIC(cnicpic);
+        console.log(CNIC);
       } else {
         Alert.alert(
           '⚠️ WARNING',
@@ -260,12 +355,9 @@ const Signup = ({ navigation }) => {
         );
       }
     } else {
-      Alert.alert(
-        '⚠️ WARNING',
-        'No Internet Connection',
-      );
+      Alert.alert('⚠️ WARNING', 'No Internet Connection');
     }
-  }
+  };
 
   const OpenCameraform = () => {
     const options = {
@@ -275,19 +367,18 @@ const Signup = ({ navigation }) => {
         path: 'images',
       },
     };
-    launchImageLibrary(options, (response) => {
+    launchImageLibrary(options, response => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
         console.log('ImagePicker Error: ', response.error);
       } else {
         // set the selected image
-        setformpicture(response)
+        setformpicture(response);
         // console.log(response);
       }
     });
   };
-
 
   // const OpenCameraform = async () => {
   //   const formresult = await launchImageLibrary({ mediaType: 'photo' });
@@ -297,15 +388,17 @@ const Signup = ({ navigation }) => {
     console.log(formpicture);
     if (isConnected == true) {
       if (formpicture) {
-        setuploadform(true)
+        setuploadform(true);
         const reference = storage().ref(formpicture.assets[0].fileName);
         const pathToFile = formpicture.assets[0].uri;
         await reference.putFile(pathToFile);
       }
       if (formpicture) {
-        const formpic = await storage().ref(formpicture.assets[0].fileName).getDownloadURL();
-        setEntryform(formpic)
-        console.log(Entryform)
+        const formpic = await storage()
+          .ref(formpicture.assets[0].fileName)
+          .getDownloadURL();
+        setEntryform(formpic);
+        console.log(Entryform);
       } else {
         Alert.alert(
           '⚠️ WARNING',
@@ -313,201 +406,105 @@ const Signup = ({ navigation }) => {
         );
       }
     } else {
-      Alert.alert(
-        '⚠️ WARNING',
-        'No Internet Connection',
-      );
+      Alert.alert('⚠️ WARNING', 'No Internet Connection');
     }
-  }
-  const NameChange = (newname) => {
+  };
+  const NameChange = newname => {
     setname(newname);
   };
-  const FatherNameChange = (newfathername) => {
+  const FatherNameChange = newfathername => {
     setfathername(newfathername);
   };
-  const AgeChange = (newage) => {
+  const AgeChange = newage => {
     setage(newage);
   };
-  const CnicChange = (newcnic) => {
+  const CnicChange = newcnic => {
     setcnic(newcnic);
   };
-  const MobileChange = (newmobile) => {
+  const MobileChange = newmobile => {
     setmobile(newmobile);
   };
-  const HouseChange = (newhouse) => {
+  const HouseChange = newhouse => {
     sethouse(newhouse);
   };
-  const AddressChange = (newaddress) => {
+  const AddressChange = newaddress => {
     setaddress(newaddress);
   };
-  const JamiaChange = (newjamia) => {
+  const JamiaChange = newjamia => {
     setjamia(newjamia);
   };
-  const CityChange = (newcity) => {
+  const CityChange = newcity => {
     setcity(newcity);
   };
-  const IslamiceducationChange = (newislamiceducation) => {
+  const IslamiceducationChange = newislamiceducation => {
     setislamiceducation(newislamiceducation);
   };
-  const EducationChange = (neweducation) => {
+  const EducationChange = neweducation => {
     seteducation(neweducation);
   };
-  const DateChange = (newDate) => {
+  const DateChange = newDate => {
     setDate(newDate);
   };
 
   const check = async () => {
     if (isConnected == false) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'No Internet Connection',
-      );
-    }
-    else if (picture === "") {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Picture',
-      );
-    }
-    else if (uploadpic == false) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Click On Upload Picture',
-      );
+      Alert.alert('⚠️ WARNING', 'No Internet Connection');
+    } else if (picture === '') {
+      Alert.alert('⚠️ WARNING', 'Please Select Picture');
+    } else if (uploadpic == false) {
+      Alert.alert('⚠️ WARNING', 'Please Click On Upload Picture');
     } else if (name.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your Name',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Name');
     } else if (fathername.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your Father Name',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Father Name');
     } else if (age.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your Age',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Age');
     } else if (cnic.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your CNIC',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your CNIC');
     } else if (cnic.length < 13) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Invalid CNIC',
-      );
+      Alert.alert('⚠️ WARNING', 'Invalid CNIC');
     } else if (cnicpicture === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select CNIC Picture',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Select CNIC Picture');
     } else if (uploadcnic == false) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Click On Upload CNIC',
-      );
-    }
-    else if (mobile.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Mobile No.',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Click On Upload CNIC');
+    } else if (mobile.trim() === '') {
+      Alert.alert('⚠️ WARNING', 'Please Enter Mobile No.');
     } else if (mobile.length < 11) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Invalid Mobile No.',
-      );
+      Alert.alert('⚠️ WARNING', 'Invalid Mobile No.');
     } else if (house.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter House Phone No.',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter House Phone No.');
     } else if (house.length < 11) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Invalid House No.',
-      );
+      Alert.alert('⚠️ WARNING', 'Invalid House No.');
     } else if (mobile.trim() === house.trim()) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Mobile & House No. Are Same',
-      );
-    }
-    else if (formpicture === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Entry Form Picture',
-      );
+      Alert.alert('⚠️ WARNING', 'Mobile & House No. Are Same');
+    } else if (formpicture === '') {
+      Alert.alert('⚠️ WARNING', 'Please Select Entry Form Picture');
     } else if (uploadform == false) {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Click on Upload Form',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Click on Upload Form');
     } else if (address.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your Address',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Address');
     } else if (jamia.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Jamia Name/Area',
-      );
-    }
-    else if (selectedOption1 === "" || selectedOption1 === 'صوبہ') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Province',
-      );
-    } else if (selectedOption2 === "" || selectedOption2 === 'ڈویژن') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Division',
-      );
-    }
-    else if (selectedOption3 === "" || selectedOption3 === 'ڈسٹرکٹ') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select District',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Jamia Name/Area');
+    } else if (selectedOption1 === '' || selectedOption1 === 'صوبہ') {
+      Alert.alert('⚠️ WARNING', 'Please Select Province');
+    } else if (selectedOption2 === '' || selectedOption2 === 'ڈویژن') {
+      Alert.alert('⚠️ WARNING', 'Please Select Division');
+    } else if (selectedOption3 === '' || selectedOption3 === 'ڈسٹرکٹ') {
+      Alert.alert('⚠️ WARNING', 'Please Select District');
     } else if (city.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your City',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your City');
     } else if (islamiceducation.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your Islamic Education',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Islamic Education');
     } else if (education.trim() === '') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Enter Your Education',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Education');
     } else if (hafiz === 'منتخب کریں') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Hafiz',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Select Hafiz');
     } else if (status === 'منتخب کریں') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Status',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Select Status');
     } else if (manager === 'منتخب کریں') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Manager',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Select Manager');
     } else if (group === 'منتخب کریں') {
-      Alert.alert(
-        '⚠️ WARNING',
-        'Please Select Group',
-      );
+      Alert.alert('⚠️ WARNING', 'Please Select Group');
     } else {
       setLoading(true);
       setVisible(true);
@@ -515,172 +512,408 @@ const Signup = ({ navigation }) => {
       setTimeout(() => {
         setVisible(false);
         setLoading(false);
-        const collectionRef = firestore().collection('users').add({
-          Name: name,
-          Picture: profile,
-          CnicPicture: CNIC,
-          FormPicture: Entryform,
-          Fathername: fathername,
-          Age: age,
-          CNIC: cnic,
-          MobileNo: mobile,
-          HouseNo: house,
-          Address: address,
-          Jamia: jamia,
-          Province: selectedOption1,
-          Division: selectedOption2,
-          District: selectedOption3,
-          City: city,
-          IslamicEducation: islamiceducation,
-          Education: education,
-          Date: moment(date).format('DD-MM-YYYY'),
-          Hafiz: hafiz,
-          Status: status,
-          Manager: manager,
-          Group: group,
-        });
-        Alert.alert(
-          '🎉 CONGTRATS',
-          'YOUR FORM HAS BEEN SUBMITTED',
-        );
-        navigation.navigate('Splash')
+        const collectionRef = firestore()
+          .collection('users')
+          .add({
+            Name: name,
+            Picture: profile,
+            CnicPicture: CNIC,
+            FormPicture: Entryform,
+            Fathername: fathername,
+            Age: age,
+            CNIC: cnic,
+            MobileNo: mobile,
+            HouseNo: house,
+            Address: address,
+            Jamia: jamia,
+            Province: selectedOption1,
+            Division: selectedOption2,
+            District: selectedOption3,
+            City: city,
+            IslamicEducation: islamiceducation,
+            Education: education,
+            Date: moment(date).format('DD-MM-YYYY'),
+            Hafiz: hafiz,
+            Status: status,
+            Manager: manager,
+            Group: group,
+          });
+        Alert.alert('🎉 CONGTRATS', 'YOUR FORM HAS BEEN SUBMITTED');
+        navigation.navigate('Splash');
       }, 60000);
       console.log(profile);
       console.log(CNIC);
       console.log(Entryform);
     }
-  }
+  };
   return (
     <Animatable.View animation={'zoomIn'} duration={2000} style={styles.main}>
       <Modal visible={visible} animationType="fade" transparent={true}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-          {loading ? <ActivityIndicator size="large" color="#ffffff" /> : <Text style={{ color: '#ffffff' }}>Loading...</Text>}
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          }}>
+          {loading ? (
+            <ActivityIndicator size="large" color="#ffffff" />
+          ) : (
+            <Text style={{color: '#ffffff'}}>Loading...</Text>
+          )}
         </View>
       </Modal>
       <View style={styles.submain}>
-        <Text style={styles.heading}>MADANI QAFILA 12 MAH
+        <Text allowFontScaling={false} style={styles.heading}>
+          MADANI QAFILA 12 MAH
         </Text>
-        <Text style={styles.urduheading}>مدنی قافلہ 12ماہ
+        <Text allowFontScaling={false} style={styles.urduheading}>
+          مدنی قافلہ 12ماہ
         </Text>
       </View>
       <ScrollView>
         <View style={styles.inputsgroup}>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Picture</Text>
-            <Text style={styles.InputLable}>تصویر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Picture
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              تصویر
+            </Text>
           </View>
-          <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
-            <TouchableOpacity onPress={selectImage} style={{
-              backgroundColor: "#135229", color: 'white', padding: 4, borderRadius: 8, width: responsiveWidth(35),
-            }} >
-              <Text style={{
-                color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
-              }}>Select Picture</Text>
+          <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
+            <TouchableOpacity
+              onPress={selectImage}
+              style={{
+                backgroundColor: '#135229',
+                color: 'white',
+                padding: 4,
+                borderRadius: 8,
+                width: responsiveWidth(35),
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlignVertical: 'center',
+              }}>
+              <Text
+                allowFontScaling={false}
+                style={{
+                  color: '#fff',
+                  fontWeight: '500',
+                  letterSpacing: 0.3,
+                  textAlign: 'center',
+                  fontSize: responsiveFontSize(2),
+                }}>
+                Select Picture
+              </Text>
             </TouchableOpacity>
             <View>
               {selectedImage ? (
-                <Image source={{ uri: selectedImage.assets[0].uri }} style={{ width: responsiveWidth(30), marginTop: responsiveHeight(2), height: 100, height: responsiveHeight(15) }} />
-              ) : (
-                null
-              )}
+                <Image
+                  source={{uri: selectedImage.assets[0].uri}}
+                  style={{
+                    width: responsiveWidth(30),
+                    marginTop: responsiveHeight(2),
+                    height: 100,
+                    height: responsiveHeight(15),
+                  }}
+                />
+              ) : null}
             </View>
-            <TouchableOpacity onPress={() => { UploadnewImage() }} style={{
-              backgroundColor: "#135229", marginTop: responsiveHeight(2), color: 'white', padding: 4, borderRadius: 8, width: responsiveWidth(35), alignContent: 'center'
-            }} ><Text style={{
-              color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
-            }}>Upload Picture</Text></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                UploadnewImage();
+              }}
+              style={{
+                backgroundColor: '#135229',
+                marginTop: responsiveHeight(2),
+                color: 'white',
+                padding: 4,
+                borderRadius: 8,
+                width: responsiveWidth(35),
+                alignContent: 'center',
+              }}>
+              <Text
+                allowFontScaling={false}
+                style={{
+                  color: '#fff',
+                  fontWeight: '500',
+                  letterSpacing: 0.3,
+                  textAlign: 'center',
+                  fontSize: responsiveFontSize(2),
+                }}>
+                Upload Picture
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Name</Text>
-            <Text style={styles.InputLable}>نام</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Name
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              نام
+            </Text>
           </View>
-          <TextInput style={styles.password} value={name} onChangeText={NameChange} />
+          <TextInput
+            style={styles.password}
+            value={name}
+            onChangeText={NameChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Father Name</Text>
-            <Text style={styles.InputLable}>ولدیت</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Father Name
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              ولدیت
+            </Text>
           </View>
-          <TextInput style={styles.password} value={fathername} onChangeText={FatherNameChange} />
+          <TextInput
+            style={styles.password}
+            value={fathername}
+            onChangeText={FatherNameChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Age</Text>
-            <Text style={styles.InputLable}>عمر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Age
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              عمر
+            </Text>
           </View>
-          <TextInput style={styles.password} inputMode={'tel'} value={age} onChangeText={AgeChange} />
+          <TextInput
+            style={styles.password}
+            inputMode={'tel'}
+            value={age}
+            onChangeText={AgeChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>CNIC No.</Text>
-            <Text style={styles.InputLable}>شناختی کارڈ نمبر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              CNIC No.
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              شناختی کارڈ نمبر
+            </Text>
           </View>
-          <TextInput style={styles.password} inputMode={'tel'} value={cnic} onChangeText={CnicChange} />
+          <TextInput
+            style={styles.password}
+            inputMode={'tel'}
+            value={cnic}
+            onChangeText={CnicChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>CNIC Picture*</Text>
-            <Text style={styles.InputLable}>شناختی کارڈ کی تصویر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              CNIC Picture*
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              شناختی کارڈ کی تصویر
+            </Text>
           </View>
-          <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
-            <TouchableOpacity onPress={() => { OpenCameracnic() }} style={{
-              backgroundColor: "#135229", color: 'white', padding: 4, borderRadius: 8, width: responsiveWidth(35),
-            }} ><Text style={{
-              color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
-            }}>Select Picture</Text></TouchableOpacity>
-            {cnicpicture !== "" ? (
-              <Image source={{ uri: cnicpicture.assets[0].uri }} style={{ marginTop: responsiveHeight(2), width: responsiveWidth(30), height: 100, height: responsiveHeight(15) }} />
+          <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
+            <TouchableOpacity
+              onPress={() => {
+                OpenCameracnic();
+              }}
+              style={{
+                backgroundColor: '#135229',
+                color: 'white',
+                padding: 4,
+                borderRadius: 8,
+                width: responsiveWidth(35),
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlignVertical: 'center',
+              }}>
+              <Text
+                allowFontScaling={false}
+                style={{
+                  color: '#fff',
+                  fontWeight: '500',
+                  letterSpacing: 0.3,
+                  textAlign: 'center',
+                  fontSize: responsiveFontSize(2),
+                }}>
+                Select Picture
+              </Text>
+            </TouchableOpacity>
+            {cnicpicture !== '' ? (
+              <Image
+                source={{uri: cnicpicture.assets[0].uri}}
+                style={{
+                  marginTop: responsiveHeight(2),
+                  width: responsiveWidth(30),
+                  height: 100,
+                  height: responsiveHeight(15),
+                }}
+              />
             ) : null}
-            <TouchableOpacity onPress={() => { UploadImagecnic() }} style={{
-              backgroundColor: "#135229", color: 'white', alignItems: 'center', marginTop: responsiveHeight(2), padding: 4, borderRadius: 8, width: responsiveWidth(35),
-            }} ><Text style={{
-              color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
-            }}>Upload CNIC</Text></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                UploadImagecnic();
+              }}
+              style={{
+                backgroundColor: '#135229',
+                color: 'white',
+                marginTop: responsiveHeight(2),
+                padding: 4,
+                borderRadius: 8,
+                width: responsiveWidth(35),
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlignVertical: 'center',
+              }}>
+              <Text
+                allowFontScaling={false}
+                style={{
+                  color: '#fff',
+                  fontWeight: '500',
+                  letterSpacing: 0.3,
+                  textAlign: 'center',
+                  fontSize: responsiveFontSize(2),
+                }}>
+                Upload CNIC
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Mobile No.</Text>
-            <Text style={styles.InputLable}>موبائل نمبر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Mobile No.
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              موبائل نمبر
+            </Text>
           </View>
-          <TextInput style={styles.password} inputMode={'tel'} value={mobile} onChangeText={MobileChange} />
+          <TextInput
+            style={styles.password}
+            inputMode={'tel'}
+            value={mobile}
+            onChangeText={MobileChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>House Phone No.</Text>
-            <Text style={styles.InputLable}>گھر کا نمبر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              House Phone No.
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              گھر کا نمبر
+            </Text>
           </View>
-          <TextInput style={styles.password} inputMode={'tel'} value={house} onChangeText={HouseChange} />
+          <TextInput
+            style={styles.password}
+            inputMode={'tel'}
+            value={house}
+            onChangeText={HouseChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Entry Form Picture*</Text>
-            <Text style={styles.InputLable}>داخلہ فارم کی تصویر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Entry Form Picture*
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              داخلہ فارم کی تصویر
+            </Text>
           </View>
-          <View style={{ alignItems: 'center', marginTop: responsiveHeight(1), }}>
-            <TouchableOpacity onPress={() => { OpenCameraform() }} style={{
-              backgroundColor: "#135229", color: 'white', padding: 4, borderRadius: 8, width: responsiveWidth(35),
-            }} ><Text style={{
-              color: '#fff', fontWeight: '500', letterSpacing: 0.3, textAlign: 'center', fontSize: responsiveFontSize(2)
-            }}>Select Picture</Text></TouchableOpacity>
-            {formpicture !== "" ? (
-              <Image source={{ uri: formpicture.assets[0].uri }} style={{ marginTop: responsiveHeight(2), width: responsiveWidth(30), height: 100, height: responsiveHeight(15) }} />
+          <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
+            <TouchableOpacity
+              onPress={() => {
+                OpenCameraform();
+              }}
+              style={{
+                backgroundColor: '#135229',
+                color: 'white',
+                padding: 4,
+                borderRadius: 8,
+                width: responsiveWidth(35),
+              }}>
+              <Text
+                allowFontScaling={false}
+                style={{
+                  color: '#fff',
+                  fontWeight: '500',
+                  letterSpacing: 0.3,
+                  textAlign: 'center',
+                  fontSize: responsiveFontSize(2),
+                }}>
+                Select Picture
+              </Text>
+            </TouchableOpacity>
+            {formpicture !== '' ? (
+              <Image
+                source={{uri: formpicture.assets[0].uri}}
+                style={{
+                  marginTop: responsiveHeight(2),
+                  width: responsiveWidth(30),
+                  height: 100,
+                  height: responsiveHeight(15),
+                }}
+              />
             ) : null}
-            <TouchableOpacity onPress={() => { UploadImageform() }} style={{
-              backgroundColor: "#135229", color: 'white', padding: 4, marginTop: responsiveHeight(2), borderRadius: 8, width: responsiveWidth(35),
-            }} ><Text style={{
-              color: '#fff',
-              fontWeight: '500',
-              letterSpacing: 0.3,
-              textAlign: 'center',
-              fontSize: responsiveFontSize(2)
-            }}>Upload Form</Text></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                UploadImageform();
+              }}
+              style={{
+                backgroundColor: '#135229',
+                color: 'white',
+                padding: 4,
+                marginTop: responsiveHeight(2),
+                borderRadius: 8,
+                width: responsiveWidth(35),
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlignVertical: 'center',
+              }}>
+              <Text
+                allowFontScaling={false}
+                style={{
+                  color: '#fff',
+                  fontWeight: '500',
+                  letterSpacing: 0.3,
+                  textAlign: 'center',
+                  fontSize: responsiveFontSize(2),
+                }}>
+                Upload Form
+              </Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Address</Text>
-            <Text style={styles.InputLable}>گھر کا مکمل ایڈریس</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Address
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              گھر کا مکمل ایڈریس
+            </Text>
           </View>
-          <TextInput style={styles.password} value={address} onChangeText={AddressChange} />
+          <TextInput
+            style={styles.password}
+            value={address}
+            onChangeText={AddressChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Jamia name/area</Text>
-            <Text style={styles.InputLable}>جامعۃالمدینہ کا نام/علاقہ</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Jamia name/area
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              جامعۃالمدینہ کا نام/علاقہ
+            </Text>
           </View>
-          <TextInput style={styles.password} value={jamia} onChangeText={JamiaChange} />
+          <TextInput
+            style={styles.password}
+            value={jamia}
+            onChangeText={JamiaChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Province</Text>
-            <Text style={styles.InputLable}>صوبہ</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Province
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              صوبہ
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
               selectedValue={selectedOption1}
-              onValueChange={(itemValue, itemIndex) => setSelectedOption1(itemValue)} style={styles.picker}>
-              <Picker.Item label="صوبہ" value='صوبہ' />
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedOption1(itemValue)
+              }
+              style={styles.picker}>
+              <Picker.Item label="صوبہ" value="صوبہ" />
               <Picker.Item label="کراچی" value="کراچی" />
               <Picker.Item label="بلوچستان" value="بلوچستان" />
               <Picker.Item label="سندھ" value="سندھ" />
@@ -692,71 +925,119 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Division</Text>
-            <Text style={styles.InputLable}>ڈویژن</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Division
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              ڈویژن
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
               selectedValue={selectedOption2}
-              onValueChange={(itemValue, itemIndex) => setSelectedOption2(itemValue)}
-              enabled={selectedOption1 != null} style={styles.picker}>
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedOption2(itemValue)
+              }
+              enabled={selectedOption1 != null}
+              style={styles.picker}>
               <Picker.Item label="ڈویژن" value={'ڈویژن'} />
-              {option2List.map((option) => (
+              {option2List.map(option => (
                 <Picker.Item key={option} label={option} value={option} />
               ))}
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>District</Text>
-            <Text style={styles.InputLable}>ڈسٹرکٹ</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              District
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              ڈسٹرکٹ
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
               selectedValue={selectedOption3}
-              onValueChange={(itemValue, itemIndex) => setSelectedOption3(itemValue)}
-              enabled={selectedOption2 != null} style={styles.picker}>
-              <Picker.Item label="ڈسٹرکٹ" value='ڈسٹرکٹ' />
-              {option3List.map((option) => (
+              onValueChange={(itemValue, itemIndex) =>
+                setSelectedOption3(itemValue)
+              }
+              enabled={selectedOption2 != null}
+              style={styles.picker}>
+              <Picker.Item label="ڈسٹرکٹ" value="ڈسٹرکٹ" />
+              {option3List.map(option => (
                 <Picker.Item key={option} label={option} value={option} />
               ))}
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>City</Text>
-            <Text style={styles.InputLable}>شہر</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              City
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              شہر
+            </Text>
           </View>
-          <TextInput style={styles.password} value={city} onChangeText={CityChange} />
+          <TextInput
+            style={styles.password}
+            value={city}
+            onChangeText={CityChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Islamic Education</Text>
-            <Text style={styles.InputLable}>دینی تعلیم</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Islamic Education
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              دینی تعلیم
+            </Text>
           </View>
-          <TextInput style={styles.password} value={islamiceducation} onChangeText={IslamiceducationChange} />
+          <TextInput
+            style={styles.password}
+            value={islamiceducation}
+            onChangeText={IslamiceducationChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Education</Text>
-            <Text style={styles.InputLable}>دنیاوی تعلیم</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Education
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              دنیاوی تعلیم
+            </Text>
           </View>
-          <TextInput style={styles.password} value={education} onChangeText={EducationChange} />
+          <TextInput
+            style={styles.password}
+            value={education}
+            onChangeText={EducationChange}
+          />
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Hafiz?</Text>
-            <Text style={styles.InputLable}>حافظ ہیں؟</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Hafiz?
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              حافظ ہیں؟
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
               selectedValue={hafiz}
-              onValueChange={(itemValue) => sethafiz(itemValue)} style={styles.picker} >
+              onValueChange={itemValue => sethafiz(itemValue)}
+              style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
               <Picker.Item label="جی ہاں" value="جی ہاں" />
               <Picker.Item label="جی نہیں" value="جی نہیں" />
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Status</Text>
-            <Text style={styles.InputLable}>اسٹیٹس</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Status
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              اسٹیٹس
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
               selectedValue={status}
-              onValueChange={(itemValue) => setstatus(itemValue)} style={styles.picker} >
+              onValueChange={itemValue => setstatus(itemValue)}
+              style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
               <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
               <Picker.Item label="چھٹی" value="چھٹی" />
@@ -765,28 +1046,42 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Manager Name</Text>
-            <Text style={styles.InputLable}>صوبائی ذمہ دار کا نام</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Manager Name
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              صوبائی ذمہ دار کا نام
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
               selectedValue={manager}
-              onValueChange={(itemValue) => setmanager(itemValue)} style={styles.picker} >
+              onValueChange={itemValue => setmanager(itemValue)}
+              style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
-              <Picker.Item label="karachi/sindh/balochistan" value="khi/sindh/bal" />
+              <Picker.Item
+                label="karachi/sindh/balochistan"
+                value="khi/sindh/bal"
+              />
               <Picker.Item label="upper punjab" value="upper punjab" />
               <Picker.Item label="lower punjab" value="lower punjab" />
               <Picker.Item label="kpk/kashmir" value="kpk/kashmir" />
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Group</Text>
-            <Text style={styles.InputLable}>درجہ</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Group
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              درجہ
+            </Text>
           </View>
           <View style={styles.pickergroup}>
             <Picker
+              allowFontScaling={false}
               selectedValue={group}
-              onValueChange={(itemValue) => setgroup(itemValue)} style={styles.picker} >
+              onValueChange={itemValue => setgroup(itemValue)}
+              style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
               <Picker.Item label="Karachi 1" value="Karachi 1" />
               <Picker.Item label="Karachi 2" value="Karachi 2" />
@@ -801,30 +1096,39 @@ const Signup = ({ navigation }) => {
             </Picker>
           </View>
           <View style={styles.field}>
-            <Text style={styles.InputLable}>Travel date</Text>
-            <Text style={styles.InputLable}>سفر شروع کرنے کی تاریخ</Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Travel date
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              سفر شروع کرنے کی تاریخ
+            </Text>
           </View>
           <View style={styles.fie}>
-            <DatePicker style={styles.date}
+            <DatePicker
+              style={styles.date}
               date={date}
               onDateChange={DateChange}
               mode="date"
               androidMode="spinner"
-              textColor='#135229'
+              textColor="#135229"
             />
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity onPress={check} style={styles.button}><Text style={styles.buttontext}>SAVE</Text></TouchableOpacity>
+      <TouchableOpacity onPress={check} style={styles.button}>
+        <Text allowFontScaling={false} style={styles.buttontext}>
+          SAVE
+        </Text>
+      </TouchableOpacity>
     </Animatable.View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   horizontal: {
     flexDirection: 'row',
@@ -841,20 +1145,20 @@ const styles = StyleSheet.create({
     height: responsiveHeight(13),
     width: responsiveWidth(90),
     alignItems: 'center',
-    borderRadius: 12
+    borderRadius: 12,
   },
   heading: {
     fontSize: responsiveFontSize(3),
     marginTop: responsiveHeight(1.75),
-    color: "#135229",
+    color: '#135229',
   },
   urduheading: {
     fontSize: responsiveFontSize(3),
     marginTop: responsiveHeight(1),
-    color: "#135229",
+    color: '#135229',
   },
   InputLable: {
-    color: "#135229",
+    color: '#135229',
   },
   field: {
     marginTop: responsiveHeight(1),
@@ -865,38 +1169,38 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fie: {
-    marginTop: responsiveHeight(1),
-    borderColor: "#135229",
+    marginTop: responsiveHeight(3),
+    borderColor: '#135229',
     borderWidth: 1.5,
     borderLeftWidth: 8,
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderRadius: 8,
   },
   inputsgroup: {
     width: responsiveWidth(100),
-    alignItems: 'center'
+    alignItems: 'center',
   },
   login: {
     height: responsiveHeight(5),
     width: responsiveWidth(80),
     padding: 8,
-    borderColor: "#135229",
-    color: "#135229",
+    borderColor: '#135229',
+    color: '#135229',
     borderWidth: 1.5,
     marginTop: responsiveHeight(5),
     borderRadius: 8,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
   password: {
     height: responsiveHeight(5.5),
     width: responsiveWidth(80),
     padding: 7,
     paddingLeft: 12,
-    color: "black",
-    borderColor: "#135229",
+    color: 'black',
+    borderColor: '#135229',
     borderWidth: 1.5,
     borderLeftWidth: 8,
-    borderColor: "#135229",
+    borderColor: '#135229',
     marginTop: responsiveHeight(1),
     borderRadius: 8,
     fontSize: responsiveFontSize(2),
@@ -904,7 +1208,7 @@ const styles = StyleSheet.create({
   pickergroup: {
     width: responsiveWidth(100),
     alignItems: 'center',
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderWidth: 1.5,
     overflow: 'hidden',
     alignItems: 'center',
@@ -912,17 +1216,18 @@ const styles = StyleSheet.create({
     width: responsiveWidth(80),
     borderRadius: 8,
     marginTop: responsiveHeight(1),
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderWidth: 1.5,
     borderLeftWidth: 8,
   },
   picker: {
     height: responsiveHeight(5.5),
     width: responsiveWidth(85),
-    fontSize: responsiveFontSize(2),
+    // fontSize: responsiveFontSize(2),
+    // allowFontScaling: false,
   },
   button: {
-    backgroundColor: "#135229",
+    backgroundColor: '#135229',
     color: 'white',
     padding: 6,
     marginTop: responsiveHeight(3),
@@ -931,14 +1236,17 @@ const styles = StyleSheet.create({
     width: responsiveWidth(30),
     height: responsiveHeight(6),
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlignVertical: 'center',
   },
   buttontext: {
     color: '#fff',
     fontWeight: '600',
     letterSpacing: 0.7,
     textAlign: 'center',
-    fontSize: responsiveFontSize(2.5)
-  }
+    fontSize: responsiveFontSize(2.5),
+  },
 });
 
 export default Signup;

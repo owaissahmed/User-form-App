@@ -1,24 +1,38 @@
-import { View, Text, Image, Dimensions, StyleSheet, TouchableOpacity, TextInput, Button, Alert, Modal, ActivityIndicator } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { responsiveScreenFontSize, responsiveWidth } from 'react-native-responsive-dimensions';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
+import {
+  View,
+  Text,
+  Image,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  Button,
+  Alert,
+  Modal,
+  ActivityIndicator,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  responsiveScreenFontSize,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
+import {responsiveHeight} from 'react-native-responsive-dimensions';
+import {responsiveFontSize} from 'react-native-responsive-dimensions';
 import firestore from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const KarachiOne = ({ navigation }) => {
-  const [khi1qafila, setkhi1qafila] = useState('')
-  const [khi1chutti, setkhi1chutti] = useState('')
-  const [khi1darussunnah, setkhi1darussunnah] = useState('')
-  const [khi1Infiradi, setkhi1Infiradi] = useState('')
-
+const KarachiOne = ({navigation}) => {
+  const [khi1qafila, setkhi1qafila] = useState('');
+  const [khi1chutti, setkhi1chutti] = useState('');
+  const [khi1darussunnah, setkhi1darussunnah] = useState('');
+  const [khi1Infiradi, setkhi1Infiradi] = useState('');
 
   useEffect(() => {
     const chutti = firestore()
       .collection('users')
       .where('Group', '==', 'Karachi 1')
-      .where('Status', '==', "چھٹی")
+      .where('Status', '==', 'چھٹی')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -34,10 +48,9 @@ const KarachiOne = ({ navigation }) => {
         setkhi1chutti(chuttiData.length);
       });
     const qafila = firestore()
-
       .collection('users')
       .where('Group', '==', 'Karachi 1')
-      .where('Status', '==', "مدنی قافلہ")
+      .where('Status', '==', 'مدنی قافلہ')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -51,7 +64,7 @@ const KarachiOne = ({ navigation }) => {
     const Darussunnah = firestore()
       .collection('users')
       .where('Group', '==', 'Karachi 1')
-      .where('Status', '==', "دار السنہ")
+      .where('Status', '==', 'دار السنہ')
       .onSnapshot(querySnapshot => {
         const DarussunnahData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -65,7 +78,7 @@ const KarachiOne = ({ navigation }) => {
     const infiradi = firestore()
       .collection('users')
       .where('Group', '==', 'Karachi 1')
-      .where('Status', '==', "انفرادی جدول")
+      .where('Status', '==', 'انفرادی جدول')
       .onSnapshot(querySnapshot => {
         const infiradiData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -76,64 +89,83 @@ const KarachiOne = ({ navigation }) => {
         });
         setkhi1Infiradi(infiradiData.length);
       });
-  }, [])
+  }, []);
 
   var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
   function gotoChutti() {
-    navigation.navigate('karachiOneChutti')
+    navigation.navigate('karachiOneChutti');
   }
   function gotoQafila() {
-    navigation.navigate('karachiOneQafila')
+    navigation.navigate('karachiOneQafila');
   }
   function gotoInfiradi() {
-    navigation.navigate('karachiOneInfiradi')
+    navigation.navigate('karachiOneInfiradi');
   }
   function gotoSunnah() {
-    navigation.navigate('karachiOneSunnah')
+    navigation.navigate('karachiOneSunnah');
   }
-
 
   return (
     <View style={styles.main}>
       <View style={styles.submain}>
-                <Text style={styles.heading}>
-                    Karachi 1
-                </Text>
-            </View>
+        <Text allowFontScaling={false} style={styles.heading}>
+          Karachi 1
+        </Text>
+      </View>
       <View style={styles.rectangle}>
-        <Text style={styles.rectangletext}>ٹوٹل تعداد</Text>
-        <Text style={styles.rectangletext}>{total}</Text>
+        <Text allowFontScaling={false} style={styles.rectangletext}>
+          ٹوٹل تعداد
+        </Text>
+        <Text allowFontScaling={false} style={styles.rectangletext}>
+          {total}
+        </Text>
       </View>
       <View style={styles.squarediv}>
         <TouchableOpacity onPress={gotoChutti}>
           <View style={styles.square}>
-            <Text style={styles.squaretext}>چھٹی</Text>
-            <Text style={styles.squaretext}>{khi1chutti}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              چھٹی
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1chutti}
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoQafila}>
           <View style={styles.square}>
-            <Text style={styles.squaretext}>مدنی قافلہ</Text>
-            <Text style={styles.squaretext}>{khi1qafila}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              مدنی قافلہ
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1qafila}
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoInfiradi}>
           <View style={styles.square}>
-            <Text style={styles.square3text}>انفرادی جدول</Text>
-            <Text style={styles.squaretext}>{khi1Infiradi}</Text>
+            <Text allowFontScaling={false} style={styles.square3text}>
+              انفرادی جدول
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1Infiradi}
+            </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoSunnah}>
           <View style={styles.square}>
-            <Text style={styles.squaretext}>دار السنہ</Text>
-            <Text style={styles.squaretext}>{khi1darussunnah}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              دار السنہ
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {khi1darussunnah}
+            </Text>
           </View>
         </TouchableOpacity>
-      </View >
-    </View >
-  )
-}
+      </View>
+    </View>
+  );
+};
 
 export default KarachiOne;
 
@@ -149,20 +181,20 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   submain: {
     height: responsiveHeight(8),
     width: responsiveWidth(90),
     alignItems: 'center',
-},
-heading: {
+  },
+  heading: {
     fontSize: responsiveFontSize(3.5),
-    marginTop: responsiveHeight(1.50),
-    color: "#135229",
-},
+    marginTop: responsiveHeight(1.5),
+    color: '#135229',
+  },
   rectangle: {
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderWidth: 1.5,
     height: responsiveHeight(20),
     width: responsiveWidth(90),
@@ -172,25 +204,25 @@ heading: {
   },
   rectangletext: {
     fontSize: responsiveScreenFontSize(5),
-    color: "#135229",
+    color: '#135229',
   },
   squaretext: {
-    fontSize: responsiveScreenFontSize(3.5),
-    color: "#135229",
+    fontSize: responsiveScreenFontSize(4),
+    color: '#135229',
   },
   square3text: {
     fontSize: responsiveScreenFontSize(3),
-    color: "#135229",
+    color: '#135229',
   },
   square: {
     marginTop: responsiveHeight(3),
-    borderColor: "#135229",
+    borderColor: '#135229',
     borderWidth: 1.5,
     height: responsiveHeight(20),
     width: responsiveWidth(40),
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 12,
-    marginHorizontal: responsiveWidth(3)
+    marginHorizontal: responsiveWidth(3),
   },
-})
+});
