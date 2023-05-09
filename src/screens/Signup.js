@@ -32,6 +32,11 @@ const Signup = ({navigation}) => {
   const [selectedOption3, setSelectedOption3] = useState('');
   const [option2List, setOption2List] = useState([]);
   const [option3List, setOption3List] = useState([]);
+  const [AddressselectedOption1, AddresssetSelectedOption1] = useState('');
+  const [AddressselectedOption2, AddresssetSelectedOption2] = useState('');
+  const [AddressselectedOption3, AddresssetSelectedOption3] = useState('');
+  const [Addressoption2List, AddresssetOption2List] = useState([]);
+  const [Addressoption3List, AddresssetOption3List] = useState([]);
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
@@ -45,6 +50,196 @@ const Signup = ({navigation}) => {
       unsubscribe();
     };
   }, []);
+
+  useEffect(() => {
+    if (AddressselectedOption1 === 'کراچی') {
+      AddresssetOption2List(['ڈویژن 1', 'ڈویژن 2']);
+    } else if (AddressselectedOption1 === 'بلوچستان') {
+      AddresssetOption2List([
+        'قلات',
+        'مکران',
+        'کوئٹہ',
+        'ژوب',
+        'سبی',
+        'رخشان',
+        'نصیر آباد',
+        'لورالائی',
+      ]);
+    } else if (AddressselectedOption1 === 'سندھ') {
+      AddresssetOption2List([
+        'حیدر آباد',
+        'بنبھور',
+        'میرپورخاص',
+        'نواب شاہ',
+        'سکھر',
+        'لاڑکانہ',
+      ]);
+    } else if (AddressselectedOption1 === 'پنجاب') {
+      AddresssetOption2List([
+        'بہاولپور',
+        'ملتان',
+        'لاہور',
+        'ساہیوال',
+        'ڈیرہ غازی خان',
+        'راولپنڈی',
+        'فیصل آباد',
+        'گوجرانوالہ',
+        'سرگودھا',
+      ]);
+    } else if (AddressselectedOption1 === 'کے پی کے') {
+      AddresssetOption2List([
+        'پشاور',
+        'مالاکنڈ',
+        'ڈیرہ اسماعیل خان',
+        'مردان',
+        'ہزارہ',
+        'کوہاٹ',
+        'بنوں',
+      ]);
+    } else if (AddressselectedOption1 === 'اسلام آباد') {
+      AddresssetOption2List(['اسلام آباد']);
+    } else if (AddressselectedOption1 === 'کشمیر') {
+      AddresssetOption2List(['میرپور', 'مظفرآباد', 'پونچھ']);
+    } else if (AddressselectedOption1 === 'گلگت') {
+      AddresssetOption2List(['گلگت', 'دیامیر', 'بلتستان']);
+    } else {
+      AddresssetOption2List([]);
+    }
+  }, [AddressselectedOption1]);
+
+  useEffect(() => {
+    if (AddressselectedOption2 === 'ڈویژن 1') {
+      AddresssetOption3List([
+        'کراچی سینٹرل',
+        'کورنگی',
+        'ملیر ڈسٹرکٹ 1',
+        'ملیر ڈسٹرکٹ  2',
+      ]);
+    } else if (AddressselectedOption2 === 'ڈویژن 2') {
+      AddresssetOption3List(['کراچی ساؤتھ', 'کراچی ایسٹ', 'کراچی ویسٹ', 'کیماڑی']);
+    } else if (AddressselectedOption2 === 'قلات') {
+      AddresssetOption3List(['لسبیلہ', 'قلات', 'آواران', 'مستونگ', 'خضدار', 'سوراب']);
+    } else if (AddressselectedOption2 === 'مکران') {
+      AddresssetOption3List(['گوادر', 'کیچ', 'پنجگور']);
+    } else if (AddressselectedOption2 === 'کوئٹہ') {
+      AddresssetOption3List(['کوئٹہ', 'پشین', 'قلعہ عبد اللہ', 'چمن']);
+    } else if (AddressselectedOption2 === 'ژوب') {
+      AddresssetOption3List(['ژوب', 'شیرانی', 'قلعہ سیف اللہ']);
+    } else if (AddressselectedOption2 === 'سبی') {
+      AddresssetOption3List(['سبی', 'ہرنائی', 'زیارت', 'ڈیرہ بگٹی', 'کوہلو']);
+    } else if (AddressselectedOption2 === 'رخشان') {
+      AddresssetOption3List(['چاغی', 'واشک', 'نوشکی', 'خاران']);
+    } else if (AddressselectedOption2 === 'نصیر آباد') {
+      AddresssetOption3List([
+        'نصیر آباد',
+        'صحبت پور',
+        'جعفر آباد',
+        'جھل مگسی',
+        'کچھی',
+      ]);
+    } else if (AddressselectedOption2 === 'لورالائی') {
+      AddresssetOption3List(['لورالائی', 'بارکھان', 'موسیٰ خیل', 'دوکی']);
+    } else if (AddressselectedOption2 === 'حیدر آباد') {
+      AddresssetOption3List([
+        'جامشورو',
+        'ٹنڈو محمد خان',
+        'ٹنڈو الہیار',
+        'دادو',
+        'مٹیاری',
+      ]);
+    } else if (AddressselectedOption2 === 'بنبھور') {
+      AddresssetOption3List(['بدین', 'سجاول', 'ٹھٹہ']);
+    } else if (AddressselectedOption2 === 'میرپورخاص') {
+      AddresssetOption3List(['میرپورخاص', 'عمر کوٹ', 'تھر پارکر']);
+    } else if (AddressselectedOption2 === 'نواب شاہ') {
+      AddresssetOption3List(['نوابشاہ', 'سانگھڑ', 'نوشہرو فیروز']);
+    } else if (AddressselectedOption2 === 'سکھر') {
+      AddresssetOption3List(['سکھر', 'گھوٹکی', 'خیرپور میرس']);
+    } else if (AddressselectedOption2 === 'لاڑکانہ') {
+      AddresssetOption3List([
+        'لاڑکانہ',
+        'جیکب آباد',
+        'شکار پور',
+        'کشمور',
+        'قمبر شہداد کوٹ',
+      ]);
+    } else if (AddressselectedOption2 === 'بہاولپور') {
+      AddresssetOption3List(['بہاولپور', ' بہاولنگر', ' رحیم یار خان']);
+    } else if (AddressselectedOption2 === 'ملتان') {
+      AddresssetOption3List(['ملتان', 'لودھراں ', 'وہاڑی ', 'خانیوال']);
+    } else if (AddressselectedOption2 === 'ڈیرہ غازی خان') {
+      AddresssetOption3List(['ڈیرہ غازی خان', 'لیہ ', 'راجن پور', 'مظفر گڑھ']);
+    } else if (AddressselectedOption2 === 'سرگودھا') {
+      AddresssetOption3List(['سرگودھا', 'بھکر ', 'خوشاب ', 'میانوالی']);
+    } else if (AddressselectedOption2 === 'فیصل آباد') {
+      AddresssetOption3List(['ٹوبہ', 'فیصل آباد', ' جھنگ', 'چنیوٹ']);
+    } else if (AddressselectedOption2 === 'ساہیوال') {
+      AddresssetOption3List(['ساہیوال', ' اوکاڑہ', ' پاکپتن']);
+    } else if (AddressselectedOption2 === 'گوجرانوالہ') {
+      AddresssetOption3List([
+        'گجرات',
+        ' گوجرانوالہ',
+        ' سیالکوٹ',
+        'حافظ آباد',
+        'منڈی بہاؤالدین  ',
+        'نارووال',
+      ]);
+    } else if (AddressselectedOption2 === 'لاہور') {
+      AddresssetOption3List(['لاہور', ' شیخوپورہ', ' ننکانہ', ' قصور']);
+    } else if (AddressselectedOption2 === 'راولپنڈی') {
+      AddresssetOption3List(['اٹک', ' چکوال', ' جہلم', 'راولپنڈی ']);
+    } else if (AddressselectedOption2 === 'اسلام آباد') {
+      AddresssetOption3List(['اسلام آباد']);
+    } else if (AddressselectedOption2 === 'پشاور') {
+      AddresssetOption3List(['پشاور', ' چارسدہ', ' خیبر', 'مہمند ایجنسی ', 'نوشہرہ']);
+    } else if (AddressselectedOption2 === 'مالاکنڈ') {
+      AddresssetOption3List([
+        'باجوڑ',
+        ' بونیر',
+        ' چترال لوئر',
+        'چترال اپر ',
+        'مالاکنڈ',
+        'شانگلہ',
+        'سوات',
+        'اپردیر',
+      ]);
+    } else if (AddressselectedOption2 === 'ہزارہ') {
+      AddresssetOption3List([
+        'مانسہرہ',
+        ' ایبٹ آباد',
+        ' بٹگرام',
+        'ہری پور ',
+        'کولائی پلاس',
+        'لوئر کوہستان',
+        'تورغر',
+        'اپر کوہستان',
+      ]);
+    } else if (AddressselectedOption2 === 'بنوں') {
+      AddresssetOption3List(['بنوں', ' لکی مروت', ' نارتھ وزیرستان']);
+    } else if (AddressselectedOption2 === 'ڈیرہ اسماعیل خان') {
+      AddresssetOption3List(['ڈیرہ اسماعیل خان', ' ساؤتھ وزیرستان', ' ٹانک ']);
+    } else if (AddressselectedOption2 === 'کوہاٹ') {
+      AddresssetOption3List(['ہنگو', ' کرک', ' کوہاٹ', 'کرم ', 'اورکزئی']);
+    } else if (AddressselectedOption2 === 'مردان') {
+      AddresssetOption3List(['مردان', ' صوابی']);
+    } else if (AddressselectedOption2 === 'گلگت') {
+      AddresssetOption3List(['گلگت', ' غذر', ' ہنزہ', 'نگر ']);
+    } else if (AddressselectedOption2 === 'دیامیر') {
+      AddresssetOption3List(['دیامیر', ' درل', ' تنگیر', 'استور ']);
+    } else if (AddressselectedOption2 === 'بلتستان') {
+      AddresssetOption3List(['گھانچی', ' اسکردو', ' شگر']);
+    } else if (AddressselectedOption2 === 'مظفرآباد') {
+      AddresssetOption3List(['نیلم', ' ہٹیاں', ' مظفرآباد']);
+    } else if (AddressselectedOption2 === 'میرپور') {
+      AddresssetOption3List(['میرپور', ' بھمبر', ' کوٹلی']);
+    } else if (AddressselectedOption2 === 'پونچھ') {
+      AddresssetOption3List(['باغ', ' حویلی', ' پونچھ', 'سدھنوتی ']);
+    } else if (AddressselectedOption2 === 'اسلام آباد') {
+      AddresssetOption3List(['اسلام آباد']);
+    } else {
+      AddresssetOption3List([]);
+    }
+  }, [AddressselectedOption2]);
 
   useEffect(() => {
     if (selectedOption1 === 'کراچی') {
@@ -243,6 +438,7 @@ const Signup = ({navigation}) => {
   const [mobile, setmobile] = useState('');
   const [house, sethouse] = useState('');
   const [address, setaddress] = useState('');
+  const [addresscity, addresssetcity] = useState('');
   const [jamia, setjamia] = useState('');
   const [city, setcity] = useState('');
   const [islamiceducation, setislamiceducation] = useState('');
@@ -430,6 +626,9 @@ const Signup = ({navigation}) => {
   const AddressChange = newaddress => {
     setaddress(newaddress);
   };
+  const AddressCityChange = newaddresscity => {
+    addresssetcity(newaddresscity);
+  };
   const JamiaChange = newjamia => {
     setjamia(newjamia);
   };
@@ -483,6 +682,14 @@ const Signup = ({navigation}) => {
       Alert.alert('⚠️ WARNING', 'Please Click on Upload Form');
     } else if (address.trim() === '') {
       Alert.alert('⚠️ WARNING', 'Please Enter Your Address');
+    } else if (AddressselectedOption1 === '' || AddressselectedOption1 === 'صوبہ') {
+      Alert.alert('⚠️ WARNING', 'Please Select Address Province');
+    } else if (AddressselectedOption2 === '' || AddressselectedOption2 === 'ڈویژن') {
+      Alert.alert('⚠️ WARNING', 'Please Select Address Division');
+    } else if (AddressselectedOption3 === '' || AddressselectedOption3 === 'ڈسٹرکٹ') {
+      Alert.alert('⚠️ WARNING', 'Please Select Address District');
+    } else if (addresscity.trim() === '') {
+      Alert.alert('⚠️ WARNING', 'Please Enter Your Address City');
     } else if (jamia.trim() === '') {
       Alert.alert('⚠️ WARNING', 'Please Enter Jamia Name/Area');
     } else if (selectedOption1 === '' || selectedOption1 === 'صوبہ') {
@@ -525,6 +732,10 @@ const Signup = ({navigation}) => {
             MobileNo: mobile,
             HouseNo: house,
             Address: address,
+            AddressProvince: AddressselectedOption1,
+            AddressDivision: AddressselectedOption2,
+            AddressDistrict: AddressselectedOption3,
+            AddressCity: addresscity,
             Jamia: jamia,
             Province: selectedOption1,
             Division: selectedOption2,
@@ -887,6 +1098,89 @@ const Signup = ({navigation}) => {
           />
           <View style={styles.field}>
             <Text allowFontScaling={false} style={styles.InputLable}>
+            Address Province
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+             گھر کا صوبہ
+            </Text>
+          </View>
+          <View style={styles.pickergroup}>
+            <Picker
+              selectedValue={AddressselectedOption1}
+              onValueChange={(itemValue, itemIndex) =>
+                AddresssetSelectedOption1(itemValue)
+              }
+              style={styles.picker}>
+              <Picker.Item label="صوبہ" value="صوبہ" />
+              <Picker.Item label="کراچی" value="کراچی" />
+              <Picker.Item label="بلوچستان" value="بلوچستان" />
+              <Picker.Item label="سندھ" value="سندھ" />
+              <Picker.Item label="پنجاب	" value="پنجاب" />
+              <Picker.Item label="اسلام آباد" value="اسلام آباد" />
+              <Picker.Item label="کے پی کے" value="کے پی کے" />
+              <Picker.Item label="کشمیر" value="کشمیر" />
+              <Picker.Item label="گلگت" value="گلگت" />
+            </Picker>
+          </View>
+          <View style={styles.field}>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+            Address Division
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+            گھر کا ڈویژن
+            </Text>
+          </View>
+          <View style={styles.pickergroup}>
+            <Picker
+              selectedValue={AddressselectedOption2}
+              onValueChange={(itemValue, itemIndex) =>
+                AddresssetSelectedOption2(itemValue)
+              }
+              enabled={AddressselectedOption1 != null}
+              style={styles.picker}>
+              <Picker.Item label="ڈویژن" value={'ڈویژن'} />
+              {Addressoption2List.map(option => (
+                <Picker.Item key={option} label={option} value={option} />
+              ))}
+            </Picker>
+          </View>
+          <View style={styles.field}>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+            Address District
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+            گھر کا ڈسٹرکٹ
+            </Text>
+          </View>
+          <View style={styles.pickergroup}>
+            <Picker
+              selectedValue={AddressselectedOption3}
+              onValueChange={(itemValue, itemIndex) =>
+                AddresssetSelectedOption3(itemValue)
+              }
+              enabled={AddressselectedOption2 != null}
+              style={styles.picker}>
+              <Picker.Item label="ڈسٹرکٹ" value="ڈسٹرکٹ" />
+              {Addressoption3List.map(option => (
+                <Picker.Item key={option} label={option} value={option} />
+              ))}
+            </Picker>
+          </View>
+          <View style={styles.field}>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+              Address City
+            </Text>
+            <Text allowFontScaling={false} style={styles.InputLable}>
+            گھر کا شہر
+            </Text>
+          </View>
+          <TextInput allowFontScaling={false}
+            style={styles.password}
+            value={addresscity}
+            onChangeText={AddressCityChange}
+          />
+          <View style={styles.field}>
+            <Text allowFontScaling={false} style={styles.InputLable}>
               Jamia name/area
             </Text>
             <Text allowFontScaling={false} style={styles.InputLable}>
@@ -1060,9 +1354,10 @@ const Signup = ({navigation}) => {
               style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
               <Picker.Item
-                label="karachi/sindh/balochistan"
-                value="khi/sindh/bal"
+                label="karachi/balochistan"
+                value="khi/bal"
               />
+              <Picker.Item label="sindh" value="sindh" />
               <Picker.Item label="upper punjab" value="upper punjab" />
               <Picker.Item label="lower punjab" value="lower punjab" />
               <Picker.Item label="kpk/kashmir" value="kpk/kashmir" />
@@ -1083,16 +1378,17 @@ const Signup = ({navigation}) => {
               onValueChange={itemValue => setgroup(itemValue)}
               style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
-              <Picker.Item label="Karachi 1" value="Karachi 1" />
-              <Picker.Item label="Karachi 2" value="Karachi 2" />
-              <Picker.Item label="Karachi 3" value="Karachi 3" />
-              <Picker.Item label="Sindh 1" value="Sindh 1" />
-              <Picker.Item label="Sindh 2" value="Sindh 2" />
-              <Picker.Item label="Punjab 1" value="Punjab 1" />
-              <Picker.Item label="Punjab 2" value="Punjab 2" />
-              <Picker.Item label="Kpk" value="Kpk" />
-              <Picker.Item label="Balochistan" value="Balochistan" />
-              <Picker.Item label="Kashmir" value="Kashmir" />
+              <Picker.Item label="Nabeel" value="Nabeel" />
+              <Picker.Item label="Naeem ul Hasan" value="Naeem ul Hasan" />
+              <Picker.Item label="Usman" value="Usman" />
+              <Picker.Item label="Shan" value="Shan" />
+              <Picker.Item label="Babar Shah" value="Babar Shah" />
+              <Picker.Item label="Fida Hussain" value="Fida Hussain" />
+              <Picker.Item label="Munir Madani" value="Munir Madani" />
+              <Picker.Item label="Abdul Rauf" value="Abdul Rauf" />
+              <Picker.Item label="Abdul Rehman" value="Abdul Rehman" />
+              <Picker.Item label="Aqib" value="Aqib" />
+              <Picker.Item label="Sahil Shah" value="Sahil Shah" />
             </Picker>
           </View>
           <View style={styles.field}>

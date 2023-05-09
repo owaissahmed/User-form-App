@@ -54,6 +54,11 @@ import KpkQafila from './screens/KpkQafila';
 import KpkChutti from './screens/KpkChutti';
 import KpkSunnah from './screens/KpkSunnah';
 import KpkInfiradi from './screens/KpkInfiradi';
+import Sahil from './screens/Sahil';
+import SahilChutti from './screens/SahilChutti';
+import SahilInfiradi from './screens/SahilInfiradi';
+import SahilQafila from './screens/SahilQafila';
+import SahilSunnah from './screens/SahilSunnah';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -335,6 +340,31 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="KpkChutti"
                     component={KpkChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilChutti"
+                    component={SahilChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilInfiradi"
+                    component={SahilInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilQafila"
+                    component={SahilQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilSunnah"
+                    component={SahilSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="Sahil"
+                    component={Sahil}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

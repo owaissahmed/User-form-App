@@ -18,7 +18,7 @@ const SindhTwo = ({navigation}) => {
     useEffect(() => {
         const chutti = firestore()
             .collection('users')
-            .where('Group', '==', 'Sindh 2')
+            .where('Group', '==', 'Aqib')
             .where('Status', '==', "چھٹی")
             .onSnapshot(querySnapshot => {
                 const chuttiData = [];
@@ -32,7 +32,7 @@ const SindhTwo = ({navigation}) => {
             });
         const qafila = firestore()
             .collection('users')
-            .where('Group', '==', 'Sindh 2')
+            .where('Group', '==', 'Aqib')
             .where('Status', '==', "مدنی قافلہ")
             .onSnapshot(querySnapshot => {
                 const qafilaData = [];
@@ -46,7 +46,7 @@ const SindhTwo = ({navigation}) => {
             });
         const Darussunnah = firestore()
             .collection('users')
-            .where('Group', '==', 'Sindh 2')
+            .where('Group', '==', 'Aqib')
             .where('Status', '==', "دار السنہ")
             .onSnapshot(querySnapshot => {
                 const DarussunnahData = [];
@@ -60,7 +60,7 @@ const SindhTwo = ({navigation}) => {
             });
         const infiradi = firestore()
             .collection('users')
-            .where('Group', '==', 'Sindh 2')
+            .where('Group', '==', 'Aqib')
             .where('Status', '==', "انفرادی جدول")
             .onSnapshot(querySnapshot => {
                 const infiradiData = [];
@@ -94,7 +94,7 @@ const SindhTwo = ({navigation}) => {
         <View style={styles.main}>
             <View style={styles.submain}>
                 <Text allowFontScaling={false} style={styles.heading}>
-                    Sindh 2
+                    Aqib
                 </Text>
             </View>
             <View style={styles.rectangle}>

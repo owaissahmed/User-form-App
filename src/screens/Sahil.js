@@ -10,9 +10,7 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const PunjabOne = ({navigation}) => {
-    const [loading, setloading] = useState(false)
-    const [visible, setvisible] = useState(false)
+const Sahil = ({navigation}) => {
     const [khi1qafila, setkhi1qafila] = useState('')
     const [khi1chutti, setkhi1chutti] = useState('')
     const [khi1darussunnah, setkhi1darussunnah] = useState('')
@@ -20,7 +18,7 @@ const PunjabOne = ({navigation}) => {
     useEffect(() => {
         const chutti = firestore()
             .collection('users')
-            .where('Group', '==', 'Munir Madani')
+            .where('Group', '==', 'Sahil Shah')
             .where('Status', '==', "چھٹی")
             .onSnapshot(querySnapshot => {
                 const chuttiData = [];
@@ -34,7 +32,7 @@ const PunjabOne = ({navigation}) => {
             });
         const qafila = firestore()
             .collection('users')
-            .where('Group', '==', 'Munir Madani')
+            .where('Group', '==', 'Sahil Shah')
             .where('Status', '==', "مدنی قافلہ")
             .onSnapshot(querySnapshot => {
                 const qafilaData = [];
@@ -48,7 +46,7 @@ const PunjabOne = ({navigation}) => {
             });
         const Darussunnah = firestore()
             .collection('users')
-            .where('Group', '==', 'Munir Madani')
+            .where('Group', '==', 'Sahil Shah')
             .where('Status', '==', "دار السنہ")
             .onSnapshot(querySnapshot => {
                 const DarussunnahData = [];
@@ -62,7 +60,7 @@ const PunjabOne = ({navigation}) => {
             });
         const infiradi = firestore()
             .collection('users')
-            .where('Group', '==', 'Munir Madani')
+            .where('Group', '==', 'Sahil Shah')
             .where('Status', '==', "انفرادی جدول")
             .onSnapshot(querySnapshot => {
                 const infiradiData = [];
@@ -75,26 +73,26 @@ const PunjabOne = ({navigation}) => {
                 setkhi1Infiradi(infiradiData.length);
             });
     }, [])
+    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
     function gotoSunnah() {
-        navigation.navigate('punjabOneSunnah')
+        navigation.navigate('SahilSunnah')
     }
     function gotoChutti() {
-        navigation.navigate('punjabOneChutti')
+        navigation.navigate('SahilChutti')
       }
       function gotoQafila() {
-        navigation.navigate('punjabOneQafila')
+        navigation.navigate('SahilQafila')
       }
       function gotoInfiradi() {
-        navigation.navigate('punjabOneInfiradi')
+        navigation.navigate('SahilInfiradi')
       }
-    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
     return (
         <View style={styles.main}>
             <View style={styles.submain}>
                 <Text allowFontScaling={false} style={styles.heading}>
-                    Munir Madani
+                Sahil Shah
                 </Text>
             </View>
             <View style={styles.rectangle}>
@@ -130,7 +128,7 @@ const PunjabOne = ({navigation}) => {
     )
 }
 
-export default PunjabOne;
+export default Sahil;
 
 const styles = StyleSheet.create({
     main: {
@@ -144,6 +142,7 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
+        // alignItems: 'center',
         justifyContent: 'center'
     },
     submain: {
@@ -157,6 +156,7 @@ const styles = StyleSheet.create({
         color: "#135229",
     },
     rectangle: {
+        // marginTop: responsiveHeight(5),
         borderColor: "#135229",
         borderWidth: 1.5,
         height: responsiveHeight(20),

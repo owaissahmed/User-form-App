@@ -14,7 +14,7 @@ const SindhTwoChutti = () => {
         let ChuttiNameData = [];
         const chutti = firestore()
             .collection('users')
-            .where('Group', '==', 'Sindh 2')
+            .where('Group', '==', 'Aqib')
             .where('Status', '==', "چھٹی")
             .onSnapshot(querySnapshot => {
                 const chuttiData = [];
