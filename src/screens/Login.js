@@ -70,10 +70,7 @@ const Login = ({navigation}) => {
     if (email.toLocaleLowerCase() == 'admin' && password == 12345678) {
       // Alert.alert('Good')
       gotoAdmin();
-    } else if (
-      email.toLocaleLowerCase() == 'nabeel' &&
-      password == 12345678
-    ) {
+    } else if (email.toLocaleLowerCase() == 'nabeel' && password == 12345678) {
       // Alert.alert('Good')
       gotokarachiOne();
     } else if (
@@ -82,16 +79,16 @@ const Login = ({navigation}) => {
     ) {
       // Alert.alert('Good')
       gotokarachiTwo();
+    } else if (email.toLocaleLowerCase() == 'usman' && password == 12345678) {
+      // Alert.alert('Good')
+      gotokarachithree();
     } else if (
-      email.toLocaleLowerCase() == 'usman' &&
+      email.toLocaleLowerCase() == 'abdul rehman' &&
       password == 12345678
     ) {
       // Alert.alert('Good')
-      gotokarachithree();
-    } else if (email.toLocaleLowerCase() == 'abdul rehman' && password == 12345678) {
-      // Alert.alert('Good')
       gotoSindhOne();
-    } else if (email.toLocaleLowerCase() == 'sindh 2' && password == 12345678) {
+    } else if (email.toLocaleLowerCase() == 'aqib' && password == 12345678) {
       // Alert.alert('Good')
       gotoSindhTwo();
     } else if (
@@ -109,13 +106,17 @@ const Login = ({navigation}) => {
     } else if (email.toLocaleLowerCase() == 'shan' && password == 12345678) {
       // Alert.alert('Good')
       gotoKashmir();
-    } else if (email.toLocaleLowerCase() == 'babar shah' && password == 12345678) {
+    } else if (
+      email.toLocaleLowerCase() == 'babar shah' &&
+      password == 12345678
+    ) {
       // Alert.alert('Good')
       gotoKpk();
     } else if (
       email.toLocaleLowerCase() == 'fida hussain' &&
       password == 12345678
     ) {
+      gotoBalochistan();
     } else if (
       email.toLocaleLowerCase() == 'sahil shah' &&
       password == 12345678
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
     letterSpacing: 0.7,
-    textAlign:'center'
+    textAlign: 'center',
   },
   login: {
     height: responsiveHeight(6),
