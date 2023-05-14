@@ -141,6 +141,7 @@ const Signup = ({navigation}) => {
       AddresssetOption3List(['لورالائی', 'بارکھان', 'موسیٰ خیل', 'دوکی']);
     } else if (AddressselectedOption2 === 'حیدر آباد') {
       AddresssetOption3List([
+        'حیدر آباد',
         'جامشورو',
         'ٹنڈو محمد خان',
         'ٹنڈو الہیار',
@@ -331,6 +332,7 @@ const Signup = ({navigation}) => {
       setOption3List(['لورالائی', 'بارکھان', 'موسیٰ خیل', 'دوکی']);
     } else if (selectedOption2 === 'حیدر آباد') {
       setOption3List([
+        'حیدر آباد',
         'جامشورو',
         'ٹنڈو محمد خان',
         'ٹنڈو الہیار',
