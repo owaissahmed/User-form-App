@@ -22,13 +22,15 @@ import {responsiveFontSize} from 'react-native-responsive-dimensions';
 import firestore from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
+import {Picker} from '@react-native-picker/picker';
 
 const KashmirInfiradi = () => {
-  const [khi1chutti, setkhi1chutti] = useState('');
+  const [khi1chutti, setKhi1chutti] = useState([]);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [selectedValue, setSelectedValue] = useState('Select Value');
 
   useEffect(() => {
-    let ChuttiNameData = [];
-    const chutti = firestore()
+    const unsubscribe = firestore()
       .collection('users')
       .where('Group', '==', 'Shan')
       .where('Status', '==', 'انفرادی جدول')
@@ -40,40 +42,98 @@ const KashmirInfiradi = () => {
             ...documentSnapshot.data(),
           });
         });
-        for (let i = 0; i < chuttiData.length; i++) {
-          const name = [chuttiData[i].Name, chuttiData[i].MobileNo];
-          ChuttiNameData.push(name);
-          var NewData = ChuttiNameData.map(([name, phone]) => ({name, phone}));
-          setkhi1chutti(NewData);
-        }
+        setKhi1chutti(chuttiData);
       });
+
+    return () => unsubscribe();
   }, []);
+
+  const handleSelectUser = user => {
+    setSelectedUser(user);
+  };
+
+  const handleValueChange = value => {
+    setSelectedValue(value);
+  };
+
+  const handleUpdateName = async () => {
+    if (!selectedUser || selectedValue === 'Select Value') {
+      Alert.alert('Please select a value from the dropdown');
+      return;
+    }
+
+    const {id} = selectedUser;
+    try {
+      await firestore()
+        .collection('users')
+        .doc(id)
+        .update({Status: selectedValue});
+      setSelectedUser(null);
+      setSelectedValue('Select Value');
+    } catch (error) {
+      console.log('Error updating name:', error);
+    }
+  };
+
   return (
     <View style={styles.main}>
-      {khi1chutti != '' ? (
-        <View style={styles.FlatListVIew}>
-          <FlatList
-            data={khi1chutti}
-            renderItem={({item}) => (
-              <View style={styles.DataView}>
-                <Text allowFontScaling={false} style={styles.Name}>
-                  Name : {item.name}
-                </Text>
-                <Text allowFontScaling={false} style={styles.Phone}>
-                  Phone : {item.phone}
-                </Text>
-              </View>
-            )}
-          />
+      {selectedUser && (
+        <View
+          style={{
+            backgroundColor: '#E1E0E4',
+            width: responsiveWidth(70),
+            borderRadius: 10,
+            marginBottom: responsiveHeight(1),
+          }}>
+          <Picker
+            selectedValue={selectedValue}
+            onValueChange={handleValueChange}>
+            <Picker.Item label="Select Value" value="Select Value" />
+            <Picker.Item label="چھٹی" value="چھٹی" />
+            <Picker.Item label="دار السنہ" value="دار السنہ" />
+            <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
+          </Picker>
+          <TouchableOpacity style={styles.Update} onPress={handleUpdateName}>
+            <Text allowFontScaling={false} style={styles.Phone}>
+              Update
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
+      {khi1chutti.length > 0 ? (
+        <View>
+          <View style={styles.FlatListVIew}>
+            <FlatList
+              data={khi1chutti}
+              renderItem={({item}) => (
+                <TouchableOpacity
+                  style={styles.DataView}
+                  onPress={() => handleSelectUser(item)}>
+                  <View style={styles.DataView}>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                      Name: {item.Name}
+                    </Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                      Phone: {item.MobileNo}
+                    </Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                      Status: {item.Status}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              )}
+              keyExtractor={item => item.id}
+            />
+          </View>
         </View>
       ) : (
-        <Text style={styles.NoData}>No Data!!</Text>
+        <Text allowFontScaling={false} style={styles.NoData}>
+          No Data!!
+        </Text>
       )}
     </View>
   );
 };
-
-export default KashmirInfiradi;
 
 const styles = StyleSheet.create({
   main: {
@@ -82,6 +142,7 @@ const styles = StyleSheet.create({
     height: deviceheight,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: responsiveHeight(10),
   },
   FlatListVIew: {
     width: responsiveWidth(90),
@@ -89,12 +150,25 @@ const styles = StyleSheet.create({
   DataView: {
     backgroundColor: '#135229',
     borderRadius: 10,
-    paddingVertical: responsiveHeight(1),
+    paddingVertical: responsiveHeight(0.5),
     marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+  },
+  Update: {
+    backgroundColor: '#135229',
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+    marginBottom: responsiveHeight(-0.5),
   },
   Name: {
     color: 'white',
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(2.25),
     textAlign: 'center',
   },
   Phone: {
@@ -107,3 +181,5 @@ const styles = StyleSheet.create({
     color: 'red',
   },
 });
+
+export default KashmirInfiradi;

@@ -76,20 +76,20 @@ const KarachiThreeChutti = () => {
       {selectedUser && (
         <View
           style={{
-            // marginTop: responsiveHeight(15),
-            backgroundColor: 'silver',
+            backgroundColor:'#E1E0E4',
             width: responsiveWidth(70),
-            marginBottom: responsiveHeight(0.5),
+            borderRadius: 10,
+            marginBottom: responsiveHeight(1),
           }}>
           <Picker
             selectedValue={selectedValue}
             onValueChange={handleValueChange}>
             <Picker.Item label="Select Value" value="Select Value" />
             <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
-            <Picker.Item label="Value 2" value="Value 2" />
-            <Picker.Item label="Value 3" value="Value 3" />
+            <Picker.Item label="دار السنہ" value="دار السنہ" />
+            <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
           </Picker>
-          <TouchableOpacity style={styles.DataView} onPress={handleUpdateName}>
+          <TouchableOpacity style={styles.Update} onPress={handleUpdateName}>
             <Text allowFontScaling={false} style={styles.Phone}>
               Update
             </Text>
@@ -152,6 +152,16 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: responsiveFontSize(2.25),
+  },
+  Update: {
+    backgroundColor: '#135229',
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+    marginBottom:responsiveHeight(-0.5),
   },
   Name: {
     color: 'white',
