@@ -85,7 +85,13 @@ const AllAdminChutti = () => {
 // };
 return (
     <View style={styles.main}>
-      
+    <View style={styles.submain}>
+  </View>
+  <View style={styles.rectangle}>
+    <Text allowFontScaling={false} style={styles.rectangletext}>
+    چھٹی
+    </Text>
+  </View>
       <View style={styles.squarediv}>
         <TouchableOpacity >
           <View style={styles.square}>
@@ -103,7 +109,7 @@ return (
         </TouchableOpacity>
         <TouchableOpacity >
           <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.square3text}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
               Babar Shah
             </Text>
           </View>
@@ -125,14 +131,21 @@ return (
         <TouchableOpacity >
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Nabeel
+              Munir Madani
             </Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity >
           <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.square3text}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
               Naeem ul Hasan
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity >
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+             Usman
             </Text>
           </View>
         </TouchableOpacity>
@@ -140,13 +153,6 @@ return (
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
             Fida Hussain
-            </Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity >
-          <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.square3text}>
-             Usman
             </Text>
           </View>
         </TouchableOpacity>
@@ -160,7 +166,7 @@ return (
         <TouchableOpacity>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Munir Madani 
+             Nabeel
             </Text>
           </View>
         </TouchableOpacity>
@@ -200,7 +206,7 @@ const styles = StyleSheet.create({
     rectangle: {
       borderColor: '#135229',
       borderWidth: 1.5,
-      height: responsiveHeight(20),
+      height: responsiveHeight(10),
       width: responsiveWidth(90),
       justifyContent: 'center',
       alignItems: 'center',
@@ -211,35 +217,22 @@ const styles = StyleSheet.create({
       color: '#135229',
     },
     squaretext: {
-      fontSize: responsiveScreenFontSize(4),
+      fontSize: responsiveScreenFontSize(2.5),
       color: '#135229',
-    },
-    square3text: {
-      fontSize: responsiveScreenFontSize(3),
-      color: '#135229',
+      textAlign:'center',
+      paddingHorizontal:responsiveWidth(1),
+    //   paddingVertical:res
     },
     square: {
       marginTop: responsiveHeight(3),
       borderColor: '#135229',
       borderWidth: 1.5,
-      height: responsiveHeight(15),
-      width: responsiveWidth(30),
+      height: responsiveHeight(11),
+      width: responsiveWidth(22),
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 12,
       marginHorizontal: responsiveWidth(3),
     },
   });
-//   <View style={styles.submain}>
-//         <Text allowFontScaling={false} style={styles.heading}>
-//           Nabeel
-//         </Text>
-//       </View>
-//       <View style={styles.rectangle}>
-//         <Text allowFontScaling={false} style={styles.rectangletext}>
-//           ٹوٹل تعداد
-//         </Text>
-//         <Text allowFontScaling={false} style={styles.rectangletext}>
-//          1
-//         </Text>
-//       </View>
+  
