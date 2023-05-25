@@ -10,7 +10,7 @@ import { firebase } from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 
-const MainAdmin = () => {
+const MainAdmin = ({navigation}) => {
     const [khi1qafila, setkhi1qafila] = useState('')
     const [khi1chutti, setkhi1chutti] = useState('')
     const [khi1darussunnah, setkhi1darussunnah] = useState('')
@@ -57,7 +57,7 @@ const MainAdmin = () => {
             });
         const infiradi = firestore()
             .collection('users')
-            .where('Status', '==', "دار السنہ")
+            .where('Status', '==', "انفرادی جدول")
             .onSnapshot(querySnapshot => {
                 const infiradiData = [];
                 querySnapshot.forEach(documentSnapshot => {
@@ -72,6 +72,10 @@ const MainAdmin = () => {
 
     var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
 
+    function gotoChutti() {
+        navigation.navigate('AllAdminChutti');
+      }
+
     return (
         <View style={styles.main}>
             <View style={styles.rectangle}>
@@ -79,9 +83,12 @@ const MainAdmin = () => {
                 <Text allowFontScaling={false} style={styles.rectangletext}>{total}</Text>
             </View>
             <View style={styles.squarediv}>
+            <TouchableOpacity onPress={gotoChutti}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>چھٹی</Text>
-                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1chutti}</Text></View>
+                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1chutti}</Text>
+                </View>
+            </TouchableOpacity>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>مدنی قافلہ</Text>
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1qafila}</Text>
