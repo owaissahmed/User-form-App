@@ -75,6 +75,9 @@ const MainAdmin = ({navigation}) => {
     function gotoChutti() {
         navigation.navigate('AllAdminChutti');
       }
+    function gotoQafila() {
+        navigation.navigate('AllAdminQafila');
+      }
 
     return (
         <View style={styles.main}>
@@ -89,18 +92,24 @@ const MainAdmin = ({navigation}) => {
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1chutti}</Text>
                 </View>
             </TouchableOpacity>
+                <TouchableOpacity onPress={gotoQafila}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>مدنی قافلہ</Text>
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1qafila}</Text>
                 </View>
+            </TouchableOpacity>
+                <TouchableOpacity onPress={gotoChutti}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.square3text}>انفرادی جدول</Text>
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1Infiradi}</Text>
                 </View>
+            </TouchableOpacity>
+                <TouchableOpacity onPress={gotoChutti}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>دار السنہ</Text>
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
                 </View>
+            </TouchableOpacity>
             </View>
         </View>
     )

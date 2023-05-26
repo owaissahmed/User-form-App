@@ -69,21 +69,30 @@ const Login = ({navigation}) => {
   const check = ({navigation}) => {
     if (email.toLocaleLowerCase().trim() == 'admin' && password == 12345678) {
       gotoAdmin();
-    } else if (email.toLocaleLowerCase().trim() == 'nabeel' && password == 12345678) {
+    } else if (
+      email.toLocaleLowerCase().trim() == 'nabeel' &&
+      password == 12345678
+    ) {
       gotokarachiOne();
     } else if (
       email.toLocaleLowerCase().trim() == 'naeem ul hasan' &&
       password == 12345678
     ) {
       gotokarachiTwo();
-    } else if (email.toLocaleLowerCase().trim() == 'usman' && password == 12345678) {
+    } else if (
+      email.toLocaleLowerCase().trim() == 'usman' &&
+      password == 12345678
+    ) {
       gotokarachithree();
     } else if (
       email.toLocaleLowerCase().trim() == 'abdul rehman' &&
       password == 12345678
     ) {
       gotoSindhOne();
-    } else if (email.toLocaleLowerCase().trim() == 'aqib' && password == 12345678) {
+    } else if (
+      email.toLocaleLowerCase().trim() == 'aqib' &&
+      password == 12345678
+    ) {
       gotoSindhTwo();
     } else if (
       email.toLocaleLowerCase().trim() == 'munir madani' &&
@@ -95,7 +104,10 @@ const Login = ({navigation}) => {
       password == 12345678
     ) {
       gotopunjabTwo();
-    } else if (email.toLocaleLowerCase().trim() == 'shan' && password == 12345678) {
+    } else if (
+      email.toLocaleLowerCase().trim() == 'shan' &&
+      password == 12345678
+    ) {
       gotoKashmir();
     } else if (
       email.toLocaleLowerCase().trim() == 'babar shah' &&
