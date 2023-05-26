@@ -14,88 +14,88 @@ import {
   import {responsiveFontSize} from 'react-native-responsive-dimensions';
   const devicewidth = Dimensions.get('window').width;
   const deviceheight = Dimensions.get('window').height;
-  const AllAdminQafila = ({navigation}) => {
+  const AllAdminInfiradi = ({navigation}) => {
     return (
       <View style={styles.main}>
         <View style={styles.submain}>
           <View style={styles.rectangle}>
             <Text allowFontScaling={false} style={styles.rectangletext}>
-            مدنی قافلہ
+            انفرادی جدول
             </Text>
           </View>
         </View>
         <View style={styles.squarediv}>
-          <TouchableOpacity onPress={()=>navigation.navigate('punjabTwoQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('punjabTwoInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Abdul Rauf
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('sindhOneQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('sindhOneInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Abdul Rehman
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('KpkQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('KpkInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Babar Shah
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('SahilQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('SahilInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Sahil Shah
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('KashmirQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('KashmirInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Shan
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('punjabOneQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('punjabOneInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Munir Madani
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('karachiTwoQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('karachiTwoInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Naeem ul Hasan
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('karachiThreeQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('karachiThreeInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Usman
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=> navigation.navigate('BalochistanQafila')}>
+          <TouchableOpacity onPress={()=> navigation.navigate('BalochistanInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Fida Hussain
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('sindhTwoQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('sindhTwoInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Aqib
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigation.navigate('karachiOneQafila')}>
+          <TouchableOpacity onPress={()=>navigation.navigate('karachiOneInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Nabeel
@@ -106,7 +106,7 @@ import {
       </View>
     );
   };
-  export default AllAdminQafila;
+  export default AllAdminInfiradi;
   
   const styles = StyleSheet.create({
     main: {

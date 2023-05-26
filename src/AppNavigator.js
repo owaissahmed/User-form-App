@@ -61,6 +61,8 @@ import SahilQafila from './screens/SahilQafila';
 import SahilSunnah from './screens/SahilSunnah';
 import AllAdminChutti from './screens/AllAdminChutti';
 import AllAdminQafila from './screens/AllAdminQafila';
+import AllAdminInfiradi from './screens/AllAdminInfiradi';
+import AllAdminSunnah from './screens/AllAdminSunnah';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -377,6 +379,16 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="AllAdminQafila"
                     component={AllAdminQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AllAdminInfiradi"
+                    component={AllAdminInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AllAdminSunnah"
+                    component={AllAdminSunnah}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
