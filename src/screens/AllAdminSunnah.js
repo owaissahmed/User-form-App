@@ -32,7 +32,7 @@ const deviceheight = Dimensions.get('window').height;
       const Fida = firestore()
         .collection('users')
         .where('Group', '==', 'Fida Hussain')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -46,7 +46,7 @@ const deviceheight = Dimensions.get('window').height;
       const Rauf = firestore()
         .collection('users')
         .where('Group', '==', 'Abdul Rauf')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -60,7 +60,7 @@ const deviceheight = Dimensions.get('window').height;
       const Rehman = firestore()
         .collection('users')
         .where('Group', '==', 'Abdul Rehman')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -74,7 +74,7 @@ const deviceheight = Dimensions.get('window').height;
       const Babar = firestore()
         .collection('users')
         .where('Group', '==', 'Babar Shah')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -88,7 +88,7 @@ const deviceheight = Dimensions.get('window').height;
       const Sahil = firestore()
         .collection('users')
         .where('Group', '==', 'Sahil Shah')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -102,7 +102,7 @@ const deviceheight = Dimensions.get('window').height;
       const Shan = firestore()
         .collection('users')
         .where('Group', '==', 'Shan')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -116,7 +116,7 @@ const deviceheight = Dimensions.get('window').height;
       const Munir = firestore()
         .collection('users')
         .where('Group', '==', 'Munir Madani')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -130,7 +130,7 @@ const deviceheight = Dimensions.get('window').height;
       const Naeem = firestore()
         .collection('users')
         .where('Group', '==', 'Naeem ul Hasan')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -144,7 +144,7 @@ const deviceheight = Dimensions.get('window').height;
       const Usman = firestore()
         .collection('users')
         .where('Group', '==', 'Usman')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -158,7 +158,7 @@ const deviceheight = Dimensions.get('window').height;
       const Aqib = firestore()
         .collection('users')
         .where('Group', '==', 'Aqib')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -172,7 +172,7 @@ const deviceheight = Dimensions.get('window').height;
       const Nabeel = firestore()
         .collection('users')
         .where('Group', '==', 'Nabeel')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -200,6 +200,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Abdul Rauf
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Raufqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('sindhOneSunnah')}>
@@ -207,6 +210,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Abdul Rehman
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Rehmanqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('KpkSunnah')}>
@@ -214,6 +220,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Babar Shah
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Babarqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('SahilSunnah')}>
@@ -221,6 +230,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Sahil Shah
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Sahilqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('KashmirSunnah')}>
@@ -228,6 +240,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Shan
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Shanqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('punjabOneSunnah')}>
@@ -235,13 +250,19 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Munir Madani
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Munirqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('karachiTwoSunnah')}>
             <View style={styles.square}>
-              <Text allowFontScaling={false} style={styles.squaretext}>
+              <Text allowFontScaling={false} style={styles.squaretext_}>
                 Naeem ul Hasan
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Naeemqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('karachiThreeSunnah')}>
@@ -249,6 +270,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Usman
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Usmanqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=> navigation.navigate('BalochistanSunnah')}>
@@ -256,6 +280,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Fida Hussain
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Fidaqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('sindhTwoSunnah')}>
@@ -263,6 +290,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Aqib
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Aqibqafila}
+          </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('karachiOneSunnah')}>
@@ -270,6 +300,9 @@ const deviceheight = Dimensions.get('window').height;
               <Text allowFontScaling={false} style={styles.squaretext}>
                 Nabeel
               </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+            {Nabeelqafila}
+          </Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -319,6 +352,12 @@ const deviceheight = Dimensions.get('window').height;
     },
     squaretext: {
       fontSize: responsiveScreenFontSize(2.5),
+      color: '#135229',
+      textAlign: 'center',
+      paddingHorizontal: responsiveWidth(1),
+    },
+    squaretext_: {
+      fontSize: responsiveScreenFontSize(2.15),
       color: '#135229',
       textAlign: 'center',
       paddingHorizontal: responsiveWidth(1),
