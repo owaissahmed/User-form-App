@@ -750,6 +750,7 @@ const Signup = ({navigation}) => {
             Status: status,
             Manager: manager,
             Group: group,
+            statusReason:'',
           });
         Alert.alert('🎉 CONGTRATS', 'YOUR FORM HAS BEEN SUBMITTED');
         navigation.navigate('Splash');
