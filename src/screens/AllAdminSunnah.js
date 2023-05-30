@@ -1,20 +1,190 @@
 import {
-    View,
-    Text,
-    Dimensions,
-    StyleSheet,
-    TouchableOpacity,
-  } from 'react-native';
-  import React from 'react';
-  import {
-    responsiveScreenFontSize,
-    responsiveWidth,
-  } from 'react-native-responsive-dimensions';
-  import {responsiveHeight} from 'react-native-responsive-dimensions';
-  import {responsiveFontSize} from 'react-native-responsive-dimensions';
-  const devicewidth = Dimensions.get('window').width;
-  const deviceheight = Dimensions.get('window').height;
+  View,
+  Text,
+  Dimensions,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {
+  responsiveScreenFontSize,
+  responsiveWidth,
+} from 'react-native-responsive-dimensions';
+import {responsiveHeight} from 'react-native-responsive-dimensions';
+import {responsiveFontSize} from 'react-native-responsive-dimensions';
+import firestore from '@react-native-firebase/firestore';
+const devicewidth = Dimensions.get('window').width;
+const deviceheight = Dimensions.get('window').height;
+
   const AllAdminSunnah = ({navigation}) => {
+    const [Fidaqafila, setFidaqafila] = useState('');
+    const [Raufqafila, setRaufqafila] = useState('');
+    const [Aqibqafila, setAqibqafila] = useState('');
+    const [Rehmanqafila, setRehmanqafila] = useState('');
+    const [Babarqafila, setBabarqafila] = useState('');
+    const [Sahilqafila, setSahilqafila] = useState('');
+    const [Usmanqafila, setUsmanqafila] = useState('');
+    const [Munirqafila, setMunirqafila] = useState('');
+    const [Naeemqafila, setNaeemqafila] = useState('');
+    const [Nabeelqafila, setNabeelqafila] = useState('');
+    const [Shanqafila, setShanqafila] = useState('');
+    useEffect(() => {
+      const Fida = firestore()
+        .collection('users')
+        .where('Group', '==', 'Fida Hussain')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setFidaqafila(qafilaData.length);
+        });
+      const Rauf = firestore()
+        .collection('users')
+        .where('Group', '==', 'Abdul Rauf')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setRaufqafila(qafilaData.length);
+        });
+      const Rehman = firestore()
+        .collection('users')
+        .where('Group', '==', 'Abdul Rehman')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setRehmanqafila(qafilaData.length);
+        });
+      const Babar = firestore()
+        .collection('users')
+        .where('Group', '==', 'Babar Shah')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setBabarqafila(qafilaData.length);
+        });
+      const Sahil = firestore()
+        .collection('users')
+        .where('Group', '==', 'Sahil Shah')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setSahilqafila(qafilaData.length);
+        });
+      const Shan = firestore()
+        .collection('users')
+        .where('Group', '==', 'Shan')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setShanqafila(qafilaData.length);
+        });
+      const Munir = firestore()
+        .collection('users')
+        .where('Group', '==', 'Munir Madani')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setMunirqafila(qafilaData.length);
+        });
+      const Naeem = firestore()
+        .collection('users')
+        .where('Group', '==', 'Naeem ul Hasan')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setNaeemqafila(qafilaData.length);
+        });
+      const Usman = firestore()
+        .collection('users')
+        .where('Group', '==', 'Usman')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setUsmanqafila(qafilaData.length);
+        });
+      const Aqib = firestore()
+        .collection('users')
+        .where('Group', '==', 'Aqib')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setAqibqafila(qafilaData.length);
+        });
+      const Nabeel = firestore()
+        .collection('users')
+        .where('Group', '==', 'Nabeel')
+        .where('Status', '==', 'انفرادی جدول')
+        .onSnapshot(querySnapshot => {
+          const qafilaData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            qafilaData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setNabeelqafila(qafilaData.length);
+        });
+    }, []);
+    
     return (
       <View style={styles.main}>
         <View style={styles.submain}>
