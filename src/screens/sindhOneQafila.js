@@ -95,6 +95,15 @@ const SindhOneQafila = () => {
                     <Text allowFontScaling={false} style={styles.Name}>Name: {item.Name}</Text>
                     <Text allowFontScaling={false} style={styles.Name}>Phone: {item.MobileNo}</Text>
                     <Text allowFontScaling={false} style={styles.Name}>Status: {item.Status}</Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                    Father Name: {item.Fathername}
+                    </Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                    Jamia: {item.Jamia}
+                    </Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                    City: {item.City}
+                    </Text>
                     </View>
                   </TouchableOpacity>
                 )}

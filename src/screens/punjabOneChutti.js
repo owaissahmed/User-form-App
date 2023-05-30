@@ -103,6 +103,15 @@ const PunjabOneChutti = () => {
                       <Text allowFontScaling={false} style={styles.Name}>
                         Status: {item.Status}
                       </Text>
+                      <Text allowFontScaling={false} style={styles.Name}>
+                    Father Name: {item.Fathername}
+                    </Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                    Jamia: {item.Jamia}
+                    </Text>
+                    <Text allowFontScaling={false} style={styles.Name}>
+                    City: {item.City}
+                    </Text>
                     </View>
                   </TouchableOpacity>
                 )}
