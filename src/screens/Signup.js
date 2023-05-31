@@ -11,6 +11,7 @@ import {
   ActivityIndicator,
   Modal,
 } from 'react-native';
+
 import DatePicker from 'react-native-date-picker';
 import React, {useEffect, useState} from 'react';
 import {responsiveWidth} from 'react-native-responsive-dimensions';
@@ -22,6 +23,7 @@ import NetInfo from '@react-native-community/netinfo';
 import storage from '@react-native-firebase/storage';
 import {Picker} from '@react-native-picker/picker';
 import firestore from '@react-native-firebase/firestore';
+import firebase from '@react-native-firebase/app';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 import * as Animatable from 'react-native-animatable';
@@ -751,6 +753,7 @@ const Signup = ({navigation}) => {
             Manager: manager,
             Group: group,
             statusReason:'',
+            CreatedAt: firebase.firestore.FieldValue.serverTimestamp(),
           });
         Alert.alert('🎉 CONGTRATS', 'YOUR FORM HAS BEEN SUBMITTED');
         navigation.navigate('Splash');
