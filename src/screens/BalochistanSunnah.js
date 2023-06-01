@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     FlatList,
     Alert,
+    TextInput
   } from 'react-native';
   import {Picker} from '@react-native-picker/picker';
   import React, {useEffect, useState} from 'react';
@@ -23,7 +24,11 @@ import {
     const [khi1chutti, setKhi1chutti] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [selectedValue, setSelectedValue] = useState('Select Value');
-  
+    const [name, setname] = useState('');
+
+    const NameChange = newname => {
+      setname(newname);
+    };
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
@@ -52,8 +57,8 @@ import {
     };
   
     const handleUpdateName = async () => {
-      if (!selectedUser || selectedValue === 'Select Value') {
-        Alert.alert('Please select a value from the dropdown');
+      if (!selectedUser || selectedValue === 'Select Value'|| name.trim() === '')  {
+        Alert.alert('Please select a value or Fill the Input');
         return;
       }
   
@@ -62,7 +67,7 @@ import {
         await firestore()
           .collection('users')
           .doc(id)
-          .update({Status: selectedValue});
+          .update({Status: selectedValue,  statusReason: name,});
         setSelectedUser(null);
         setSelectedValue('Select Value');
       } catch (error) {
@@ -88,6 +93,12 @@ import {
               <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
               <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
             </Picker>
+            <TextInput
+            allowFontScaling={false}
+            style={styles.password}
+            value={name}
+            onChangeText={NameChange}
+          />
             <TouchableOpacity style={styles.Update} onPress={handleUpdateName}>
               <Text allowFontScaling={false} style={styles.Phone}>
                 Update
@@ -174,6 +185,18 @@ import {
     NoData: {
       fontSize: responsiveFontSize(3),
       color: 'red',
+    },
+    password: {
+      borderRadius: 10,
+      paddingVertical: responsiveHeight(0.5),
+      color: 'white',
+      textAlign: 'center',
+      fontSize: responsiveFontSize(2.25),
+      borderWidth: 1.5,
+      borderLeftWidth: 8,
+      borderColor: '#135229',
+      color: 'black',
+      height: responsiveHeight(5),
     },
 });
 

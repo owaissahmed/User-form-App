@@ -62,8 +62,8 @@ const KpkSunnah = () => {
     };
   
     const handleUpdateName = async () => {
-      if (!selectedUser || selectedValue === 'Select Value') {
-        Alert.alert('Please select a value from the dropdown');
+      if (!selectedUser || selectedValue === 'Select Value'|| name.trim() === '')  {
+        Alert.alert('Please select a value or Fill the Input');
         return;
       }
   
