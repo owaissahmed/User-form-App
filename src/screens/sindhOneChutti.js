@@ -138,62 +138,62 @@ const SindhOneChutti = () => {
     );
   };
   
-  
   const styles = StyleSheet.create({
     main: {
-        backgroundColor: 'white',
-      width: devicewidth,
-      height: deviceheight,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    FlatListVIew: {
+    backgroundColor: 'white',
+    width: devicewidth,
+    height: deviceheight,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical:responsiveHeight(10)
+  },
+  FlatListVIew: {
       width: responsiveWidth(90),
-    },
-    DataView: {
-      backgroundColor: '#135229',
-      borderRadius: 10,
-      paddingVertical: responsiveHeight(0.5),
-      marginVertical: responsiveHeight(0.5),
-      color: 'white',
-      textAlign: 'center',
-      fontSize: responsiveFontSize(2.25),
-    },
-    Update: {
-      backgroundColor: '#135229',
-      borderRadius: 10,
-      paddingVertical: responsiveHeight(0.5),
-      marginVertical: responsiveHeight(0.5),
-      color: 'white',
-      textAlign: 'center',
-      fontSize: responsiveFontSize(2.25),
-      marginBottom:responsiveHeight(-0.5),
-    },
-    Name: {
-        color: 'white',
-        fontSize: responsiveFontSize(2.25),
-      textAlign: 'center',
-    },
-    Phone: {
+  },
+  DataView: {
+    backgroundColor: '#135229',
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+  },
+  Update: {
+    backgroundColor: '#135229',
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+    marginBottom:responsiveHeight(-0.5),
+  },
+  Name: {
       color: 'white',
       fontSize: responsiveFontSize(2.25),
       textAlign: 'center',
-    },
-    NoData: {
+  },
+  Phone: {
+      color: 'white',
+      fontSize: responsiveFontSize(2.25),
+      textAlign: 'center',
+  },
+  NoData: {
       fontSize: responsiveFontSize(3),
       color: 'red',
-    },
-    password: {
-      borderRadius: 10,
-      paddingVertical: responsiveHeight(0.5),
-      color: 'white',
-      textAlign: 'center',
-      fontSize: responsiveFontSize(2.25),
-      borderWidth: 1.5,
-      borderLeftWidth: 8,
-      borderColor: '#135229',
-      color: 'black',
-      height: responsiveHeight(5),
-    },
+  },
+  password: {
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+    borderWidth: 1.5,
+    borderLeftWidth: 8,
+    borderColor: '#135229',
+    color: 'black',
+    height: responsiveHeight(5),
+  },
 });
 export default SindhOneChutti
