@@ -63,6 +63,11 @@ import AllAdminChutti from './screens/AllAdminChutti';
 import AllAdminQafila from './screens/AllAdminQafila';
 import AllAdminInfiradi from './screens/AllAdminInfiradi';
 import AllAdminSunnah from './screens/AllAdminSunnah';
+import AbdulWakeel from './screens/AbdulWakeel';
+import AbdulWakeelChutti from './screens/AbdulWakeelChutti';
+import AbdulWakeelInfiradi from './screens/AbdulWakeelInfiradi';
+import AbdulWakeelQafila from './screens/AbdulWakeelQafila';
+import AbdulWakeelSunnah from './screens/AbdulWakeelSunnah';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -389,6 +394,31 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="AllAdminSunnah"
                     component={AllAdminSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeel"
+                    component={AbdulWakeel}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelSunnah"
+                    component={AbdulWakeelSunnah}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelQafila"
+                    component={AbdulWakeelQafila}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelInfiradi"
+                    component={AbdulWakeelInfiradi}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelChutti"
+                    component={AbdulWakeelChutti}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

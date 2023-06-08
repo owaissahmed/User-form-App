@@ -14,10 +14,7 @@ import {responsiveWidth} from 'react-native-responsive-dimensions';
 import {responsiveHeight} from 'react-native-responsive-dimensions';
 import {responsiveFontSize} from 'react-native-responsive-dimensions';
 import * as Animatable from 'react-native-animatable';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import storage from '@react-native-firebase/storage';
-import firestore from '@react-native-firebase/firestore';
-import {firebase} from '@react-native-firebase/firestore';
+
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 // import { Auth } from '@firebase/auth';
@@ -56,6 +53,9 @@ const Login = ({navigation}) => {
   }
   function gotoSahil() {
     navigation.replace('Sahil');
+  }
+  function gotoAbdulWakeel() {
+    navigation.replace('AbdulWakeel');
   }
   function gotoAdmin() {
     navigation.replace('MainAdmin');
@@ -124,6 +124,12 @@ const Login = ({navigation}) => {
       password == 12345678
     ) {
       gotoSahil();
+    } 
+    else if (
+      email.toLocaleLowerCase().trim() == 'abdul wakeel' &&
+      password == 12345678
+    ) {
+      gotoAbdulWakeel();
     } else Alert.alert('⚠️ WARNING', 'Wrong User/Password');
   };
 

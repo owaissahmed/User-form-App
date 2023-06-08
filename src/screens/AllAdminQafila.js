@@ -28,6 +28,7 @@ const AllAdminQafila = ({navigation}) => {
   const [Naeemqafila, setNaeemqafila] = useState('');
   const [Nabeelqafila, setNabeelqafila] = useState('');
   const [Shanqafila, setShanqafila] = useState('');
+  const [Wakeelqafila, setWakeelqafila] = useState('');
   useEffect(() => {
     const Fida = firestore()
       .collection('users')
@@ -183,6 +184,20 @@ const AllAdminQafila = ({navigation}) => {
         });
         setNabeelqafila(qafilaData.length);
       });
+    const Wakeel = firestore()
+      .collection('users')
+      .where('Group', '==', 'Abdul Wakeel')
+      .where('Status', '==', 'مدنی قافلہ')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setWakeelqafila(qafilaData.length);
+      });
   }, []);
   return (
     <View style={styles.main}>
@@ -296,6 +311,16 @@ const AllAdminQafila = ({navigation}) => {
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
               {Aqibqafila}
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('AbdulWakeelQafila')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            Abdul Wakeel
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+              {Wakeelqafila}
             </Text>
           </View>
         </TouchableOpacity>
