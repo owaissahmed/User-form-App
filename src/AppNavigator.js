@@ -76,6 +76,10 @@ import AllAdminChodgae from './screens/AllAdminChodgae';
 import AllAdminCourse from './screens/AllAdminCourse';
 import AllAdminMukammal from './screens/AllAdminMukammal';
 import AllAdminMoqoof from './screens/AllAdminMoqoof';
+import BalochistanChodgae from './screens/BalochistanChodgae';
+import BalochistanCourse from './screens/BalochistanCourse';
+import BalochistanMoqoof from './screens/BalochistanMoqoof';
+import BalochistanMukammal from './screens/BalochistanMukammal';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -468,6 +472,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="AllAdminMukammal"
                     component={AllAdminMukammal}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanChodgae"
+                    component={BalochistanChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanCourse"
+                    component={BalochistanCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanMoqoof"
+                    component={BalochistanMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="BalochistanMukammal"
+                    component={BalochistanMukammal}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
