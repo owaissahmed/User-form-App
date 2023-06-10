@@ -104,6 +104,7 @@ import {
               onValueChange={handleValueChange}>
               <Picker.Item label="Select Value" value="Select Value" />
               <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
+              <Picker.Item label="چھٹی" value="چھٹی" />
               <Picker.Item label="دار السنہ" value="دار السنہ" />
               <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
               <Picker.Item label="چھوڑ گئے" value="چھوڑ گئے" />

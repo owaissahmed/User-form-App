@@ -80,6 +80,10 @@ import BalochistanChodgae from './screens/BalochistanChodgae';
 import BalochistanCourse from './screens/BalochistanCourse';
 import BalochistanMoqoof from './screens/BalochistanMoqoof';
 import BalochistanMukammal from './screens/BalochistanMukammal';
+import KarachiOneChodgae from './screens/karachiOneChodgae';
+import KarachiOneMukammal from './screens/karachiOneMukammal';
+import KarachiOneMoqoof from './screens/karachiOneMoqoof';
+import KarachiOneCourse from './screens/karachiOneCourse';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -492,6 +496,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="BalochistanMukammal"
                     component={BalochistanMukammal}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneChodgae"
+                    component={KarachiOneChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneCourse"
+                    component={KarachiOneCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneMoqoof"
+                    component={KarachiOneMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="karachiOneMukammal"
+                    component={KarachiOneMukammal}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
