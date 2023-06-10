@@ -1,17 +1,3 @@
-// import { StyleSheet, Text, View } from 'react-native'
-// import React from 'react'
-
-// const AbdulWakeelMoqoof = () => {
-//   return (
-//     <View>
-//       <Text>AbdulWakeelMoqoof</Text>
-//     </View>
-//   )
-// }
-
-// export default AbdulWakeelMoqoof
-
-// const styles = StyleSheet.create({})
 import {
     View,
     Text,
