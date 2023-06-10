@@ -100,6 +100,10 @@ import KpkChodgae from './screens/KpkChodgae';
 import KpkCourse from './screens/KpkCourse';
 import KpkMoqoof from './screens/KpkMoqoof';
 import KpkMukammal from './screens/KpkMukammal';
+import SahilChodgae from './screens/SahilChodgae';
+import SahilCourse from './screens/SahilCourse';
+import SahilMoqoof from './screens/SahilMoqoof';
+import SahilMukammal from './screens/SahilMukammal';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -612,6 +616,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="KpkMukammal"
                     component={KpkMukammal}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilChodgae"
+                    component={SahilChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilCourse"
+                    component={SahilCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilMoqoof"
+                    component={SahilMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SahilMukammal"
+                    component={SahilMukammal}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
