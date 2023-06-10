@@ -4,11 +4,10 @@ import {
     Dimensions,
     StyleSheet,
     TouchableOpacity,
+    TextInput,
     FlatList,
     Alert,
-    TextInput
   } from 'react-native';
-  import {Picker} from '@react-native-picker/picker';
   import React, {useEffect, useState} from 'react';
   import {
     responsiveScreenFontSize,
@@ -19,8 +18,9 @@ import {
   import firestore from '@react-native-firebase/firestore';
   const devicewidth = Dimensions.get('window').width;
   const deviceheight = Dimensions.get('window').height;
+  import {Picker} from '@react-native-picker/picker';
   
-  const KarachiThreeInfiradi = () => {
+  const KarachiThreeChodgae = () => {
     const [khi1chutti, setKhi1chutti] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [selectedValue, setSelectedValue] = useState('Select Value');
@@ -33,7 +33,7 @@ import {
       const unsubscribe = firestore()
         .collection('users')
         .where('Group', '==', 'Usman')
-        .where('Status', '==', 'انفرادی جدول')
+        .where('Status', '==', 'چھوڑ گئے')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -67,7 +67,7 @@ import {
         await firestore()
           .collection('users')
           .doc(id)
-          .update({Status: selectedValue,  statusReason: name,});
+          .update({Status: selectedValue , statusReason: name,});
         setSelectedUser(null);
         setSelectedValue('Select Value');
       } catch (error) {
@@ -89,11 +89,11 @@ import {
               selectedValue={selectedValue}
               onValueChange={handleValueChange}>
               <Picker.Item label="Select Value" value="Select Value" />
+              <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
               <Picker.Item label="چھٹی" value="چھٹی" />
               <Picker.Item label="دار السنہ" value="دار السنہ" />
-              <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
+              <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
               <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
-              <Picker.Item label="چھوڑ گئے" value="چھوڑ گئے" />
               <Picker.Item label="موقوف" value="موقوف" />
               <Picker.Item label="مکمل" value="مکمل" />
             </Picker>
@@ -112,16 +112,24 @@ import {
         )}
         {khi1chutti.length > 0 ? (
           <View>
-             <View style={styles.FlatListVIew}>
+            <View style={styles.FlatListVIew}>
               <FlatList
                 data={khi1chutti}
                 renderItem={({item}) => (
-                  <TouchableOpacity style={styles.DataView} onPress={() => handleSelectUser(item)}>
+                  <TouchableOpacity
+                    style={styles.DataView}
+                    onPress={() => handleSelectUser(item)}>
                     <View style={styles.DataView}>
-                    <Text allowFontScaling={false} style={styles.Name}>Name: {item.Name}</Text>
-                    <Text allowFontScaling={false} style={styles.Name}>Phone: {item.MobileNo}</Text>
-                    <Text allowFontScaling={false} style={styles.Name}>Status: {item.Status}</Text>
-                    <Text allowFontScaling={false} style={styles.Name}>
+                      <Text allowFontScaling={false} style={styles.Name}>
+                        Name: {item.Name}
+                      </Text>
+                      <Text allowFontScaling={false} style={styles.Name}>
+                        Phone: {item.MobileNo}
+                      </Text>
+                      <Text allowFontScaling={false} style={styles.Name}>
+                        Status: {item.Status}
+                      </Text>
+                      <Text allowFontScaling={false} style={styles.Name}>
                     Father Name: {item.Fathername}
                     </Text>
                     <Text allowFontScaling={false} style={styles.Name}>
@@ -138,70 +146,72 @@ import {
             </View>
           </View>
         ) : (
-          <Text allowFontScaling={false} style={styles.NoData}>No Data!!</Text>
+          <Text allowFontScaling={false} style={styles.NoData}>
+            No Data!!
+          </Text>
         )}
       </View>
     );
   };
   
-  export default KarachiThreeInfiradi;
-  
   const styles = StyleSheet.create({
     main: {
-      backgroundColor: 'white',
-      width: devicewidth,
-      height: deviceheight,
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical:responsiveHeight(10)
-    },
-    FlatListVIew: {
+    backgroundColor: 'white',
+    width: devicewidth,
+    height: deviceheight,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical:responsiveHeight(10)
+  },
+  FlatListVIew: {
       width: responsiveWidth(90),
-    },
-    DataView: {
-      backgroundColor: '#135229',
-      borderRadius: 10,
-      paddingVertical: responsiveHeight(0.5),
-      marginVertical: responsiveHeight(0.5),
-      color: 'white',
-      textAlign: 'center',
-      fontSize: responsiveFontSize(2.25),
-    },
-    Update: {
-      backgroundColor: '#135229',
-      borderRadius: 10,
-      paddingVertical: responsiveHeight(0.5),
-      marginVertical: responsiveHeight(0.5),
-      color: 'white',
-      textAlign: 'center',
-      fontSize: responsiveFontSize(2.25),
-      marginBottom:responsiveHeight(-0.5),
-    },
-    Name: {
-      color: 'white',
-      fontSize: responsiveFontSize(2.25),
-      textAlign: 'center',
-    },
-    Phone: {
+  },
+  DataView: {
+    backgroundColor: '#135229',
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+  },
+  Update: {
+    backgroundColor: '#135229',
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    marginVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+    marginBottom:responsiveHeight(-0.5),
+  },
+  Name: {
       color: 'white',
       fontSize: responsiveFontSize(2.25),
       textAlign: 'center',
-    },
-    NoData: {
+  },
+  Phone: {
+      color: 'white',
+      fontSize: responsiveFontSize(2.25),
+      textAlign: 'center',
+  },
+  NoData: {
       fontSize: responsiveFontSize(3),
       color: 'red',
-    },
-    password: {
-      borderRadius: 10,
-      paddingVertical: responsiveHeight(0.5),
-      color: 'white',
-      textAlign: 'center',
-      fontSize: responsiveFontSize(2.25),
-      borderWidth: 1.5,
-      borderLeftWidth: 8,
-      borderColor: '#135229',
-      color: 'black',
-      height: responsiveHeight(5),
-    },
-  });
-  
+  },
+  password: {
+    borderRadius: 10,
+    paddingVertical: responsiveHeight(0.5),
+    color: 'white',
+    textAlign: 'center',
+    fontSize: responsiveFontSize(2.25),
+    borderWidth: 1.5,
+    borderLeftWidth: 8,
+    borderColor: '#135229',
+    color: 'black',
+    height: responsiveHeight(5),
+  },
+});
+
+
+export default KarachiThreeChodgae
