@@ -84,6 +84,18 @@ const MainAdmin = ({navigation}) => {
     function gotoSunnah() {
         navigation.navigate('AllAdminSunnah');
       }
+      function gotoCourse() {
+        navigation.navigate('AllAdminCourse');
+      }
+      function gotoMukaamal() {
+        navigation.navigate('AllAdminMukammal');
+      }
+      function gotoMoqoof() {
+        navigation.navigate('AllAdminMoqoof');
+      }
+      function gotoChodgae() {
+        navigation.navigate('AllAdminChodgae');
+      }
 
     return (
         <View style={styles.main}>
@@ -113,6 +125,30 @@ const MainAdmin = ({navigation}) => {
                 <TouchableOpacity onPress={gotoSunnah}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>دار السنہ</Text>
+                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={gotoChodgae}>
+            <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>چھوڑ گئے</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+            </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={gotoCourse}>
+            <View style={styles.square}>
+                <Text allowFontScaling={false} style={styles.squaretext}>قافلہ کورس</Text>
+                <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+            </View>
+        </TouchableOpacity>
+                <TouchableOpacity onPress={gotoMoqoof}>
+                <View style={styles.square}>
+                    <Text allowFontScaling={false} style={styles.squaretext}>موقوف</Text>
+                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+                </View>
+            </TouchableOpacity>
+                <TouchableOpacity onPress={gotoMukaamal}>
+                <View style={styles.square}>
+                    <Text allowFontScaling={false} style={styles.squaretext}>مکمل</Text>
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
                 </View>
             </TouchableOpacity>
@@ -159,12 +195,13 @@ const styles = StyleSheet.create({
     square3text: {
         fontSize: responsiveScreenFontSize(3),
         color: "#135229",
+        textAlign:"center"
     },
     square: {
         marginTop: responsiveHeight(3),
         borderColor: "#135229",
         borderWidth: 1.5,
-        height: responsiveHeight(20),
+        height: responsiveHeight(15),
         width: responsiveWidth(40),
         justifyContent: 'center',
         alignItems: 'center',

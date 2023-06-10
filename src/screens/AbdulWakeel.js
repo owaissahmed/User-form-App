@@ -30,6 +30,10 @@ import {
     const [khi1chutti, setkhi1chutti] = useState('');
     const [khi1darussunnah, setkhi1darussunnah] = useState('');
     const [khi1Infiradi, setkhi1Infiradi] = useState('');
+    const [khi1course, setkhi1course] = useState('');
+    const [khi1moqoof, setkhi1moqoof] = useState('');
+    const [khi1chodgae, setkhi1chodgae] = useState('');
+    const [khi1mukammal, setkhi1mukammal] = useState('');
     useEffect(() => {
       const chutti = firestore()
         .collection('users')
@@ -87,8 +91,64 @@ import {
           });
           setkhi1Infiradi(infiradiData.length);
         });
+      const course = firestore()
+        .collection('users')
+        .where('Group', '==', 'Abdul Wakeel')
+        .where('Status', '==', 'قافلہ کورس')
+        .onSnapshot(querySnapshot => {
+          const courseData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            courseData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setkhi1course(courseData.length);
+        });
+      const mukamal = firestore()
+        .collection('users')
+        .where('Group', '==', 'Abdul Wakeel')
+        .where('Status', '==', 'مکمل')
+        .onSnapshot(querySnapshot => {
+          const mukammalData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            mukammalData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setkhi1mukammal(mukammalData.length);
+        });
+      const moqoof = firestore()
+        .collection('users')
+        .where('Group', '==', 'Abdul Wakeel')
+        .where('Status', '==', 'موقوف')
+        .onSnapshot(querySnapshot => {
+          const moqoofData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            moqoofData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setkhi1moqoof(moqoofData.length);
+        });
+      const chodgae = firestore()
+        .collection('users')
+        .where('Group', '==', 'Abdul Wakeel')
+        .where('Status', '==', 'چھوڑ گئے')
+        .onSnapshot(querySnapshot => {
+          const chodgaeData = [];
+          querySnapshot.forEach(documentSnapshot => {
+            chodgaeData.push({
+              id: documentSnapshot.id,
+              ...documentSnapshot.data(),
+            });
+          });
+          setkhi1chodgae(chodgaeData.length);
+        });
     }, []);
-    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila;
+    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila + khi1chodgae + khi1course + khi1moqoof + khi1mukammal;
   
     function gotoChutti() {
       navigation.navigate('AbdulWakeelChutti');
@@ -101,6 +161,18 @@ import {
     }
     function gotoSunnah() {
       navigation.navigate('AbdulWakeelSunnah');
+    }
+    function gotoCourse() {
+      navigation.navigate('AbdulWakeelCourse');
+    }
+    function gotoMukaamal() {
+      navigation.navigate('AbdulWakeelMukaamal');
+    }
+    function gotoMoqoof() {
+      navigation.navigate('AbdulWakeelMoqoof');
+    }
+    function gotoChodgae() {
+      navigation.navigate('AbdulWakeelChodgae');
     }
   
     return (
@@ -159,6 +231,46 @@ import {
               </Text>
             </View>
           </TouchableOpacity>
+          <TouchableOpacity onPress={gotoChodgae}>
+            <View style={styles.square}>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+              چھوڑ گئے
+              </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+                {khi1chodgae}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={gotoCourse}>
+            <View style={styles.square}>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+              قافلہ کورس
+              </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+                {khi1course}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={gotoMoqoof}>
+            <View style={styles.square}>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+              موقوف
+              </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+                {khi1moqoof}
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={gotoMukaamal}>
+            <View style={styles.square}>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+              مکمل
+              </Text>
+              <Text allowFontScaling={false} style={styles.squaretext}>
+                {khi1mukammal}
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -195,34 +307,35 @@ import {
       // marginTop: responsiveHeight(5),
       borderColor: '#135229',
       borderWidth: 1.5,
-      height: responsiveHeight(20),
+      height: responsiveHeight(15),
       width: responsiveWidth(90),
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 12,
     },
     rectangletext: {
-      fontSize: responsiveScreenFontSize(5),
+      fontSize: responsiveScreenFontSize(4.5),
       color: '#135229',
     },
     squaretext: {
-      fontSize: responsiveScreenFontSize(4),
+      fontSize: responsiveScreenFontSize(3.5),
       color: '#135229',
     },
-    square3text: {
-      fontSize: responsiveScreenFontSize(3),
-      color: '#135229',
+   square3text: {
+        fontSize: responsiveScreenFontSize(3),
+        color: "#135229",
+        textAlign:"center"
     },
     square: {
-      marginTop: responsiveHeight(3),
-      borderColor: '#135229',
-      borderWidth: 1.5,
-      height: responsiveHeight(20),
-      width: responsiveWidth(40),
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderRadius: 12,
-      marginHorizontal: responsiveWidth(3),
+        marginTop: responsiveHeight(3),
+        borderColor: "#135229",
+        borderWidth: 1.5,
+        height: responsiveHeight(15),
+        width: responsiveWidth(40),
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 12,
+        marginHorizontal: responsiveWidth(3)
     },
   });
   

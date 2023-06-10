@@ -68,6 +68,15 @@ import AbdulWakeelChutti from './screens/AbdulWakeelChutti';
 import AbdulWakeelInfiradi from './screens/AbdulWakeelInfiradi';
 import AbdulWakeelQafila from './screens/AbdulWakeelQafila';
 import AbdulWakeelSunnah from './screens/AbdulWakeelSunnah';
+import AbdulWakeelChodgae from './screens/AbdulWakeelChodgae';
+import AbdulWakeelCourse from './screens/AbdulWakeelCourse';
+import AbdulWakeelMoqoof from './screens/AbdulWakeelMoqoof';
+import AbdulWakeelMukaamal from './screens/AbdulWakeelMukaamal';
+import AllAdminChodgae from './screens/AllAdminChodgae';
+import AllAdminCourse from './screens/AllAdminCourse';
+import AllAdminMukammal from './screens/AllAdminMukammal';
+import AllAdminMoqoof from './screens/AllAdminMoqoof';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -419,6 +428,46 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="AbdulWakeelChutti"
                     component={AbdulWakeelChutti}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelChodgae"
+                    component={AbdulWakeelChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelCourse"
+                    component={AbdulWakeelCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelMukaamal"
+                    component={AbdulWakeelMukaamal}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AbdulWakeelMoqoof"
+                    component={AbdulWakeelMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AllAdminMoqoof"
+                    component={AllAdminMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AllAdminCourse"
+                    component={AllAdminCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AllAdminChodgae"
+                    component={AllAdminChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="AllAdminMukammal"
+                    component={AllAdminMukammal}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
