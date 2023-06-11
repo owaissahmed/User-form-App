@@ -1,14 +1,26 @@
-import { View, Text, Image, Dimensions, StyleSheet, TouchableOpacity, TextInput, Button, Alert, Modal, FlatList, ActivityIndicator } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { responsiveScreenFontSize, responsiveWidth } from 'react-native-responsive-dimensions';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
-import { responsiveFontSize } from 'react-native-responsive-dimensions';
-import firestore from '@react-native-firebase/firestore';
-const devicewidth = Dimensions.get('window').width;
-const deviceheight = Dimensions.get('window').height;
-import {Picker} from '@react-native-picker/picker';
-
-const PunjabOneChutti = () => {
+import {
+    View,
+    Text,
+    Dimensions,
+    StyleSheet,
+    TouchableOpacity,
+    TextInput,
+    FlatList,
+    Alert,
+  } from 'react-native';
+  import React, {useEffect, useState} from 'react';
+  import {
+    responsiveScreenFontSize,
+    responsiveWidth,
+  } from 'react-native-responsive-dimensions';
+  import {responsiveHeight} from 'react-native-responsive-dimensions';
+  import {responsiveFontSize} from 'react-native-responsive-dimensions';
+  import firestore from '@react-native-firebase/firestore';
+  const devicewidth = Dimensions.get('window').width;
+  const deviceheight = Dimensions.get('window').height;
+  import {Picker} from '@react-native-picker/picker';
+  
+  const PunjabOneMukaamal = () => {
     const [khi1chutti, setKhi1chutti] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [selectedValue, setSelectedValue] = useState('Select Value');
@@ -21,7 +33,7 @@ const PunjabOneChutti = () => {
       const unsubscribe = firestore()
         .collection('users')
         .where('Group', '==', 'Munir Madani')
-        .where('Status', '==', 'چھٹی')
+        .where('Status', '==', 'مکمل')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -55,7 +67,7 @@ const PunjabOneChutti = () => {
         await firestore()
           .collection('users')
           .doc(id)
-          .update({Status: selectedValue,  statusReason: name,});
+          .update({Status: selectedValue , statusReason: name,});
         setSelectedUser(null);
         setSelectedValue('Select Value');
       } catch (error) {
@@ -78,12 +90,12 @@ const PunjabOneChutti = () => {
               onValueChange={handleValueChange}>
               <Picker.Item label="Select Value" value="Select Value" />
               <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
+              <Picker.Item label="چھٹی" value="چھٹی" />
               <Picker.Item label="دار السنہ" value="دار السنہ" />
               <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
               <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
               <Picker.Item label="چھوڑ گئے" value="چھوڑ گئے" />
               <Picker.Item label="موقوف" value="موقوف" />
-              <Picker.Item label="مکمل" value="مکمل" />
             </Picker>
             <TextInput
             allowFontScaling={false}
@@ -201,4 +213,5 @@ const PunjabOneChutti = () => {
   },
 });
 
-export default PunjabOneChutti
+
+export default PunjabOneMukaamal;

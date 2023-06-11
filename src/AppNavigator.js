@@ -104,6 +104,10 @@ import SahilChodgae from './screens/SahilChodgae';
 import SahilCourse from './screens/SahilCourse';
 import SahilMoqoof from './screens/SahilMoqoof';
 import SahilMukammal from './screens/SahilMukammal';
+import PunjabOneChodgae from './screens/PunjabOneChodgae';
+import PunjabOneCourse from './screens/PunjabOneCourse';
+import PunjabOneMoqoof from './screens/PunjabOneMoqoof';
+import PunjabOneMukammal from './screens/PunjabOneMukammal';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -636,6 +640,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="SahilMukammal"
                     component={SahilMukammal}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="PunjabOneChodgae"
+                    component={PunjabOneChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="PunjabOneCourse"
+                    component={PunjabOneCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="PunjabOneMoqoof"
+                    component={PunjabOneMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="PunjabOneMukammal"
+                    component={PunjabOneMukammal}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>
