@@ -116,6 +116,10 @@ import SindhOneChodgae from './screens/SindhOneChodgae';
 import SindhOneCourse from './screens/SindhOneCourse';
 import SindhOneMoqoof from './screens/SindhOneMoqoof';
 import SindhOneMukammal from './screens/SindhOneMukammal';
+import SindhTwoChodgae from './screens/SindhTwoChodgae';
+import SindhTwoCourse from './screens/SindhTwoCourse';
+import SindhTwoMoqoof from './screens/SindhTwoMoqoof';
+import SindhTwoMukammal from './screens/SindhTwoMukammal';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -708,6 +712,26 @@ const Appnavigator = () => {
                 <Stack.Screen
                     name="SindhOneMukammal"
                     component={SindhOneMukammal}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SindhTwoChodgae"
+                    component={SindhTwoChodgae}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SindhTwoCourse"
+                    component={SindhTwoCourse}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SindhTwoMoqoof"
+                    component={SindhTwoMoqoof}
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    name="SindhTwoMukammal"
+                    component={SindhTwoMukammal}
                     options={{ headerShown: false }}
                 />
             </Stack.Navigator>

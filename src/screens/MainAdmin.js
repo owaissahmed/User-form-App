@@ -15,6 +15,10 @@ const MainAdmin = ({navigation}) => {
     const [khi1chutti, setkhi1chutti] = useState('')
     const [khi1darussunnah, setkhi1darussunnah] = useState('')
     const [khi1Infiradi, setkhi1Infiradi] = useState('')
+    const [khi1course, setkhi1course] = useState('');
+    const [khi1moqoof, setkhi1moqoof] = useState('');
+    const [khi1chodgae, setkhi1chodgae] = useState('');
+    const [khi1mukammal, setkhi1mukammal] = useState('');
     useEffect(() => {
         const chutti = firestore()
             .collection('users')
@@ -67,6 +71,58 @@ const MainAdmin = ({navigation}) => {
                     });
                 });
                 setkhi1Infiradi(infiradiData.length);
+            });
+            const course = firestore()
+            .collection('users')
+            .where('Status', '==', 'قافلہ کورس')
+            .onSnapshot(querySnapshot => {
+              const courseData = [];
+              querySnapshot.forEach(documentSnapshot => {
+                courseData.push({
+                  id: documentSnapshot.id,
+                  ...documentSnapshot.data(),
+                });
+              });
+              setkhi1course(courseData.length);
+            });
+          const mukamal = firestore()
+            .collection('users')
+            .where('Status', '==', 'مکمل')
+            .onSnapshot(querySnapshot => {
+              const mukammalData = [];
+              querySnapshot.forEach(documentSnapshot => {
+                mukammalData.push({
+                  id: documentSnapshot.id,
+                  ...documentSnapshot.data(),
+                });
+              });
+              setkhi1mukammal(mukammalData.length);
+            });
+          const moqoof = firestore()
+            .collection('users')
+            .where('Status', '==', 'موقوف')
+            .onSnapshot(querySnapshot => {
+              const moqoofData = [];
+              querySnapshot.forEach(documentSnapshot => {
+                moqoofData.push({
+                  id: documentSnapshot.id,
+                  ...documentSnapshot.data(),
+                });
+              });
+              setkhi1moqoof(moqoofData.length);
+            });
+          const chodgae = firestore()
+            .collection('users')
+            .where('Status', '==', 'چھوڑ گئے')
+            .onSnapshot(querySnapshot => {
+              const chodgaeData = [];
+              querySnapshot.forEach(documentSnapshot => {
+                chodgaeData.push({
+                  id: documentSnapshot.id,
+                  ...documentSnapshot.data(),
+                });
+              });
+              setkhi1chodgae(chodgaeData.length);
             });
     }, [])
 
@@ -131,25 +187,25 @@ const MainAdmin = ({navigation}) => {
             <TouchableOpacity onPress={gotoChodgae}>
             <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>چھوڑ گئے</Text>
-            <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>{khi1chodgae}</Text>
             </View>
             </TouchableOpacity>
             <TouchableOpacity onPress={gotoCourse}>
             <View style={styles.square}>
                 <Text allowFontScaling={false} style={styles.squaretext}>قافلہ کورس</Text>
-                <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+                <Text allowFontScaling={false} style={styles.squaretext}>{khi1course}</Text>
             </View>
         </TouchableOpacity>
                 <TouchableOpacity onPress={gotoMoqoof}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>موقوف</Text>
-                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1moqoof}</Text>
                 </View>
             </TouchableOpacity>
                 <TouchableOpacity onPress={gotoMukaamal}>
                 <View style={styles.square}>
                     <Text allowFontScaling={false} style={styles.squaretext}>مکمل</Text>
-                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1darussunnah}</Text>
+                    <Text allowFontScaling={false} style={styles.squaretext}>{khi1mukammal}</Text>
                 </View>
             </TouchableOpacity>
             </View>
