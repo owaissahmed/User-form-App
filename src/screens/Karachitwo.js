@@ -152,16 +152,16 @@ import {
     var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila + khi1chodgae + khi1course + khi1moqoof + khi1mukammal;
   
     function gotoChutti() {
-      navigation.navigate('KarachiTwoChutti');
+      navigation.navigate('karachiTwoChutti');
     }
     function gotoQafila() {
-      navigation.navigate('KarachiTwoQafila');
+      navigation.navigate('karachiTwoQafila');
     }
     function gotoInfiradi() {
-      navigation.navigate('KarachiTwoInfiradi');
+      navigation.navigate('karachiTwoInfiradi');
     }
     function gotoSunnah() {
-      navigation.navigate('KarachiTwoSunnah');
+      navigation.navigate('karachiTwoSunnah');
     }
     function gotoCourse() {
       navigation.navigate('KarachitwoCourse');
