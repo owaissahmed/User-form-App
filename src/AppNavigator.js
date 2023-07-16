@@ -120,6 +120,15 @@ import SindhTwoChodgae from './screens/SindhTwoChodgae';
 import SindhTwoCourse from './screens/SindhTwoCourse';
 import SindhTwoMoqoof from './screens/SindhTwoMoqoof';
 import SindhTwoMukammal from './screens/SindhTwoMukammal';
+import Kamran from './screens/Kamran';
+import KamranChodgae from './screens/KamranChodgae';
+import KamranChutti from './screens/KamranChutti';
+import KamranCourse from './screens/KamranCourse';
+import KamranInfiradi from './screens/KamranInfiradi';
+import KamranMoqoof from './screens/KamranMoqoof';
+import KamranMukammal from './screens/KamranMukammal';
+import KamranQafila from './screens/KamranQafila';
+import KamranSunnah from './screens/KamranSunnah';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -734,6 +743,51 @@ const Appnavigator = () => {
                     component={SindhTwoMukammal}
                     options={{ headerShown: false }}
                 />
+                <Stack.Screen
+                name="Kamran"
+                component={Kamran}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranSunnah"
+                component={KamranSunnah}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranQafila"
+                component={KamranQafila}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranInfiradi"
+                component={KamranInfiradi}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranChutti"
+                component={KamranChutti}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranChodgae"
+                component={KamranChodgae}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranCourse"
+                component={KamranCourse}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranMukammal"
+                component={KamranMukammal}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="KamranMoqoof"
+                component={KamranMoqoof}
+                options={{ headerShown: false }}
+            />
             </Stack.Navigator>
         </NavigationContainer>
     );

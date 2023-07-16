@@ -60,6 +60,9 @@ const Login = ({navigation}) => {
   function gotoAdmin() {
     navigation.replace('MainAdmin');
   }
+  function gotoKamran() {
+    navigation.replace('Kamran');
+  }
   const EmailChange = newemail => {
     setemail(newemail);
   };
@@ -124,13 +127,19 @@ const Login = ({navigation}) => {
       password == 12345678
     ) {
       gotoSahil();
-    } 
-    else if (
+    } else if (
       email.toLocaleLowerCase().trim() == 'abdul wakeel' &&
       password == 12345678
     ) {
       gotoAbdulWakeel();
-    } else Alert.alert('⚠️ WARNING', 'Wrong User/Password');
+    }
+    else if (
+      email.toLocaleLowerCase().trim() == 'kamran' &&
+      password == 12345678
+    ) {
+      gotoKamran();
+    }
+     else Alert.alert('⚠️ WARNING', 'Wrong User/Password');
   };
 
   return (
