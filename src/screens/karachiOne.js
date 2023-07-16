@@ -5,11 +5,6 @@ import {
   Dimensions,
   StyleSheet,
   TouchableOpacity,
-  TextInput,
-  Button,
-  Alert,
-  Modal,
-  ActivityIndicator,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {
