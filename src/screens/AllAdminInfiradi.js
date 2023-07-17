@@ -29,6 +29,7 @@ const deviceheight = Dimensions.get('window').height;
     const [Nabeelqafila, setNabeelqafila] = useState('');
     const [Shanqafila, setShanqafila] = useState('');
     const [Wakeelqafila, setWakeelqafila] = useState('');
+    const [Kamranqafila, setKamranqafila] = useState('');
     useEffect(() => {
       const Fida = firestore()
         .collection('users')
@@ -198,6 +199,20 @@ const deviceheight = Dimensions.get('window').height;
           });
           setWakeelqafila(qafilaData.length);
         });
+        const Kamran = firestore()
+      .collection('users')
+      .where('Group', '==', 'Kamran')
+      .where('Status', '==', 'انفرادی جدول')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setKamranqafila(qafilaData.length);
+      });
     }, []);
 
     return (
@@ -330,6 +345,17 @@ const deviceheight = Dimensions.get('window').height;
             </Text>
             </View>
           </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('KamranInfiradi')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            Kamran
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {Kamranqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
         </View>
       </View>
     );

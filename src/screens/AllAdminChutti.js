@@ -29,6 +29,7 @@ const AllAdminChutti = ({navigation}) => {
   const [Nabeelqafila, setNabeelqafila] = useState('');
   const [Shanqafila, setShanqafila] = useState('');
   const [Wakeelqafila, setWakeelqafila] = useState('');
+  const [Kamranqafila, setKamranqafila] = useState('');
   useEffect(() => {
     const Fida = firestore()
       .collection('users')
@@ -198,6 +199,20 @@ const AllAdminChutti = ({navigation}) => {
         });
         setWakeelqafila(qafilaData.length);
       });
+      const Kamran = firestore()
+      .collection('users')
+      .where('Group', '==', 'Kamran')
+      .where('Status', '==', 'چھٹی')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setKamranqafila(qafilaData.length);
+      });
   }, []);
   return (
     <View style={styles.main}>
@@ -326,6 +341,17 @@ const AllAdminChutti = ({navigation}) => {
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('KamranChutti')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            Kamran
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {Kamranqafila}
           </Text>
           </View>
         </TouchableOpacity>
