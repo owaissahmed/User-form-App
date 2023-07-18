@@ -63,6 +63,9 @@ const Login = ({navigation}) => {
   function gotoKamran() {
     navigation.replace('Kamran');
   }
+  function gotoRashidNoori() {
+    navigation.replace('RashidNoori');
+  }
   function gotoAliHasan() {
     navigation.replace('AliHasan');
   }
@@ -147,6 +150,12 @@ const Login = ({navigation}) => {
       password == 12345678
     ) {
       gotoAliHasan();
+    }
+    else if (
+      email.toLocaleLowerCase().trim() == 'rashid noori' &&
+      password == 12345678
+    ) {
+      gotoRashidNoori();
     }
      else Alert.alert('⚠️ WARNING', 'Wrong User/Password');
   };

@@ -138,6 +138,15 @@ import AliHasanMoqoof from './screens/AliHasanMoqoof';
 import AliHasanMukaamal from './screens/AliHasanMukaamal';
 import AliHasanQafila from './screens/AliHasanQafila';
 import AliHasanSunnah from './screens/AliHasanSunnah';
+import RashidNoori from './screens/RashidNoori';
+import RashidNooriChodgae from './screens/RashidNooriChodgae';
+import RashidNooriCourse from './screens/RashidNooriCourse';
+import RashidNooriChutti from './screens/RashidNooriChutti';
+import RashidNooriInfiradi from './screens/RashidNooriInfiradi';
+import RashidNooriMoqoof from './screens/RashidNooriMoqoof';
+import RashidNooriMukammal from './screens/RashidNooriMukammal';
+import RashidNooriQafila from './screens/RashidNooriQafila';
+import RashidNooriSunnah from './screens/RashidNooriSunnah';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -840,6 +849,51 @@ const Appnavigator = () => {
         <Stack.Screen
           name="AliHasanMoqoof"
           component={AliHasanMoqoof}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNoori"
+          component={RashidNoori}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriSunnah"
+          component={RashidNooriSunnah}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriQafila"
+          component={RashidNooriQafila}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriInfiradi"
+          component={RashidNooriInfiradi}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriChutti"
+          component={RashidNooriChutti}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriChodgae"
+          component={RashidNooriChodgae}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriCourse"
+          component={RashidNooriCourse}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriMukammal"
+          component={RashidNooriMukammal}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="RashidNooriMoqoof"
+          component={RashidNooriMoqoof}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

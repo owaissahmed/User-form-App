@@ -1402,6 +1402,7 @@ const Signup = ({navigation}) => {
               <Picker.Item label="Abdul Wakeel" value="Abdul Wakeel" />
               <Picker.Item label="Kamran" value="Kamran" />
               <Picker.Item label="Ali Hasan" value="Ali Hasan" />
+              <Picker.Item label="Rashid Noori" value="Rashid Noori" />
             </Picker>
           </View>
           <View style={styles.field}>
