@@ -66,6 +66,9 @@ const Login = ({navigation}) => {
   function gotoRashidNoori() {
     navigation.replace('RashidNoori');
   }
+  function gotoRashidLahori() {
+    navigation.replace('RashidLahori');
+  }
   function gotoAliHasan() {
     navigation.replace('AliHasan');
   }
@@ -150,6 +153,12 @@ const Login = ({navigation}) => {
       password == 12345678
     ) {
       gotoAliHasan();
+    }
+    else if (
+      email.toLocaleLowerCase().trim() == 'rashid lahori' &&
+      password == 12345678
+    ) {
+      gotoRashidLahori();
     }
     else if (
       email.toLocaleLowerCase().trim() == 'rashid noori' &&

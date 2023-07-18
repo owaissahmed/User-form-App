@@ -32,6 +32,8 @@ const deviceheight = Dimensions.get('window').height;
     const [Kamranqafila, setKamranqafila] = useState('');
     const [AliHasanqafila, setAliHasanqafila] = useState('');
     const [RashidNooriqafila, setRashidNooriqafila] = useState('');
+    const [RashidLahoriqafila, setRashidLahoriqafila] = useState('');
+
     useEffect(() => {
       const Fida = firestore()
         .collection('users')
@@ -243,6 +245,20 @@ const deviceheight = Dimensions.get('window').height;
         });
         setRashidNooriqafila(qafilaData.length);
       });
+        const RashidLahori = firestore()
+      .collection('users')
+      .where('Group', '==', 'Rashid Lahori')
+      .where('Status', '==', 'انفرادی جدول')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setRashidLahoriqafila(qafilaData.length);
+      });
     }, []);
 
     return (
@@ -397,14 +413,25 @@ const deviceheight = Dimensions.get('window').height;
           </Text>
           </View>
         </TouchableOpacity>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('RashidNooriInfiradi')}>
+        <View style={styles.square}>
+          <Text allowFontScaling={false} style={styles.squaretext}>
+          Rashid Noori
+          </Text>
+          <Text allowFontScaling={false} style={styles.squaretext}>
+          {RashidNooriqafila}
+        </Text>
+        </View>
+      </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('RashidNooriInfiradi')}>
+          onPress={() => navigation.navigate('RashidLahoriInfiradi')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            Rashid Noori
+            Rashid Lahori
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            {RashidNooriqafila}
+            {RashidLahoriqafila}
           </Text>
           </View>
         </TouchableOpacity>

@@ -32,6 +32,7 @@ const AllAdminChodgae = ({navigation}) => {
   const [Kamranqafila, setKamranqafila] = useState('');
   const [AliHasanqafila, setAliHasanqafila] = useState('');
   const [RashidNooriqafila, setRashidNooriqafila] = useState('');
+  const [RashidLahoriqafila, setRashidLahoriqafila] = useState('');
   useEffect(() => {
     const Fida = firestore()
       .collection('users')
@@ -243,6 +244,20 @@ const AllAdminChodgae = ({navigation}) => {
         });
         setRashidNooriqafila(qafilaData.length);
       });
+      const RashidLahori = firestore()
+      .collection('users')
+      .where('Group', '==', 'Rashid Lahori')
+      .where('Status', '==', 'چھوڑ گئے')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setRashidLahoriqafila(qafilaData.length);
+      });
   }, []);
   return (
     <View style={styles.main}>
@@ -404,6 +419,17 @@ const AllAdminChodgae = ({navigation}) => {
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {RashidNooriqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('RashidLahoriChodgae')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            Rashid Lahori
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {RashidLahoriqafila}
           </Text>
           </View>
         </TouchableOpacity>

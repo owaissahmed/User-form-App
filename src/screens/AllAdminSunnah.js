@@ -32,6 +32,7 @@ const deviceheight = Dimensions.get('window').height;
     const [Kamranqafila, setKamranqafila] = useState('');
     const [AliHasanqafila, setAliHasanqafila] = useState('');
     const [RashidNooriqafila, setRashidNooriqafila] = useState('');
+    const [RashidLahoriqafila, setRashidLahoriqafila] = useState('');
 
 
     useEffect(() => {
@@ -245,6 +246,20 @@ const deviceheight = Dimensions.get('window').height;
         });
         setRashidNooriqafila(qafilaData.length);
       });
+        const RashidLahori = firestore()
+      .collection('users')
+      .where('Group', '==', 'Rashid Lahori')
+      .where('Status', '==', 'دار السنہ')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setRashidLahoriqafila(qafilaData.length);
+      });
     }, []);
     
     return (
@@ -407,6 +422,17 @@ const deviceheight = Dimensions.get('window').height;
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {RashidNooriqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('RashidLahoriSunnah')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            Rashid Lahori
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {RashidLahoriqafila}
           </Text>
           </View>
         </TouchableOpacity>
