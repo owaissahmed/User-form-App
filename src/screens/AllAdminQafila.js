@@ -25,6 +25,7 @@ const AllAdminQafila = ({navigation}) => {
   const [Sahilqafila, setSahilqafila] = useState('');
   const [Usmanqafila, setUsmanqafila] = useState('');
   const [Munirqafila, setMunirqafila] = useState('');
+  const [Nawazishqafila, setNawazishqafila] = useState('');
   const [Naeemqafila, setNaeemqafila] = useState('');
   const [Nabeelqafila, setNabeelqafila] = useState('');
   const [Shanqafila, setShanqafila] = useState('');
@@ -133,6 +134,20 @@ const AllAdminQafila = ({navigation}) => {
           });
         });
         setMunirqafila(qafilaData.length);
+      });
+    const Nawazish = firestore()
+      .collection('users')
+      .where('Group', '==', 'Nawazish Madani')
+      .where('Status', '==', 'مدنی قافلہ')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setNawazishqafila(qafilaData.length);
       });
     const Naeem = firestore()
       .collection('users')
@@ -334,6 +349,17 @@ const AllAdminQafila = ({navigation}) => {
           </View>
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => navigation.navigate('NawazishQafila')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext__}>
+              Nawazish Madani
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {Nawazishqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={() => navigation.navigate('karachiTwoQafila')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext_}>
@@ -494,6 +520,12 @@ const styles = StyleSheet.create({
   },
   squaretext_: {
     fontSize: responsiveScreenFontSize(2.15),
+    color: '#135229',
+    textAlign: 'center',
+    paddingHorizontal: responsiveWidth(1),
+  },
+  squaretext__: {
+    fontSize: responsiveScreenFontSize(2),
     color: '#135229',
     textAlign: 'center',
     paddingHorizontal: responsiveWidth(1),

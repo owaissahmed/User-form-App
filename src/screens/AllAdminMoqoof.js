@@ -25,6 +25,7 @@ const AllAdminMoqoof = ({navigation}) => {
   const [Sahilqafila, setSahilqafila] = useState('');
   const [Usmanqafila, setUsmanqafila] = useState('');
   const [Munirqafila, setMunirqafila] = useState('');
+  const [Nawazishqafila, setNawazishqafila] = useState('');
   const [Naeemqafila, setNaeemqafila] = useState('');
   const [Nabeelqafila, setNabeelqafila] = useState('');
   const [Shanqafila, setShanqafila] = useState('');
@@ -133,6 +134,20 @@ const AllAdminMoqoof = ({navigation}) => {
           });
         });
         setMunirqafila(qafilaData.length);
+      });
+    const Nawazish = firestore()
+      .collection('users')
+      .where('Group', '==', 'Nawazish Madani')
+      .where('Status', '==', 'موقوف')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setNawazishqafila(qafilaData.length);
       });
     const Naeem = firestore()
       .collection('users')
@@ -331,6 +346,16 @@ const AllAdminMoqoof = ({navigation}) => {
           </Text>
           </View>
         </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('NawazishMoqoof')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext__}>
+              Nawazish Madani
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {Nawazishqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate('KarachiTwoMoqoof')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext_}>
@@ -488,6 +513,12 @@ const styles = StyleSheet.create({
   },
   squaretext_: {
     fontSize: responsiveScreenFontSize(2.15),
+    color: '#135229',
+    textAlign: 'center',
+    paddingHorizontal: responsiveWidth(1),
+  },
+  squaretext__: {
+    fontSize: responsiveScreenFontSize(2),
     color: '#135229',
     textAlign: 'center',
     paddingHorizontal: responsiveWidth(1),
