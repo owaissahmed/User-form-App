@@ -48,68 +48,9 @@ import {
       return () => unsubscribe();
     }, []);
   
-    const handleSelectUser = user => {
-      setSelectedUser(user);
-    };
-  
-    const handleValueChange = value => {
-      setSelectedValue(value);
-    };
-  
-    const handleUpdateName = async () => {
-      if (!selectedUser || selectedValue === 'Select Value'|| name.trim() === '')  {
-        Alert.alert('Please select a value or Fill the Input');
-        return;
-      }
-  
-      const {id} = selectedUser;
-      try {
-        await firestore()
-          .collection('users')
-          .doc(id)
-          .update({Status: selectedValue , statusReason: name,});
-        setSelectedUser(null);
-        setSelectedValue('Select Value');
-      } catch (error) {
-        console.log('Error updating name:', error);
-      }
-    };
-  
     return (
       <View style={styles.main}>
-        {selectedUser && (
-          <View
-            style={{
-              backgroundColor:'#E1E0E4',
-              width: responsiveWidth(70),
-              borderRadius: 10,
-              marginBottom: responsiveHeight(1),
-            }}>
-            <Picker
-              selectedValue={selectedValue}
-              onValueChange={handleValueChange}>
-              <Picker.Item label="Select Value" value="Select Value" />
-              <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
-              <Picker.Item label="چھٹی" value="چھٹی" />
-              <Picker.Item label="دار السنہ" value="دار السنہ" />
-              <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
-              <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
-              <Picker.Item label="چھوڑ گئے" value="چھوڑ گئے" />
-              <Picker.Item label="موقوف" value="موقوف" />
-            </Picker>
-            <TextInput
-            allowFontScaling={false}
-            style={styles.password}
-            value={name}
-            onChangeText={NameChange}
-          />
-            <TouchableOpacity style={styles.Update} onPress={handleUpdateName}>
-              <Text allowFontScaling={false} style={styles.Phone}>
-                Update
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
+     
         {khi1chutti.length > 0 ? (
           <View>
             <View style={styles.FlatListVIew}>
@@ -118,7 +59,7 @@ import {
                 renderItem={({item}) => (
                   <TouchableOpacity
                     style={styles.DataView}
-                    onPress={() => handleSelectUser(item)}>
+                    >
                     <View style={styles.DataView}>
                       <Text allowFontScaling={false} style={styles.Name}>
                         Name: {item.Name}

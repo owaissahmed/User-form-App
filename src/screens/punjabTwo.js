@@ -149,8 +149,9 @@ import {
           setkhi1chodgae(chodgaeData.length);
         });
     }, []);
-    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila + khi1chodgae + khi1course + khi1moqoof + khi1mukammal;
-  
+      
+    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila + khi1course;
+
     function gotoChutti() {
       navigation.navigate('punjabTwoChutti');
     }
