@@ -156,6 +156,15 @@ import RashidLahoriMoqoof from './screens/RashidLahoriMoqoof';
 import RashidLahoriMukammal from './screens/RashidLahoriMukammal';
 import RashidLahoriQafila from './screens/RashidLahoriQafila';
 import RashidLahoriSunnah from './screens/RashidLahoriSunnah';
+import Nawazish from './screens/Nawazish';
+import NawazishChodgae from './screens/NawazishChodgae';
+import NawazishCourse from './screens/NawazishCourse';
+import NawazishChutti from './screens/NawazishChutti';
+import NawazishInfiradi from './screens/NawazishInfiradi';
+import NawazishMoqoof from './screens/NawazishMoqoof';
+import NawazishMukammal from './screens/NawazishMukammal';
+import NawazishQafila from './screens/NawazishQafila';
+import NawazishSunnah from './screens/NawazishSunnah';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -948,6 +957,51 @@ const Appnavigator = () => {
         <Stack.Screen
           name="RashidLahoriMoqoof"
           component={RashidLahoriMoqoof}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Nawazish"
+          component={Nawazish}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishSunnah"
+          component={NawazishSunnah}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishQafila"
+          component={NawazishQafila}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishInfiradi"
+          component={NawazishInfiradi}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishChutti"
+          component={NawazishChutti}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishChodgae"
+          component={NawazishChodgae}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishCourse"
+          component={NawazishCourse}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishMukammal"
+          component={NawazishMukammal}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="NawazishMoqoof"
+          component={NawazishMoqoof}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
