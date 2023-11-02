@@ -408,8 +408,8 @@ const AllAdminMoqoof = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate('karachiOneMoqoof')}>
           <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.squaretext}>
-              Nabeel
+            <Text allowFontScaling={false} style={styles.squaretext_}>
+            Mudassir Madani
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}
@@ -431,7 +431,7 @@ const AllAdminMoqoof = ({navigation}) => {
           onPress={() => navigation.navigate('AliHasanMoqoof')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            Ali Hasan
+            Ahmad Deen
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {AliHasanqafila}

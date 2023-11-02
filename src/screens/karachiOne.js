@@ -176,7 +176,7 @@ const KarachiOne = ({navigation}) => {
     <View style={styles.main}>
       <View style={styles.submain}>
         <Text allowFontScaling={false} style={styles.heading}>
-        Nabeel
+        Mudassir Madani
         </Text>
       </View>
       <View style={styles.rectangle}>

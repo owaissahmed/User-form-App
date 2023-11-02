@@ -415,8 +415,8 @@ const AllAdminQafila = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('karachiOneQafila')}>
           <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.squaretext}>
-              Nabeel
+            <Text allowFontScaling={false} style={styles.squaretext_}>
+            Mudassir Madani
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}
@@ -438,7 +438,7 @@ const AllAdminQafila = ({navigation}) => {
           onPress={() => navigation.navigate('AliHasanQafila')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            Ali Hasan
+            Ahmad Deen
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {AliHasanqafila}

@@ -408,8 +408,8 @@ const deviceheight = Dimensions.get('window').height;
           </TouchableOpacity>
           <TouchableOpacity onPress={()=>navigation.navigate('karachiOneInfiradi')}>
             <View style={styles.square}>
-              <Text allowFontScaling={false} style={styles.squaretext}>
-                Nabeel
+              <Text allowFontScaling={false} style={styles.squaretext_}>
+              Mudassir Madani
               </Text>
               <Text allowFontScaling={false} style={styles.squaretext}>
               {Nabeelqafila}
@@ -431,7 +431,7 @@ const deviceheight = Dimensions.get('window').height;
           onPress={() => navigation.navigate('AliHasanInfiradi')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            Ali Hasan
+            Ahmad Deen
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {AliHasanqafila}
