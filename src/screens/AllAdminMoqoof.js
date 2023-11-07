@@ -431,7 +431,7 @@ const AllAdminMoqoof = ({navigation}) => {
           onPress={() => navigation.navigate('AliHasanMoqoof')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            Ahmad Deen
+            Ali Hasan
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {AliHasanqafila}

@@ -179,7 +179,7 @@ import {
       <View style={styles.main}>
         <View style={styles.submain}>
           <Text allowFontScaling={false} style={styles.heading}>
-          Ahmad Deen
+          Ali Hasan
           </Text>
         </View>
         <View style={styles.rectangle}>

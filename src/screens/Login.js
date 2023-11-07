@@ -152,7 +152,7 @@ const Login = ({navigation}) => {
       gotoKamran();
     }
     else if (
-      email.toLocaleLowerCase().trim() == 'ahmad deen' &&
+      email.toLocaleLowerCase().trim() == 'ali hasan' &&
       password == 12345678
     ) {
       gotoAliHasan();
