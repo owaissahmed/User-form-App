@@ -135,7 +135,7 @@ const Login = ({navigation}) => {
     ) {
       gotoBalochistan();
     } else if (
-      email.toLocaleLowerCase().trim() == 'ashfaq' &&
+      email.toLocaleLowerCase().trim() == 'ahmad deen' &&
       password == 12345678
     ) {
       gotoSahil();

@@ -317,7 +317,7 @@ const AllAdminChodgae = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('SahilChodgae')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Ashfaq
+              Ahmad Deen
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Sahilqafila}

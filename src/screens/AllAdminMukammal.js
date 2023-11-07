@@ -319,7 +319,7 @@ const AllAdminMukammal = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('SahilMukammal')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Ashfaq
+              Ahmad Deen
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Sahilqafila}

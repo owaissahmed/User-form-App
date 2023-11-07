@@ -181,7 +181,7 @@ import {
       <View style={styles.main}>
         <View style={styles.submain}>
           <Text allowFontScaling={false} style={styles.heading}>
-          Ashfaq
+          Ahmad Deen
           </Text>
         </View>
         <View style={styles.rectangle}>
