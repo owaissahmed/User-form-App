@@ -33,7 +33,7 @@ const KarachiOne = ({navigation}) => {
   useEffect(() => {
     const chutti = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'چھٹی')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];
@@ -47,7 +47,7 @@ const KarachiOne = ({navigation}) => {
       });
     const qafila = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'مدنی قافلہ')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -61,7 +61,7 @@ const KarachiOne = ({navigation}) => {
       });
     const Darussunnah = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'دار السنہ')
       .onSnapshot(querySnapshot => {
         const DarussunnahData = [];
@@ -75,7 +75,7 @@ const KarachiOne = ({navigation}) => {
       });
     const infiradi = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'انفرادی جدول')
       .onSnapshot(querySnapshot => {
         const infiradiData = [];
@@ -89,7 +89,7 @@ const KarachiOne = ({navigation}) => {
       });
     const course = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'قافلہ کورس')
       .onSnapshot(querySnapshot => {
         const courseData = [];
@@ -103,7 +103,7 @@ const KarachiOne = ({navigation}) => {
       });
     const mukamal = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'مکمل')
       .onSnapshot(querySnapshot => {
         const mukammalData = [];
@@ -117,7 +117,7 @@ const KarachiOne = ({navigation}) => {
       });
     const moqoof = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'موقوف')
       .onSnapshot(querySnapshot => {
         const moqoofData = [];
@@ -131,7 +131,7 @@ const KarachiOne = ({navigation}) => {
       });
     const chodgae = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'چھوڑ گئے')
       .onSnapshot(querySnapshot => {
         const chodgaeData = [];

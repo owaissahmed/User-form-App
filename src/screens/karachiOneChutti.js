@@ -20,7 +20,7 @@ const KarachiOneChutti = () => {
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
-        .where('Group', '==', 'Nabeel')
+        .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
         .where('Status', '==', 'چھٹی')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];

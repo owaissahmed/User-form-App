@@ -193,7 +193,7 @@ const AllAdminMukammal = ({navigation}) => {
       });
     const Nabeel = firestore()
       .collection('users')
-      .where('Group', '==', 'Nabeel')
+      .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
       .where('Status', '==', 'مکمل')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
