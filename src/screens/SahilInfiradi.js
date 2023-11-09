@@ -20,7 +20,7 @@ const SahilInfiradi = () => {
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
-        .where('Group', '==', 'Ashfaq')
+        .where('Group', 'in', ['Ashfaq', 'Ahmad Deen'])
         .where('Status', '==', 'انفرادی جدول')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];

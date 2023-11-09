@@ -95,7 +95,7 @@ const deviceheight = Dimensions.get('window').height;
         });
       const Sahil = firestore()
         .collection('users')
-        .where('Group', '==', 'Ashfaq')
+        .where('Group', 'in', ['Ashfaq', 'Ahmad Deen'])
         .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];

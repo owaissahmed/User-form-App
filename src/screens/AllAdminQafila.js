@@ -95,7 +95,7 @@ const AllAdminQafila = ({navigation}) => {
       });
     const Sahil = firestore()
       .collection('users')
-      .where('Group', '==', 'Ashfaq')
+      .where('Group', 'in', ['Ashfaq', 'Ahmad Deen'])
       .where('Status', '==', 'مدنی قافلہ')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
