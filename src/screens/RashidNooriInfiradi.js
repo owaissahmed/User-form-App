@@ -38,7 +38,9 @@ const RashidNooriInfiradi = () => {
   
     const handleSelectUser = user => {
       setSelectedUser(user);
+      setname(user.statusReason);
     };
+  
   
     const handleValueChange = value => {
       setSelectedValue(value);
