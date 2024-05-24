@@ -1398,7 +1398,7 @@ const Signup = ({navigation}) => {
               <Picker.Item label="Abdul Rauf" value="Abdul Rauf" />
               <Picker.Item label="Abdul Rehman" value="Abdul Rehman" />
               <Picker.Item label="Aqib" value="Aqib" />
-              <Picker.Item label="Ahmad Deen" value="Ashfaq" />
+              <Picker.Item label="Ahmad Deen" value="Ahmad Deen" />
               <Picker.Item label="Fuzail" value="Fuzail" />
               <Picker.Item label="Kamran" value="Kamran" />
               <Picker.Item label="Ali Hasan" value="Ali Hasan" />

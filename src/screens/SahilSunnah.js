@@ -20,7 +20,7 @@ const SahilSunnah = () => {
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
-        .where('Group', 'in', ['Ashfaq', 'Ahmad Deen'])
+        .where('Group', '==', 'Ahmad Deen')
         .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];
