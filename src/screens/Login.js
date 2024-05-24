@@ -140,7 +140,7 @@ const Login = ({navigation}) => {
     ) {
       gotoSahil();
     } else if (
-      email.toLocaleLowerCase().trim() == 'abdul wakeel' &&
+      email.toLocaleLowerCase().trim() == 'fuzail' &&
       password == 12345678
     ) {
       gotoAbdulWakeel();

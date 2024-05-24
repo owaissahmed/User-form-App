@@ -207,7 +207,7 @@ const deviceheight = Dimensions.get('window').height;
         });
       const Wakeel = firestore()
         .collection('users')
-        .where('Group', '==', 'Abdul Wakeel')
+        .where('Group', '==', 'Fuzail')
         .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
@@ -400,7 +400,7 @@ const deviceheight = Dimensions.get('window').height;
           <TouchableOpacity onPress={()=>navigation.navigate('AbdulWakeelSunnah')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
-              Abdul Wakeel
+              Fuzail
               </Text>
               <Text allowFontScaling={false} style={styles.squaretext}>
             {Wakeelqafila}

@@ -32,7 +32,7 @@ const AbdulWakeelCourse = () => {
   useEffect(() => {
     const unsubscribe = firestore()
       .collection('users')
-      .where('Group', '==', 'Abdul Wakeel')
+      .where('Group', '==', 'Fuzail')
       .where('Status', '==', 'قافلہ کورس')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];
