@@ -194,7 +194,8 @@ const AllAdminMukammal = ({navigation}) => {
       });
     const Nabeel = firestore()
       .collection('users')
-      .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+            .where('Group', '==', 'Ashfaq')
+
       .where('Status', '==', 'مکمل')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -410,7 +411,7 @@ const AllAdminMukammal = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('karachiOneMukammal')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext_}>
-            Mudassir Madani
+            Ashfaq
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}

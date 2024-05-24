@@ -33,7 +33,7 @@ const KarachiOne = ({navigation}) => {
   useEffect(() => {
     const chutti = firestore()
       .collection('users')
-          .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+      .where('Group', '==', 'Ashfaq')
       .where('Status', '==', 'چھٹی')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];

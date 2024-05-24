@@ -1388,7 +1388,7 @@ const Signup = ({navigation}) => {
               onValueChange={itemValue => setgroup(itemValue)}
               style={styles.picker}>
               <Picker.Item label="منتخب کریں" value="منتخب کریں" />
-              <Picker.Item label="Mudassir Madani" value="Nabeel" />
+              <Picker.Item label="Ashfaq" value="Ashfaq" />
               <Picker.Item label="Naeem ul Hasan" value="Naeem ul Hasan" />
               <Picker.Item label="Usman" value="Usman" />
               <Picker.Item label="Shan" value="Shan" />

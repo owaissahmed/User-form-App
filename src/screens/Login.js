@@ -85,7 +85,7 @@ const Login = ({navigation}) => {
     if (email.toLocaleLowerCase().trim() == 'admin' && password == 87654321) {
       gotoAdmin();
     } else if (
-      email.toLocaleLowerCase().trim() == 'mudassir madani' &&
+      email.toLocaleLowerCase().trim() == 'ashfaq' &&
       password == 87654321
     ) {
       gotokarachiOne();
@@ -140,7 +140,7 @@ const Login = ({navigation}) => {
     ) {
       gotoSahil();
     } else if (
-      email.toLocaleLowerCase().trim() == 'ashfaq' &&
+      email.toLocaleLowerCase().trim() == 'fuzail' &&
       password == 87654321
     ) {
       gotoAbdulWakeel();

@@ -36,7 +36,8 @@ const KarachiOneInfiradi = () => {
   useEffect(() => {
     const unsubscribe = firestore()
       .collection('users')
-      .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+            .where('Group', '==', 'Ashfaq')
+
       .where('Status', '==', 'انفرادی جدول')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];

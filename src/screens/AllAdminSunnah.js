@@ -194,7 +194,8 @@ const deviceheight = Dimensions.get('window').height;
         });
       const Nabeel = firestore()
         .collection('users')
-        .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+              .where('Group', '==', 'Ashfaq')
+
         .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
@@ -411,7 +412,7 @@ const deviceheight = Dimensions.get('window').height;
           <TouchableOpacity onPress={()=>navigation.navigate('karachiOneSunnah')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext_}>
-              Mudassir Madani
+              Ashfaq
               </Text>
               <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}

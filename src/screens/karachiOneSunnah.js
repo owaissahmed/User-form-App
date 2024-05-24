@@ -20,7 +20,8 @@ const KarachiOneSunnah = () => {
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
-        .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+              .where('Group', '==', 'Ashfaq')
+
         .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];

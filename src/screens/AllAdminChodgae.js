@@ -191,7 +191,8 @@ const AllAdminChodgae = ({navigation}) => {
       });
     const Nabeel = firestore()
       .collection('users')
-      .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+            .where('Group', '==', 'Ashfaq')
+
       .where('Status', '==', 'چھوڑ گئے')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -407,7 +408,7 @@ const AllAdminChodgae = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('karachiOneChodgae')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext_}>
-            Mudassir Madani
+            Ashfaq
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}

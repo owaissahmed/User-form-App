@@ -192,7 +192,8 @@ const AllAdminCourse = ({navigation}) => {
       });
     const Nabeel = firestore()
       .collection('users')
-      .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
+            .where('Group', '==', 'Ashfaq')
+
       .where('Status', '==', 'قافلہ کورس')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -408,7 +409,7 @@ const AllAdminCourse = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('karachiOneCourse')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext_}>
-            Mudassir Madani
+            Ashfaq
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nabeelqafila}
