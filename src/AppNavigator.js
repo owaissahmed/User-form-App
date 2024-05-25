@@ -165,6 +165,15 @@ import NawazishMoqoof from './screens/NawazishMoqoof';
 import NawazishMukammal from './screens/NawazishMukammal';
 import NawazishQafila from './screens/NawazishQafila';
 import NawazishSunnah from './screens/NawazishSunnah';
+import Hasan from './screens/Hasan';
+import HasanChodgae from './screens/HasanChodgae';
+import HasanCourse from './screens/HasanCourse';
+import HasanChutti from './screens/HasanChutti';
+import HasanInfiradi from './screens/HasanInfiradi';
+import HasanMoqoof from './screens/HasanMoqoof';
+import HasanMukammal from './screens/HasanMukammal';
+import HasanQafila from './screens/HasanQafila';
+import HasanSunnah from './screens/HasanSunnah';
 
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
@@ -1002,6 +1011,51 @@ const Appnavigator = () => {
         <Stack.Screen
           name="NawazishMoqoof"
           component={NawazishMoqoof}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Hasan"
+          component={Hasan}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanSunnah"
+          component={HasanSunnah}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanQafila"
+          component={HasanQafila}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanInfiradi"
+          component={HasanInfiradi}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanChutti"
+          component={HasanChutti}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanChodgae"
+          component={HasanChodgae}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanCourse"
+          component={HasanCourse}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanMukammal"
+          component={HasanMukammal}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="HasanMoqoof"
+          component={HasanMoqoof}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

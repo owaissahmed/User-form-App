@@ -26,6 +26,7 @@ const AllAdminMoqoof = ({navigation}) => {
   const [Usmanqafila, setUsmanqafila] = useState('');
   const [Munirqafila, setMunirqafila] = useState('');
   const [Nawazishqafila, setNawazishqafila] = useState('');
+  const [Hasanqafila, setHasanqafila] = useState('');
   const [Naeemqafila, setNaeemqafila] = useState('');
   const [Nabeelqafila, setNabeelqafila] = useState('');
   const [Shanqafila, setShanqafila] = useState('');
@@ -149,6 +150,20 @@ const AllAdminMoqoof = ({navigation}) => {
           });
         });
         setNawazishqafila(qafilaData.length);
+      });
+    const Hasan = firestore()
+      .collection('users')
+      .where('Group', '==', 'Hasan Madani')
+      .where('Status', '==', 'موقوف')
+      .onSnapshot(querySnapshot => {
+        const qafilaData = [];
+        querySnapshot.forEach(documentSnapshot => {
+          qafilaData.push({
+            id: documentSnapshot.id,
+            ...documentSnapshot.data(),
+          });
+        });
+        setHasanqafila(qafilaData.length);
       });
     const Naeem = firestore()
       .collection('users')
@@ -355,6 +370,16 @@ const AllAdminMoqoof = ({navigation}) => {
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Nawazishqafila}
+          </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate('HasanMoqoof')}>
+          <View style={styles.square}>
+            <Text allowFontScaling={false} style={styles.squaretext__}>
+              Hasan Madani
+            </Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>
+            {Hasanqafila}
           </Text>
           </View>
         </TouchableOpacity>
