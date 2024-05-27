@@ -116,7 +116,7 @@ import {
       const moqoof = firestore()
         .collection('users')
         .where('Group', '==', 'Kamran')
-        .where('Status', '==', 'موقوف')
+        .where('Status', '==', 'موقوف/چھوڑ گئے')
         .onSnapshot(querySnapshot => {
           const moqoofData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -248,8 +248,8 @@ import {
           </TouchableOpacity>
           <TouchableOpacity onPress={gotoMoqoof}>
             <View style={styles.square}>
-              <Text allowFontScaling={false} style={styles.squaretext}>
-              موقوف
+              <Text allowFontScaling={false} style={styles.squaretextt}>
+              موقوف / چھوڑ گئے
               </Text>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 {khi1moqoof}
@@ -314,6 +314,10 @@ import {
     },
     squaretext: {
       fontSize: responsiveScreenFontSize(3.5),
+      color: '#135229',
+    },
+    squaretextt: {
+      fontSize: responsiveScreenFontSize(2.75),
       color: '#135229',
     },
    square3text: {

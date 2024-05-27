@@ -33,7 +33,7 @@ const AliHasanChodgae = () => {
     const unsubscribe = firestore()
       .collection('users')
       .where('Group', '==', 'Ali Hasan')
-      .where('Status', '==', 'چھوڑ گئے')
+      .where('Status', '==', 'امیر قافلہ')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];
         querySnapshot.forEach(documentSnapshot => {

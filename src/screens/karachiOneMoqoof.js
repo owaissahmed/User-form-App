@@ -34,7 +34,7 @@ import {
         .collection('users')
               .where('Group', '==', 'Ashfaq')
 
-        .where('Status', '==', 'موقوف')
+        .where('Status', '==', 'موقوف/چھوڑ گئے')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];
           querySnapshot.forEach(documentSnapshot => {

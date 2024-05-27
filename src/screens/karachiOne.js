@@ -118,7 +118,7 @@ const KarachiOne = ({navigation}) => {
     const moqoof = firestore()
       .collection('users')
           .where('Group', 'in', ['Nabeel', 'Mudassir Madani'])
-      .where('Status', '==', 'موقوف')
+      .where('Status', '==', 'موقوف/چھوڑ گئے')
       .onSnapshot(querySnapshot => {
         const moqoofData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -250,8 +250,8 @@ const KarachiOne = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoMoqoof}>
           <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.squaretext}>
-            موقوف
+            <Text allowFontScaling={false} style={styles.squaretextt}>
+            موقوف / چھوڑ گئے
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
               {khi1moqoof}
@@ -316,6 +316,10 @@ const styles = StyleSheet.create({
   },
   squaretext: {
     fontSize: responsiveScreenFontSize(3.5),
+    color: '#135229',
+  },
+  squaretext: {
+    fontSize: responsiveScreenFontSize(2.75),
     color: '#135229',
   },
  square3text: {

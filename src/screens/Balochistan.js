@@ -122,7 +122,7 @@ const Balochistan = ({navigation}) => {
     const moqoof = firestore()
       .collection('users')
       .where('Group', '==', 'Fida Hussain')
-      .where('Status', '==', 'موقوف')
+      .where('Status', '==', 'موقوف/چھوڑ گئے')
       .onSnapshot(querySnapshot => {
         const moqoofData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -136,7 +136,7 @@ const Balochistan = ({navigation}) => {
     const chodgae = firestore()
       .collection('users')
       .where('Group', '==', 'Fida Hussain')
-      .where('Status', '==', 'چھوڑ گئے')
+      .where('Status', '==', 'امیر قافلہ')
       .onSnapshot(querySnapshot => {
         const chodgaeData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -235,7 +235,7 @@ const Balochistan = ({navigation}) => {
         <TouchableOpacity onPress={gotoChodgae}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-            چھوڑ گئے
+            امیر قافلہ
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
               {khi1chodgae}
@@ -254,8 +254,8 @@ const Balochistan = ({navigation}) => {
         </TouchableOpacity>
         <TouchableOpacity onPress={gotoMoqoof}>
           <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.squaretext}>
-            موقوف
+            <Text allowFontScaling={false} style={styles.squaretextt}>
+            موقوف / چھوڑ گئے
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
               {khi1moqoof}
@@ -320,6 +320,10 @@ const styles = StyleSheet.create({
   },
   squaretext: {
     fontSize: responsiveScreenFontSize(3.5),
+    color: '#135229',
+  },
+  squaretextt: {
+    fontSize: responsiveScreenFontSize(2.75),
     color: '#135229',
   },
  square3text: {
