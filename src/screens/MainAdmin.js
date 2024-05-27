@@ -100,7 +100,7 @@ const MainAdmin = ({navigation}) => {
             });
           const moqoof = firestore()
             .collection('users')
-            .where('Status', '==', 'موقوف')
+            .where('Status', '==', 'موقوف/چھوڑ گئے')
             .onSnapshot(querySnapshot => {
               const moqoofData = [];
               querySnapshot.forEach(documentSnapshot => {
@@ -113,7 +113,7 @@ const MainAdmin = ({navigation}) => {
             });
           const chodgae = firestore()
             .collection('users')
-            .where('Status', '==', 'چھوڑ گئے')
+            .where('Status', '==', 'امیر قافلہ')
             .onSnapshot(querySnapshot => {
               const chodgaeData = [];
               querySnapshot.forEach(documentSnapshot => {
@@ -186,7 +186,7 @@ const MainAdmin = ({navigation}) => {
             </TouchableOpacity>
             <TouchableOpacity onPress={gotoChodgae}>
             <View style={styles.square}>
-            <Text allowFontScaling={false} style={styles.squaretext}>چھوڑ گئے</Text>
+            <Text allowFontScaling={false} style={styles.squaretext}>امیر قافلہ</Text>
             <Text allowFontScaling={false} style={styles.squaretext}>{khi1chodgae}</Text>
             </View>
             </TouchableOpacity>
@@ -198,7 +198,7 @@ const MainAdmin = ({navigation}) => {
         </TouchableOpacity>
                 <TouchableOpacity onPress={gotoMoqoof}>
                 <View style={styles.square}>
-                    <Text allowFontScaling={false} style={styles.squaretext}>موقوف</Text>
+                    <Text allowFontScaling={false} style={styles.squaretextt}>موقوف/چھوڑ گئے</Text>
                     <Text allowFontScaling={false} style={styles.squaretext}>{khi1moqoof}</Text>
                 </View>
             </TouchableOpacity>
@@ -246,6 +246,10 @@ const styles = StyleSheet.create({
     },
     squaretext: {
         fontSize: responsiveScreenFontSize(3.5),
+        color: "#135229",
+    },
+    squaretextt: {
+        fontSize: responsiveScreenFontSize(2.75),
         color: "#135229",
     },
     square3text: {

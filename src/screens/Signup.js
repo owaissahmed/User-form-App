@@ -1344,8 +1344,8 @@ const Signup = ({navigation}) => {
               <Picker.Item label="دار السنہ" value="دار السنہ" />
               <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
               <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
-              <Picker.Item label="چھوڑ گئے" value="چھوڑ گئے" />
-              <Picker.Item label="موقوف" value="موقوف" />
+              <Picker.Item label="امیر قافلہ" value="امیر قافلہ" />
+              <Picker.Item label="موقوف / چھوڑ گئے" value="موقوف / چھوڑ گئے" />
               <Picker.Item label="مکمل" value="مکمل" />
             </Picker>
           </View>
