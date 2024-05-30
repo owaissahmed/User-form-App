@@ -137,7 +137,7 @@ const Sahil = ({navigation}) => {
     const chodgae = firestore()
       .collection('users')
         .where('Group', '==', 'Ahmad Deen')
-      .where('Status', '==', 'چھوڑ گئے')
+      .where('Status', '==', 'امیر قافلہ')
       .onSnapshot(querySnapshot => {
         const chodgaeData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -237,7 +237,7 @@ const Sahil = ({navigation}) => {
         <TouchableOpacity onPress={gotoChodgae}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              چھوڑ گئے
+            امیر قافلہ
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
               {khi1chodgae}
@@ -325,7 +325,7 @@ const styles = StyleSheet.create({
     color: '#135229',
   },
   squaretextt: {
-    fontSize: responsiveScreenFontSize(3.5),
+    fontSize: responsiveScreenFontSize(2.5),
     color: '#135229',
   },
   square3text: {

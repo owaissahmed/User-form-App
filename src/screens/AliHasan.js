@@ -322,7 +322,7 @@ import {
       color: '#135229',
     },
     squaretextt: {
-      fontSize: responsiveScreenFontSize(2.75),
+      fontSize: responsiveScreenFontSize(2.5),
       color: '#135229',
     },
    square3text: {

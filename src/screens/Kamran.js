@@ -130,7 +130,7 @@ import {
       const chodgae = firestore()
         .collection('users')
         .where('Group', '==', 'Kamran')
-        .where('Status', '==', 'چھوڑ گئے')
+        .where('Status', '==', 'امیر قافلہ')
         .onSnapshot(querySnapshot => {
           const chodgaeData = [];
           querySnapshot.forEach(documentSnapshot => {
@@ -229,7 +229,7 @@ import {
           <TouchableOpacity onPress={gotoChodgae}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
-              چھوڑ گئے
+              امیر قافلہ
               </Text>
               <Text allowFontScaling={false} style={styles.squaretext}>
                 {khi1chodgae}
@@ -317,7 +317,7 @@ import {
       color: '#135229',
     },
     squaretextt: {
-      fontSize: responsiveScreenFontSize(2.75),
+      fontSize: responsiveScreenFontSize(2.5),
       color: '#135229',
     },
    square3text: {
