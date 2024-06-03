@@ -87,6 +87,7 @@ const Signup = ({navigation}) => {
         'فیصل آباد',
         'گوجرانوالہ',
         'سرگودھا',
+        ,'گجرات',
       ]);
     } else if (AddressselectedOption1 === 'کے پی کے') {
       AddresssetOption2List([
@@ -278,6 +279,7 @@ const Signup = ({navigation}) => {
         'فیصل آباد',
         'گوجرانوالہ',
         'سرگودھا',
+        ,'گجرات',
       ]);
     } else if (selectedOption1 === 'کے پی کے') {
       setOption2List([
