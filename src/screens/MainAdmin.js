@@ -126,7 +126,7 @@ const MainAdmin = ({navigation}) => {
             });
     }, [])
 
-    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila + khi1course;
+    var total = khi1Infiradi + khi1chutti + khi1darussunnah + khi1qafila + khi1course + khi1chodgae;
 
     function gotoChutti() {
         navigation.navigate('AllAdminChutti');
