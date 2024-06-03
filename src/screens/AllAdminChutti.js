@@ -123,7 +123,7 @@ const AllAdminChutti = ({navigation}) => {
       });
     const Munir = firestore()
       .collection('users')
-      .where('Group', '==', 'Munir Madani')
+      .where('Group', '==', 'Abid')
       .where('Status', '==', 'چھٹی')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -374,7 +374,7 @@ const AllAdminChutti = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('punjabOneChutti')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Munir Madani
+              Abid
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Munirqafila}

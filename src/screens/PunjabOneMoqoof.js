@@ -32,7 +32,7 @@ import {
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'موقوف/چھوڑ گئے')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];

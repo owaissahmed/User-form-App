@@ -124,7 +124,7 @@ const deviceheight = Dimensions.get('window').height;
         });
       const Munir = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'انفرادی جدول')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
@@ -356,7 +356,7 @@ const deviceheight = Dimensions.get('window').height;
           <TouchableOpacity onPress={()=>navigation.navigate('punjabOneInfiradi')}>
             <View style={styles.square}>
               <Text allowFontScaling={false} style={styles.squaretext}>
-                Munir Madani
+                Abid
               </Text>
               <Text allowFontScaling={false} style={styles.squaretext}>
               {Munirqafila}

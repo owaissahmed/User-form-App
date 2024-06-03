@@ -23,7 +23,7 @@ import firestore from '@react-native-firebase/firestore';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 import {Picker} from '@react-native-picker/picker';
-// Munir Madani
+// Abid
 const PunjabOneInfiradi = () => {
   const [khi1chutti, setKhi1chutti] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -36,7 +36,7 @@ const PunjabOneInfiradi = () => {
   useEffect(() => {
     const unsubscribe = firestore()
       .collection('users')
-      .where('Group', '==', 'Munir Madani')
+      .where('Group', '==', 'Abid')
       .where('Status', '==', 'انفرادی جدول')
       .onSnapshot(querySnapshot => {
         const chuttiData = [];

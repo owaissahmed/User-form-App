@@ -123,7 +123,7 @@ const AllAdminCourse = ({navigation}) => {
       });
     const Munir = firestore()
       .collection('users')
-      .where('Group', '==', 'Munir Madani')
+      .where('Group', '==', 'Abid')
       .where('Status', '==', 'قافلہ کورس')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -354,7 +354,7 @@ const AllAdminCourse = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('PunjabOneCourse')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Munir Madani
+              Abid
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Munirqafila}

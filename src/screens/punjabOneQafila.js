@@ -20,7 +20,7 @@ const PunjabOneQafila = () => {
     useEffect(() => {
       const unsubscribe = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'مدنی قافلہ')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];

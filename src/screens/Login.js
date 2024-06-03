@@ -113,7 +113,7 @@ const Login = ({navigation}) => {
     ) {
       gotoSindhTwo();
     } else if (
-      email.toLocaleLowerCase().trim() == 'munir madani' &&
+      email.toLocaleLowerCase().trim() == 'abid' &&
       password == 87654321
     ) {
       gotopunjabOne();

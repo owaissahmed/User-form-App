@@ -125,7 +125,7 @@ const AllAdminMoqoof = ({navigation}) => {
       });
     const Munir = firestore()
       .collection('users')
-      .where('Group', '==', 'Munir Madani')
+      .where('Group', '==', 'Abid')
       .where('Status', '==', 'موقوف/چھوڑ گئے')
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
@@ -356,7 +356,7 @@ const AllAdminMoqoof = ({navigation}) => {
         <TouchableOpacity onPress={()=>navigation.navigate('PunjabOneMoqoof')}>
           <View style={styles.square}>
             <Text allowFontScaling={false} style={styles.squaretext}>
-              Munir Madani
+              Abid
             </Text>
             <Text allowFontScaling={false} style={styles.squaretext}>
             {Munirqafila}

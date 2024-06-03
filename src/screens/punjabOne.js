@@ -38,7 +38,7 @@ import {
     useEffect(() => {
       const chutti = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'چھٹی')
         .onSnapshot(querySnapshot => {
           const chuttiData = [];
@@ -52,7 +52,7 @@ import {
         });
       const qafila = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'مدنی قافلہ')
         .onSnapshot(querySnapshot => {
           const qafilaData = [];
@@ -66,7 +66,7 @@ import {
         });
       const Darussunnah = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'دار السنہ')
         .onSnapshot(querySnapshot => {
           const DarussunnahData = [];
@@ -80,7 +80,7 @@ import {
         });
       const infiradi = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'انفرادی جدول')
         .onSnapshot(querySnapshot => {
           const infiradiData = [];
@@ -94,7 +94,7 @@ import {
         });
       const course = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'قافلہ کورس')
         .onSnapshot(querySnapshot => {
           const courseData = [];
@@ -108,7 +108,7 @@ import {
         });
       const mukamal = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'مکمل')
         .onSnapshot(querySnapshot => {
           const mukammalData = [];
@@ -122,7 +122,7 @@ import {
         });
       const moqoof = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'موقوف/چھوڑ گئے')
         .onSnapshot(querySnapshot => {
           const moqoofData = [];
@@ -136,7 +136,7 @@ import {
         });
       const chodgae = firestore()
         .collection('users')
-        .where('Group', '==', 'Munir Madani')
+        .where('Group', '==', 'Abid')
         .where('Status', '==', 'امیر قافلہ')
         .onSnapshot(querySnapshot => {
           const chodgaeData = [];
@@ -181,7 +181,7 @@ import {
       <View style={styles.main}>
         <View style={styles.submain}>
           <Text allowFontScaling={false} style={styles.heading}>
-          Munir Madani
+          Abid
           </Text>
         </View>
         <View style={styles.rectangle}>
