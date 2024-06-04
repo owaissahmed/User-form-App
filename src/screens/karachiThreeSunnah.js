@@ -94,6 +94,8 @@ import {
               <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
               <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
               <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
+              <Picker.Item label="امیر قافلہ" value="امیر قافلہ" />
+
             </Picker>
             <TextInput
             allowFontScaling={false}

@@ -83,6 +83,8 @@ const RashidNooriChutti = () => {
               <Picker.Item label="دار السنہ" value="دار السنہ" />
               <Picker.Item label="انفرادی جدول" value="انفرادی جدول" />
               <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
+              <Picker.Item label="امیر قافلہ" value="امیر قافلہ" />
+
             </Picker>
             <TextInput
             allowFontScaling={false}

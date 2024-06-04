@@ -100,6 +100,8 @@ const KarachiOneInfiradi = () => {
             <Picker.Item label="دار السنہ" value="دار السنہ" />
             <Picker.Item label="مدنی قافلہ" value="مدنی قافلہ" />
             <Picker.Item label="قافلہ کورس" value="قافلہ کورس" />
+            <Picker.Item label="امیر قافلہ" value="امیر قافلہ" />
+
           </Picker>
           <TextInput
           allowFontScaling={false}
