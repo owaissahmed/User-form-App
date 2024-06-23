@@ -118,7 +118,7 @@ const KarachiOne = ({navigation}) => {
     const moqoof = firestore()
       .collection('users')
           .where('Group', '==', 'Ashfaq')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+       .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const moqoofData = [];
         querySnapshot.forEach(documentSnapshot => {

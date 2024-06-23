@@ -100,7 +100,7 @@ const MainAdmin = ({navigation}) => {
             });
           const moqoof = firestore()
             .collection('users')
-            .where('Status', '==', 'موقوف/چھوڑ گئے')
+             .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
             .onSnapshot(querySnapshot => {
               const moqoofData = [];
               querySnapshot.forEach(documentSnapshot => {

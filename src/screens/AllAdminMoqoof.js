@@ -41,7 +41,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Fida = firestore()
       .collection('users')
       .where('Group', '==', 'Fida Hussain')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -55,7 +55,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Rauf = firestore()
       .collection('users')
       .where('Group', '==', 'Abdul Rauf')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -69,7 +69,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Rehman = firestore()
       .collection('users')
       .where('Group', '==', 'Abdul Rehman')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -83,7 +83,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Babar = firestore()
       .collection('users')
       .where('Group', '==', 'Babar Shah')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -98,7 +98,7 @@ const AllAdminMoqoof = ({navigation}) => {
       .collection('users')
         .where('Group', '==', 'Ahmad Deen')
 
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -112,7 +112,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Shan = firestore()
       .collection('users')
       .where('Group', '==', 'Shan')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -126,7 +126,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Munir = firestore()
       .collection('users')
       .where('Group', '==', 'Abid')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -140,7 +140,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Nawazish = firestore()
       .collection('users')
       .where('Group', '==', 'Nawazish Madani')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -154,7 +154,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Hasan = firestore()
       .collection('users')
       .where('Group', '==', 'Hasan Madani')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -168,7 +168,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Naeem = firestore()
       .collection('users')
       .where('Group', '==', 'Naeem ul Hasan')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -182,7 +182,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Usman = firestore()
       .collection('users')
       .where('Group', '==', 'Usman')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -196,7 +196,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Aqib = firestore()
       .collection('users')
       .where('Group', '==', 'Aqib')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -211,7 +211,7 @@ const AllAdminMoqoof = ({navigation}) => {
       .collection('users')
             .where('Group', '==', 'Ashfaq')
 
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -225,7 +225,7 @@ const AllAdminMoqoof = ({navigation}) => {
     const Wakeel = firestore()
       .collection('users')
       .where('Group', '==', 'Fuzail')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -239,7 +239,7 @@ const AllAdminMoqoof = ({navigation}) => {
       const Kamran = firestore()
       .collection('users')
       .where('Group', '==', 'Kamran')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -253,7 +253,7 @@ const AllAdminMoqoof = ({navigation}) => {
       const AliHasan = firestore()
       .collection('users')
       .where('Group', '==', 'Ali Hasan')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -267,7 +267,7 @@ const AllAdminMoqoof = ({navigation}) => {
       const RashidNoori = firestore()
       .collection('users')
       .where('Group', '==', 'Rashid Noori')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {
@@ -281,7 +281,7 @@ const AllAdminMoqoof = ({navigation}) => {
       const RashidLahori = firestore()
       .collection('users')
       .where('Group', '==', 'Rashid Lahori')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const qafilaData = [];
         querySnapshot.forEach(documentSnapshot => {

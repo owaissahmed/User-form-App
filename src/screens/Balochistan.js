@@ -122,7 +122,7 @@ const Balochistan = ({navigation}) => {
     const moqoof = firestore()
       .collection('users')
       .where('Group', '==', 'Fida Hussain')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+       .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const moqoofData = [];
         querySnapshot.forEach(documentSnapshot => {

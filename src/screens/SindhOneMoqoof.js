@@ -33,7 +33,7 @@ import {
       const unsubscribe = firestore()
         .collection('users')
         .where('Group', '==', 'Abdul Rehman')
-        .where('Status', '==', 'موقوف/چھوڑ گئے')
+         .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
         .onSnapshot(querySnapshot => {
           const chuttiData = [];
           querySnapshot.forEach(documentSnapshot => {

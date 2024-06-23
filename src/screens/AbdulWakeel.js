@@ -119,10 +119,11 @@ import {
           });
           setkhi1mukammal(mukammalData.length);
         });
+
       const moqoof = firestore()
         .collection('users')
         .where('Group', '==', 'Fuzail')
-        .where('Status', '==', 'موقوف/چھوڑ گئے')
+        .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
         .onSnapshot(querySnapshot => {
           const moqoofData = [];
           querySnapshot.forEach(documentSnapshot => {

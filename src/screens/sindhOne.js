@@ -123,7 +123,7 @@ import {
       const moqoof = firestore()
         .collection('users')
         .where('Group', '==', 'Abdul Rehman')
-        .where('Status', '==', 'موقوف/چھوڑ گئے')
+         .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
         .onSnapshot(querySnapshot => {
           const moqoofData = [];
           querySnapshot.forEach(documentSnapshot => {

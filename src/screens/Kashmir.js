@@ -123,7 +123,7 @@ const Kashmir = ({navigation}) => {
     const moqoof = firestore()
       .collection('users')
       .where('Group', '==', 'Shan')
-      .where('Status', '==', 'موقوف/چھوڑ گئے')
+       .where('Status', 'in', ['چھوڑ گئے', 'موقوف'])
       .onSnapshot(querySnapshot => {
         const moqoofData = [];
         querySnapshot.forEach(documentSnapshot => {
