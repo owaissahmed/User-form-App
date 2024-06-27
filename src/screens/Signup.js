@@ -13,22 +13,22 @@ import {
 } from 'react-native';
 
 import DatePicker from 'react-native-date-picker';
-import React, {useEffect, useState} from 'react';
-import {responsiveWidth} from 'react-native-responsive-dimensions';
-import {responsiveHeight} from 'react-native-responsive-dimensions';
-import {responsiveFontSize} from 'react-native-responsive-dimensions';
+import React, { useEffect, useState } from 'react';
+import { responsiveWidth } from 'react-native-responsive-dimensions';
+import { responsiveHeight } from 'react-native-responsive-dimensions';
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
 import moment from 'moment';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import NetInfo from '@react-native-community/netinfo';
 import storage from '@react-native-firebase/storage';
-import {Picker} from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';
 import firestore from '@react-native-firebase/firestore';
 import firebase from '@react-native-firebase/app';
 const devicewidth = Dimensions.get('window').width;
 const deviceheight = Dimensions.get('window').height;
 import * as Animatable from 'react-native-animatable';
 
-const Signup = ({navigation}) => {
+const Signup = ({ navigation }) => {
   const [selectedOption1, setSelectedOption1] = useState('');
   const [selectedOption2, setSelectedOption2] = useState('');
   const [selectedOption3, setSelectedOption3] = useState('');
@@ -87,7 +87,7 @@ const Signup = ({navigation}) => {
         'فیصل آباد',
         'گوجرانوالہ',
         'سرگودھا',
-        ,'گجرات',
+        , 'گجرات',
       ]);
     } else if (AddressselectedOption1 === 'کے پی کے') {
       AddresssetOption2List([
@@ -279,7 +279,7 @@ const Signup = ({navigation}) => {
         'فیصل آباد',
         'گوجرانوالہ',
         'سرگودھا',
-        ,'گجرات',
+        , 'گجرات',
       ]);
     } else if (selectedOption1 === 'کے پی کے') {
       setOption2List([
@@ -718,48 +718,49 @@ const Signup = ({navigation}) => {
       Alert.alert('⚠️ WARNING', 'Please Select Manager');
     } else if (group === 'منتخب کریں') {
       Alert.alert('⚠️ WARNING', 'Please Select Group');
-    } else {
-      setLoading(true);
-      setVisible(true);
-
-      setTimeout(() => {
-        setVisible(false);
-        setLoading(false);
-        const collectionRef = firestore()
-          .collection('users')
-          .add({
-            Name: name,
-            Picture: profile,
-            CnicPicture: CNIC,
-            FormPicture: Entryform,
-            Fathername: fathername,
-            Age: age,
-            CNIC: cnic,
-            MobileNo: mobile,
-            HouseNo: house,
-            Address: address,
-            AddressProvince: AddressselectedOption1,
-            AddressDivision: AddressselectedOption2,
-            AddressDistrict: AddressselectedOption3,
-            AddressCity: addresscity,
-            Jamia: jamia,
-            Province: selectedOption1,
-            Division: selectedOption2,
-            District: selectedOption3,
-            City: city,
-            IslamicEducation: islamiceducation,
-            Education: education,
-            Date: moment(date).format('DD-MM-YYYY'),
-            Hafiz: hafiz,
-            Status: status,
-            Manager: manager,
-            Group: group,
-            statusReason:'',
-            CreatedAt: firebase.firestore.FieldValue.serverTimestamp(),
-          });
-        Alert.alert('🎉 CONGTRATS', 'YOUR FORM HAS BEEN SUBMITTED');
-        navigation.navigate('Splash');
-      }, 60000);
+    }
+    else if (profile == '' || CNIC == '' || Entryform == '') {
+      Alert.alert('⚠️ WARNING', 'Your Pictures are downloading,Try After Few Seconds');
+      console.log(profile);
+      console.log(CNIC);
+      console.log(Entryform);
+      return;
+    }
+    else {
+      const collectionRef = firestore()
+        .collection('users')
+        .add({
+          Name: name,
+          Picture: profile,
+          CnicPicture: CNIC,
+          FormPicture: Entryform,
+          Fathername: fathername,
+          Age: age,
+          CNIC: cnic,
+          MobileNo: mobile,
+          HouseNo: house,
+          Address: address,
+          AddressProvince: AddressselectedOption1,
+          AddressDivision: AddressselectedOption2,
+          AddressDistrict: AddressselectedOption3,
+          AddressCity: addresscity,
+          Jamia: jamia,
+          Province: selectedOption1,
+          Division: selectedOption2,
+          District: selectedOption3,
+          City: city,
+          IslamicEducation: islamiceducation,
+          Education: education,
+          Date: moment(date).format('DD-MM-YYYY'),
+          Hafiz: hafiz,
+          Status: status,
+          Manager: manager,
+          Group: group,
+          statusReason: '',
+          CreatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      Alert.alert('🎉 CONGTRATS', 'YOUR FORM HAS BEEN SUBMITTED');
+      navigation.navigate('Splash');
       console.log(profile);
       console.log(CNIC);
       console.log(Entryform);
@@ -778,7 +779,7 @@ const Signup = ({navigation}) => {
           {loading ? (
             <ActivityIndicator size="large" color="#ffffff" />
           ) : (
-            <Text style={{color: '#ffffff'}}>Loading...</Text>
+            <Text style={{ color: '#ffffff' }}>Loading...</Text>
           )}
         </View>
       </Modal>
@@ -800,7 +801,7 @@ const Signup = ({navigation}) => {
               تصویر
             </Text>
           </View>
-          <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
+          <View style={{ alignItems: 'center', marginTop: responsiveHeight(1) }}>
             <TouchableOpacity
               onPress={selectImage}
               style={{
@@ -828,7 +829,7 @@ const Signup = ({navigation}) => {
             <View>
               {selectedImage ? (
                 <Image
-                  source={{uri: selectedImage.assets[0].uri}}
+                  source={{ uri: selectedImage.assets[0].uri }}
                   style={{
                     width: responsiveWidth(30),
                     marginTop: responsiveHeight(2),
@@ -926,7 +927,7 @@ const Signup = ({navigation}) => {
               شناختی کارڈ کی تصویر
             </Text>
           </View>
-          <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
+          <View style={{ alignItems: 'center', marginTop: responsiveHeight(1) }}>
             <TouchableOpacity
               onPress={() => {
                 OpenCameracnic();
@@ -955,7 +956,7 @@ const Signup = ({navigation}) => {
             </TouchableOpacity>
             {cnicpicture !== '' ? (
               <Image
-                source={{uri: cnicpicture.assets[0].uri}}
+                source={{ uri: cnicpicture.assets[0].uri }}
                 style={{
                   marginTop: responsiveHeight(2),
                   width: responsiveWidth(30),
@@ -1027,8 +1028,8 @@ const Signup = ({navigation}) => {
             <Text allowFontScaling={false} style={styles.InputLable}>
               داخلہ فارم کی تصویر
             </Text>
-          </View> 
-          <View style={{alignItems: 'center', marginTop: responsiveHeight(1)}}>
+          </View>
+          <View style={{ alignItems: 'center', marginTop: responsiveHeight(1) }}>
             <TouchableOpacity
               onPress={() => {
                 OpenCameraform();
@@ -1054,7 +1055,7 @@ const Signup = ({navigation}) => {
             </TouchableOpacity>
             {formpicture !== '' ? (
               <Image
-                source={{uri: formpicture.assets[0].uri}}
+                source={{ uri: formpicture.assets[0].uri }}
                 style={{
                   marginTop: responsiveHeight(2),
                   width: responsiveWidth(30),
@@ -1106,10 +1107,10 @@ const Signup = ({navigation}) => {
           />
           <View style={styles.field}>
             <Text allowFontScaling={false} style={styles.InputLable}>
-            Address Province
+              Address Province
             </Text>
             <Text allowFontScaling={false} style={styles.InputLable}>
-             گھر کا صوبہ
+              گھر کا صوبہ
             </Text>
           </View>
           <View style={styles.pickergroup}>
@@ -1132,10 +1133,10 @@ const Signup = ({navigation}) => {
           </View>
           <View style={styles.field}>
             <Text allowFontScaling={false} style={styles.InputLable}>
-            Address Division
+              Address Division
             </Text>
             <Text allowFontScaling={false} style={styles.InputLable}>
-            گھر کا ڈویژن
+              گھر کا ڈویژن
             </Text>
           </View>
           <View style={styles.pickergroup}>
@@ -1154,10 +1155,10 @@ const Signup = ({navigation}) => {
           </View>
           <View style={styles.field}>
             <Text allowFontScaling={false} style={styles.InputLable}>
-            Address District
+              Address District
             </Text>
             <Text allowFontScaling={false} style={styles.InputLable}>
-            گھر کا ڈسٹرکٹ
+              گھر کا ڈسٹرکٹ
             </Text>
           </View>
           <View style={styles.pickergroup}>
@@ -1179,7 +1180,7 @@ const Signup = ({navigation}) => {
               Address City
             </Text>
             <Text allowFontScaling={false} style={styles.InputLable}>
-            گھر کا شہر
+              گھر کا شہر
             </Text>
           </View>
           <TextInput allowFontScaling={false}
