@@ -721,9 +721,9 @@ const Signup = ({ navigation }) => {
     }
     else if (profile == '' || CNIC == '' || Entryform == '') {
       Alert.alert('⚠️ WARNING', 'Your Pictures are downloading,Try After Few Seconds');
-      console.log(profile);
-      console.log(CNIC);
-      console.log(Entryform);
+      // console.log(profile);
+      // console.log(CNIC);
+      // console.log(Entryform);
       return;
     }
     else {
