@@ -40,7 +40,7 @@ const Splash = ({navigation}) => {
   }
   function gotosignup() {
     if (isConnected == true) {
-      navigation.navigate('Signup');
+      navigation.navigate('SignUpPassword');
     } else Alert.alert('⚠️ WARNING', 'No Internet Connection');
   }
 

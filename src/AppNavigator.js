@@ -174,7 +174,7 @@ import HasanMoqoof from './screens/HasanMoqoof';
 import HasanMukammal from './screens/HasanMukammal';
 import HasanQafila from './screens/HasanQafila';
 import HasanSunnah from './screens/HasanSunnah';
-
+import SignUpPassword from './screens/SignUpPassword';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 const Stack = createStackNavigator();
@@ -1056,6 +1056,11 @@ const Appnavigator = () => {
         <Stack.Screen
           name="HasanMoqoof"
           component={HasanMoqoof}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="SignUpPassword"
+          component={SignUpPassword}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

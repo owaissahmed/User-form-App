@@ -432,7 +432,9 @@ const Signup = ({ navigation }) => {
       setOption3List(['باغ', ' حویلی', ' پونچھ', 'سدھنوتی ']);
     } else if (selectedOption2 === 'اسلام آباد') {
       setOption3List(['اسلام آباد']);
-    } else {
+    } else if (selectedOption2 === 'گجرات') {
+    setOption3List([,'گجرات','منڈی بہاؤ الدین','حافظ آباد']);
+  } else {
       setOption3List([]);
     }
   }, [selectedOption2]);
