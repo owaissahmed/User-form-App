@@ -85,7 +85,7 @@ const Login = ({navigation}) => {
     setpassword(newpassword);
   };
   const check = ({navigation}) => {
-    if (email.toLocaleLowerCase().trim() == 'admin' && password == 87654321) {
+    if (email.toLocaleLowerCase().trim() == 'admin' && password == 31943194) {
       gotoAdmin();
     } else if (
       email.toLocaleLowerCase().trim() == 'ashfaq' &&
